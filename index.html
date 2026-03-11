@@ -28,6 +28,7 @@
 html { scroll-behavior:smooth; }
 body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--ink); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
 
+/* ── NAV ── */
 nav {
   position:fixed; top:0; left:0; right:0; z-index:200;
   display:flex; align-items:center; justify-content:space-between;
@@ -39,14 +40,22 @@ nav {
 .nav-right { display:flex; align-items:center; gap:24px; }
 .nav-right a { font-size:14px; font-weight:500; color:var(--mid); text-decoration:none; transition:color .2s; }
 .nav-right a:hover { color:var(--ink); }
-.btn-cta-sm {
-  background:var(--blue-soft); color:#fff; border:none; padding:10px 20px;
-  border-radius:8px; font-size:14px; font-weight:600; cursor:pointer;
-  transition:all .2s; font-family:'DM Sans',sans-serif;
-}
+.btn-cta-sm { background:var(--blue-soft); color:#fff; border:none; padding:10px 20px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; transition:all .2s; font-family:'DM Sans',sans-serif; }
 .btn-cta-sm:hover { background:var(--blue); }
 
-/* BEHAVIORAL: Price anchor bar — anchoring effect, sets reference point high */
+/* FIX 3 — Mobile hamburger menu */
+.hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:6px; cursor:pointer; }
+.hamburger span { display:block; width:22px; height:2px; background:var(--ink); border-radius:2px; transition:all .25s; }
+.hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity:0; }
+.hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+.mobile-menu { display:none; position:fixed; top:65px; left:0; right:0; z-index:199; background:rgba(255,255,255,0.98); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:20px 24px; flex-direction:column; gap:4px; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:16px; font-weight:500; color:var(--mid); text-decoration:none; padding:12px 0; border-bottom:1px solid var(--border); }
+.mobile-menu a:last-child { border:none; }
+.mobile-menu .btn-cta-mobile { margin-top:8px; background:var(--blue-soft); color:#fff; border:none; padding:14px; border-radius:10px; font-size:16px; font-weight:700; width:100%; font-family:'DM Sans',sans-serif; }
+
+/* ── ANCHOR BAR ── */
 .anchor-bar {
   margin-top:65px; background:linear-gradient(90deg,#ecfdf5,#f0fdf4);
   border-bottom:1px solid #a7f3d0; padding:10px 48px;
@@ -56,7 +65,7 @@ nav {
 .anchor-bar strong { color:var(--green); font-weight:700; }
 .anchor-badge { background:#fff; border:1px solid #6ee7b7; border-radius:20px; padding:3px 12px; font-size:12px; font-weight:700; color:var(--green); }
 
-/* HERO */
+/* ── HERO ── */
 .hero {
   padding:72px 48px 80px;
   background: radial-gradient(ellipse 80% 60% at 65% 0%, #dbeafe 0%, transparent 60%),
@@ -64,30 +73,19 @@ nav {
   position:relative; overflow:hidden;
 }
 .hero-inner { max-width:1120px; margin:0 auto; display:grid; grid-template-columns:1.1fr 0.9fr; gap:72px; align-items:center; }
-
-.social-chip { display:inline-flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--border); border-radius:20px; padding:7px 16px; font-size:13px; font-weight:500; color:var(--mid); margin-bottom:28px; }
+.social-chip { display:inline-flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--border); border-radius:20px; padding:7px 16px; font-size:13px; font-weight:500; color:var(--mid); margin-bottom:16px; }
 .avatars { display:flex; }
 .avatars span { width:24px; height:24px; border-radius:50%; border:1.5px solid #fff; background:linear-gradient(135deg,#bfdbfe,#c7d2fe); display:flex; align-items:center; justify-content:center; font-size:11px; margin-left:-6px; }
 .avatars span:first-child { margin-left:0; }
 
-h1 { font-family:'DM Serif Display',serif; font-size:clamp(36px,3.8vw,56px); line-height:1.08; letter-spacing:-1.5px; color:var(--ink); margin-bottom:22px; }
+h1 { font-family:'DM Serif Display',serif; font-size:clamp(36px,3.8vw,56px); line-height:1.08; letter-spacing:-1.5px; color:var(--ink); margin-bottom:10px; }
 h1 em { color:var(--blue-soft); font-style:normal; position:relative; }
 h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; height:3px; background:var(--blue-soft); opacity:0.2; border-radius:2px; }
-
 .hero-sub { font-size:18px; color:var(--mid); line-height:1.75; margin-bottom:16px; max-width:500px; }
-
-/* BEHAVIORAL: Loss aversion framing — cost of NOT having the product */
 .loss-frame { background:var(--amber-bg); border:1px solid #fde68a; border-radius:10px; padding:14px 18px; margin-bottom:32px; font-size:14px; color:var(--amber); line-height:1.65; max-width:500px; }
 .loss-frame strong { color:#92400e; }
-
 .hero-cta-block { display:flex; flex-direction:column; gap:12px; max-width:420px; }
-.btn-primary {
-  background:var(--blue-soft); color:#fff; border:none; padding:18px 32px;
-  border-radius:12px; font-size:17px; font-weight:700; cursor:pointer;
-  transition:all .25s; font-family:'DM Sans',sans-serif;
-  display:flex; align-items:center; justify-content:center; gap:10px;
-  box-shadow:0 4px 20px rgba(37,99,235,0.3);
-}
+.btn-primary { background:var(--blue-soft); color:#fff; border:none; padding:18px 32px; border-radius:12px; font-size:17px; font-weight:700; cursor:pointer; transition:all .25s; font-family:'DM Sans',sans-serif; display:flex; align-items:center; justify-content:center; gap:10px; box-shadow:0 4px 20px rgba(37,99,235,0.3); }
 .btn-primary:hover { background:var(--blue); transform:translateY(-2px); box-shadow:0 8px 32px rgba(37,99,235,0.4); }
 .price-tag { background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:6px; font-size:14px; }
 .cta-sub { display:flex; gap:16px; flex-wrap:wrap; }
@@ -108,7 +106,7 @@ h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; heigh
 .dc-sub { font-size:11px; color:var(--light); margin-top:1px; }
 .dc-tip { background:linear-gradient(90deg,#fffbeb,#fef9e7); padding:12px 22px; font-size:12px; color:#92400e; display:flex; gap:8px; align-items:flex-start; }
 
-/* VALUE FRAMING SECTION — behavioral: price relativity */
+/* ── VALUE ── */
 .value-section { background:#fff; padding:80px 48px; }
 .value-inner { max-width:1120px; margin:0 auto; }
 .value-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
@@ -128,7 +126,7 @@ h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; heigh
 .vp-details strong { display:block; font-size:16px; font-weight:700; color:var(--ink); margin-bottom:4px; }
 .vp-details span { font-size:13px; color:var(--mid); line-height:1.6; }
 
-/* HOW IT WORKS */
+/* ── HOW IT WORKS ── */
 .section { padding:88px 48px; }
 .section-inner { max-width:1120px; margin:0 auto; }
 .section-label { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--blue-soft); margin-bottom:14px; }
@@ -142,29 +140,49 @@ h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; heigh
 .step p { font-size:14px; color:var(--mid); line-height:1.7; }
 .step-badge { display:inline-block; margin-top:14px; font-size:11px; font-weight:700; color:var(--blue-soft); background:var(--blue-bg); padding:4px 10px; border-radius:20px; }
 
-/* TRAVEL STYLES */
-.styles-section { background:var(--ink2); padding:88px 48px; }
-.styles-section .section-label { color:rgba(255,255,255,0.4); }
-.styles-section .section-title { color:#fff; }
-.styles-section .section-sub { color:rgba(255,255,255,0.55); }
-.styles-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:48px; }
-.style-card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px 18px; text-align:center; transition:all .25s; }
-.style-card:hover { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.25); transform:translateY(-3px); }
-.style-icon { font-size:30px; margin-bottom:12px; }
-.style-card h4 { font-size:14px; font-weight:700; color:#fff; margin-bottom:6px; }
-.style-card p { font-size:12px; color:rgba(255,255,255,0.45); line-height:1.55; }
+/* ── FIX 2 — SAMPLE OUTPUT section ── */
+.output-section { background:var(--ink2); padding:88px 48px; }
+.output-section .section-label { color:rgba(255,255,255,0.4); }
+.output-section .section-title { color:#fff; }
+.output-section .section-sub { color:rgba(255,255,255,0.55); }
+.output-tabs { display:flex; gap:8px; margin-top:36px; flex-wrap:wrap; }
+.output-tab { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); color:rgba(255,255,255,0.55); font-size:13px; font-weight:600; padding:9px 18px; border-radius:24px; cursor:pointer; transition:all .2s; font-family:'DM Sans',sans-serif; }
+.output-tab.active, .output-tab:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); color:#fff; }
+.output-panels { margin-top:28px; }
+.output-panel { display:none; }
+.output-panel.active { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.full-itinerary { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:20px; overflow:hidden; }
+.fi-header { background:linear-gradient(135deg,#1e3a8a,#4338ca); padding:20px 24px; }
+.fi-title { font-family:'DM Serif Display',serif; font-size:17px; color:#fff; margin-bottom:4px; }
+.fi-meta { font-size:12px; color:rgba(255,255,255,0.6); display:flex; gap:10px; flex-wrap:wrap; }
+.fi-day { border-bottom:1px solid rgba(255,255,255,0.07); }
+.fi-day-toggle { padding:14px 20px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; transition:background .2s; }
+.fi-day-toggle:hover { background:rgba(255,255,255,0.04); }
+.fi-day-label { font-size:11px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:#60a5fa; }
+.fi-day-title { font-size:13px; font-weight:600; color:#fff; margin-top:2px; }
+.fi-chevron { color:rgba(255,255,255,0.3); font-size:12px; transition:transform .25s; }
+.fi-day.open .fi-chevron { transform:rotate(180deg); }
+.fi-rows { display:none; padding:4px 20px 16px; }
+.fi-day.open .fi-rows { display:block; }
+.fi-row { display:flex; gap:10px; align-items:flex-start; padding:7px 0; border-bottom:1px solid rgba(255,255,255,0.05); }
+.fi-row:last-child { border:none; }
+.fi-time { font-size:10px; font-weight:700; color:rgba(255,255,255,0.35); background:rgba(255,255,255,0.06); padding:3px 7px; border-radius:4px; white-space:nowrap; margin-top:2px; min-width:44px; text-align:center; }
+.fi-act { font-size:13px; font-weight:600; color:#e2e8f0; line-height:1.4; }
+.fi-sub { font-size:11px; color:rgba(255,255,255,0.4); margin-top:2px; }
+.fi-tip { background:rgba(251,191,36,0.07); border-left:2px solid #fbbf24; padding:10px 16px; margin:8px 0; border-radius:0 6px 6px 0; font-size:12px; color:#fde68a; line-height:1.55; }
 
-/* TESTIMONIALS */
-.testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px; }
-.testi-card { background:var(--bg); border:1px solid var(--border); border-radius:16px; padding:28px 24px; }
-.testi-stars { color:#f59e0b; font-size:14px; margin-bottom:14px; letter-spacing:1px; }
-.testi-text { font-size:15px; color:var(--ink); line-height:1.7; margin-bottom:18px; font-style:italic; }
-.testi-author { display:flex; align-items:center; gap:12px; }
-.testi-avatar { width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg,#bfdbfe,#c7d2fe); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
-.testi-name { font-size:14px; font-weight:700; color:var(--ink); }
-.testi-trip { font-size:12px; color:var(--mid); }
+/* Output right side stats */
+.output-stats { display:flex; flex-direction:column; gap:16px; }
+.stat-card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:20px; }
+.stat-card h4 { font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:12px; }
+.stat-row { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.06); font-size:13px; }
+.stat-row:last-child { border:none; }
+.stat-row span:first-child { color:rgba(255,255,255,0.5); }
+.stat-row span:last-child { font-weight:600; color:#e2e8f0; }
+.stat-pill { background:rgba(96,165,250,0.15); color:#93c5fd; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; }
+.output-cta { margin-top:36px; text-align:center; }
 
-/* PROFILE FORM */
+/* ── PROFILE FORM ── */
 .form-section { background:var(--bg); padding:88px 48px; }
 .form-container { max-width:820px; margin:0 auto; background:#fff; border-radius:24px; box-shadow:0 4px 40px rgba(0,0,0,0.08); overflow:hidden; border:1px solid var(--border); }
 .form-header { background:linear-gradient(135deg,var(--ink),#1e1b4b); padding:40px 48px; }
@@ -176,7 +194,6 @@ h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; heigh
 .ps { font-size:11px; color:rgba(255,255,255,0.3); font-weight:600; transition:color .3s; }
 .ps.active { color:rgba(255,255,255,0.85); }
 .ps.done { color:#4ade80; }
-
 .form-body { padding:40px 48px; }
 .step-panel { display:none; animation:fadeUp .3s ease; }
 .step-panel.active { display:block; }
@@ -186,25 +203,14 @@ h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; heigh
 .step-hint { font-size:14px; color:var(--light); margin-bottom:28px; line-height:1.6; }
 .field-group { margin-bottom:22px; }
 .field-group label { display:block; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--mid); margin-bottom:8px; }
-.field-group input, .field-group select, .field-group textarea {
-  width:100%; border:2px solid var(--border); border-radius:10px; padding:13px 16px;
-  font-size:15px; font-family:'DM Sans',sans-serif; color:var(--ink); background:#fff;
-  outline:none; transition:border-color .2s; -webkit-appearance:none;
-}
+.field-group input, .field-group select, .field-group textarea { width:100%; border:2px solid var(--border); border-radius:10px; padding:13px 16px; font-size:15px; font-family:'DM Sans',sans-serif; color:var(--ink); background:#fff; outline:none; transition:border-color .2s; -webkit-appearance:none; }
 .field-group input:focus, .field-group select:focus, .field-group textarea:focus { border-color:var(--blue-soft); }
 .field-group textarea { resize:vertical; min-height:80px; }
 .field-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 .pill-group { display:flex; flex-wrap:wrap; gap:10px; }
-.pill {
-  padding:10px 18px; border-radius:24px; font-size:13px; font-weight:600;
-  border:2px solid var(--border); color:var(--mid); cursor:pointer;
-  transition:all .2s; background:#fff; font-family:'DM Sans',sans-serif;
-  display:flex; align-items:center; gap:7px;
-}
+.pill { padding:10px 18px; border-radius:24px; font-size:13px; font-weight:600; border:2px solid var(--border); color:var(--mid); cursor:pointer; transition:all .2s; background:#fff; font-family:'DM Sans',sans-serif; display:flex; align-items:center; gap:7px; }
 .pill:hover { border-color:var(--blue-soft); color:var(--ink); }
 .pill.sel { border-color:var(--blue-soft); background:var(--blue-bg); color:var(--blue); }
-
-/* BEHAVIORAL: budget as concrete MXN ranges — reduces cognitive load and anchors to familiar amounts */
 .budget-options { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
 .budget-opt { border:2px solid var(--border); border-radius:12px; padding:16px 18px; cursor:pointer; transition:all .2s; background:#fff; }
 .budget-opt:hover { border-color:var(--blue-soft); }
@@ -212,7 +218,6 @@ h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; heigh
 .budget-opt .bo-icon { font-size:20px; margin-bottom:8px; }
 .budget-opt .bo-level { font-size:13px; font-weight:700; color:var(--ink); margin-bottom:3px; }
 .budget-opt .bo-range { font-size:12px; color:var(--mid); }
-
 .form-nav { display:flex; justify-content:space-between; align-items:center; margin-top:32px; padding-top:24px; border-top:1px solid var(--border); }
 .btn-back { background:none; border:2px solid var(--border); color:var(--mid); padding:12px 24px; border-radius:10px; font-size:14px; font-weight:600; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .2s; }
 .btn-back:hover { border-color:var(--mid); color:var(--ink); }
@@ -220,7 +225,7 @@ h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; heigh
 .btn-next:hover { background:var(--blue); }
 .step-counter { font-size:13px; color:var(--light); }
 
-/* PAYMENT STEP */
+/* Payment */
 .pay-summary { background:var(--bg); border-radius:14px; padding:24px; margin-bottom:24px; }
 .pay-summary-title { font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--mid); margin-bottom:14px; }
 .pay-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border); font-size:14px; }
@@ -230,22 +235,15 @@ h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; heigh
 .pay-total { display:flex; justify-content:space-between; align-items:center; padding:16px 24px; background:var(--ink); border-radius:12px; margin-bottom:24px; }
 .pay-total span:first-child { color:rgba(255,255,255,0.65); font-size:14px; font-weight:600; }
 .pay-total .total-amt { font-family:'DM Serif Display',serif; font-size:32px; color:#fff; }
-/* BEHAVIORAL: trust cluster right before payment removes friction */
 .pay-trust { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:28px; }
 .trust-item { text-align:center; background:var(--bg); border-radius:10px; padding:14px 10px; }
 .trust-item .ti-icon { font-size:22px; margin-bottom:6px; }
 .trust-item p { font-size:11px; color:var(--mid); line-height:1.5; font-weight:500; }
-.btn-pay {
-  width:100%; background:linear-gradient(135deg,#059669,#047857); color:#fff;
-  border:none; padding:18px; border-radius:12px; font-size:17px; font-weight:700;
-  cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .25s;
-  display:flex; align-items:center; justify-content:center; gap:10px;
-  box-shadow:0 4px 20px rgba(5,150,105,0.35);
-}
+.btn-pay { width:100%; background:linear-gradient(135deg,#059669,#047857); color:#fff; border:none; padding:18px; border-radius:12px; font-size:17px; font-weight:700; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .25s; display:flex; align-items:center; justify-content:center; gap:10px; box-shadow:0 4px 20px rgba(5,150,105,0.35); }
 .btn-pay:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(5,150,105,0.45); }
 .pay-legal { text-align:center; font-size:11px; color:var(--light); margin-top:12px; line-height:1.6; }
 
-/* FAQ */
+/* ── FAQ ── */
 .faq-list { max-width:720px; margin:48px auto 0; display:flex; flex-direction:column; gap:12px; }
 .faq-item { background:#fff; border:1px solid var(--border); border-radius:14px; overflow:hidden; }
 .faq-q { padding:20px 24px; font-size:16px; font-weight:600; color:var(--ink); cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:background .2s; user-select:none; }
@@ -255,7 +253,7 @@ h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; heigh
 .faq-a { max-height:0; overflow:hidden; transition:max-height .35s ease, padding .3s; padding:0 24px; font-size:15px; color:var(--mid); line-height:1.75; }
 .faq-item.open .faq-a { max-height:300px; padding:0 24px 20px; }
 
-/* FINAL CTA — behavioral: identity + consequence framing */
+/* ── FINAL CTA ── */
 .final-cta { background:linear-gradient(135deg,var(--ink),#1e1b4b); padding:88px 48px; text-align:center; }
 .final-cta h2 { font-family:'DM Serif Display',serif; font-size:clamp(28px,3vw,44px); color:#fff; margin-bottom:16px; letter-spacing:-0.8px; }
 .final-cta p { font-size:17px; color:rgba(255,255,255,0.6); margin-bottom:40px; max-width:520px; margin-left:auto; margin-right:auto; line-height:1.75; }
@@ -266,7 +264,7 @@ footer { background:var(--ink2); padding:40px 48px; display:flex; align-items:ce
 footer .logo { color:#fff; }
 footer p { font-size:13px; color:rgba(255,255,255,0.35); }
 
-/* SUCCESS MODAL */
+/* ── MODAL ── */
 .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:500; display:none; align-items:center; justify-content:center; backdrop-filter:blur(4px); }
 .modal-overlay.show { display:flex; }
 .modal { background:#fff; border-radius:24px; padding:48px; max-width:520px; width:90%; text-align:center; animation:modalIn .35s ease; }
@@ -276,14 +274,18 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
 .modal p { font-size:16px; color:var(--mid); line-height:1.7; margin-bottom:28px; }
 .btn-modal { background:var(--blue-soft); color:#fff; border:none; padding:14px 36px; border-radius:10px; font-size:16px; font-weight:700; cursor:pointer; font-family:'DM Sans',sans-serif; }
 
+/* ── RESPONSIVE ── */
 @media(max-width:960px) {
   nav { padding:14px 24px; }
+  /* FIX 3 — show hamburger, hide desktop links */
   .nav-right a { display:none; }
+  .nav-right .btn-cta-sm { display:none; }
+  .hamburger { display:flex; }
+
   .hero-inner, .value-grid { grid-template-columns:1fr; gap:48px; }
   .steps { grid-template-columns:1fr; }
-  .styles-grid { grid-template-columns:repeat(2,1fr); }
   .testi-grid { grid-template-columns:1fr; }
-  .section, .value-section, .form-section, .final-cta, .styles-section { padding:64px 24px; }
+  .section, .value-section, .form-section, .final-cta, .output-section { padding:64px 24px; }
   .form-body, .form-header { padding:28px 24px; }
   nav, .anchor-bar { padding-left:24px; padding-right:24px; }
   .field-row { grid-template-columns:1fr; }
@@ -291,6 +293,9 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
   .pay-trust { grid-template-columns:1fr; }
   footer { flex-direction:column; gap:12px; text-align:center; }
   .hero { padding:56px 24px 64px; }
+  .output-panel.active { grid-template-columns:1fr; }
+  .output-stats { flex-direction:row; flex-wrap:wrap; }
+  .stat-card { flex:1; min-width:240px; }
 }
 </style>
 </head>
@@ -301,12 +306,26 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
   <a class="logo" href="#"><span class="logo-dot"></span>RouteWyze</a>
   <div class="nav-right">
     <a href="#como-funciona">Cómo funciona</a>
-    <a href="#estilos">Estilos de viaje</a>
+    <a href="#ejemplo">Ver ejemplo</a>
+    <a href="#testimonios">Testimonios</a>
     <button class="btn-cta-sm" id="navCta" onclick="scrollToForm()">Quiero mi itinerario</button>
   </div>
+  <!-- FIX 3: hamburger for mobile -->
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- BEHAVIORAL PRINCIPLE 1: ANCHORING — establish high reference point before showing $200 MXN -->
+<!-- FIX 3: Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#como-funciona" onclick="closeMenu()">Cómo funciona</a>
+  <a href="#ejemplo" onclick="closeMenu()">Ver ejemplo de itinerario</a>
+  <a href="#testimonios" onclick="closeMenu()">Testimonios</a>
+  <a href="#faq" onclick="closeMenu()">Preguntas frecuentes</a>
+  <button class="btn-cta-mobile" onclick="closeMenu(); scrollToForm()">Crear mi itinerario — $200 MXN</button>
+</div>
+
+<!-- ANCHOR BAR -->
 <div class="anchor-bar">
   Un consultor de viajes cobra entre <strong>$1,500 – $4,000 MXN</strong> por planear tu viaje.
   Tu itinerario personalizado completo: <strong>$200 MXN</strong>
@@ -317,7 +336,6 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <!-- BEHAVIORAL PRINCIPLE 2: SOCIAL PROOF — number + activity signals -->
       <div class="social-chip">
         <div class="avatars"><span>🧳</span><span>✈️</span><span>🌍</span><span>🗺️</span></div>
         +2,400 viajeros ya planificaron con nosotros
@@ -327,26 +345,23 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
 
       <p class="hero-sub">No más horas perdidas en blogs, grupos de Facebook y pestañas abiertas. Recibe un itinerario día a día construido exactamente para ti.</p>
 
-      <!-- BEHAVIORAL PRINCIPLE 3: LOSS AVERSION — frame the cost of NOT buying -->
       <div class="loss-frame">
         <strong>¿Cuánto vale tu tiempo libre?</strong> El viajero promedio invierte <strong>11 horas</strong> planificando un viaje de 5 días — y aun así termina con dudas. Nosotros lo resolvemos por menos de lo que cuesta un desayuno para dos.
       </div>
 
       <div class="hero-cta-block">
+        <!-- FIX 9: CTA activo, no pasivo -->
         <button class="btn-primary" onclick="scrollToForm()">
-          Quiero mi itinerario personalizado
+          Crear mi itinerario ahora
           <span class="price-tag">$200 MXN</span>
         </button>
-        <!-- BEHAVIORAL PRINCIPLE 4: RISK ELIMINATION — remove friction points -->
         <div class="cta-sub">
           <span>Entrega en 24 horas</span>
           <span>100% personalizado</span>
-          <span>Garantía de satisfacción</span>
         </div>
       </div>
     </div>
 
-    <!-- Sample itinerary — shows concrete value before payment -->
     <div class="demo-card">
       <div class="dc-header">
         <div class="dc-title">🗼 París · 5 días · Pareja</div>
@@ -364,8 +379,7 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
   </div>
 </section>
 
-<!-- BEHAVIORAL PRINCIPLE 5: PRICE RELATIVITY — same section, moved to top per request -->
-<!-- Comparación que hace que $200 MXN parezca obvia -->
+<!-- VALUE -->
 <section class="value-section" id="valor">
   <div class="value-inner">
     <div class="value-grid">
@@ -383,7 +397,6 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
         </div>
       </div>
       <div>
-        <!-- BEHAVIORAL: Contrast effect — show expensive alternatives first -->
         <div class="value-compare">
           <div style="font-size:12px;font-weight:700;color:var(--mid);letter-spacing:1px;text-transform:uppercase;margin-bottom:20px">¿Cuánto cuesta planear tu viaje?</div>
           <div class="compare-row"><span class="compare-label">Consultor de viajes</span><span class="compare-val hi">$1,500 – $4,000 MXN</span></div>
@@ -415,8 +428,7 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <h3>Confirmas con tu pago</h3>
-        <!-- BEHAVIORAL: reframe payment as "activation" not "cost" -->
+        <h3>Activas con tu pago</h3>
         <p>Pago único de $200 MXN. Sin suscripciones, sin cargos ocultos. Tu pago activa la creación de tu itinerario personalizado.</p>
         <span class="step-badge">100% seguro</span>
       </div>
@@ -430,78 +442,228 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
   </div>
 </section>
 
-<!-- TRAVEL STYLES — informative only -->
-<section class="styles-section" id="estilos">
+<!-- FIX 2 — SAMPLE OUTPUT: full itinerary example before payment -->
+<section class="output-section" id="ejemplo">
   <div class="section-inner">
-    <p class="section-label">Para cada tipo de viajero</p>
-    <h2 class="section-title" style="color:#fff">Creamos itinerarios para<br>todos los estilos de viaje</h2>
-    <p class="section-sub">Tu plan se adapta completamente a cómo eres como viajero. No hay dos iguales.</p>
-    <div class="styles-grid">
-      <div class="style-card"><div class="style-icon">🏔️</div><h4>Aventura</h4><p>Senderismo, deportes extremos y naturaleza salvaje.</p></div>
-      <div class="style-card"><div class="style-icon">🍜</div><h4>Foodie</h4><p>Mercados locales, restaurantes estrella y clases de cocina.</p></div>
-      <div class="style-card"><div class="style-icon">🏛️</div><h4>Cultural</h4><p>Museos, arquitectura, historia viva y arte urbano.</p></div>
-      <div class="style-card"><div class="style-icon">💎</div><h4>Lujo</h4><p>Hoteles boutique, experiencias VIP y servicios exclusivos.</p></div>
-      <div class="style-card"><div class="style-icon">🌊</div><h4>Relax</h4><p>Spas, playas, retiros de bienestar y ritmo sin prisa.</p></div>
-      <div class="style-card"><div class="style-icon">📸</div><h4>Fotográfico</h4><p>Los mejores ángulos, horas doradas y escenas auténticas.</p></div>
-      <div class="style-card"><div class="style-icon">👨‍👩‍👧</div><h4>Familia</h4><p>Actividades para todas las edades y ritmo adaptado a niños.</p></div>
-      <div class="style-card"><div class="style-icon">🌙</div><h4>Vida Nocturna</h4><p>Rooftops, bares de moda y escenas nocturnas locales.</p></div>
-      <div class="style-card"><div class="style-icon">🎒</div><h4>Mochilero</h4><p>Máxima experiencia al mínimo costo con transporte local.</p></div>
-      <div class="style-card"><div class="style-icon">🛍️</div><h4>Compras</h4><p>Mercados artesanales, outlets y tiendas únicas del destino.</p></div>
-      <div class="style-card"><div class="style-icon">🧘</div><h4>Bienestar</h4><p>Retiros de yoga, termas y reconexión interior.</p></div>
-      <div class="style-card"><div class="style-icon">💑</div><h4>Romántico</h4><p>Cenas especiales, vistas al atardecer y momentos para dos.</p></div>
+    <p class="section-label">Así se ve tu itinerario</p>
+    <h2 class="section-title">Un plan real, día a día.<br>Esto es lo que recibes.</h2>
+    <p class="section-sub">No un resumen genérico. Un itinerario construido por zona, con horarios, precios reales y tips que no están en ningún blog.</p>
+
+    <div class="output-tabs">
+      <button class="output-tab active" onclick="switchDestino(this,'paris')">🗼 París · 5 días</button>
+      <button class="output-tab" onclick="switchDestino(this,'cdmx')">🌮 Ciudad de México · 4 días</button>
+      <button class="output-tab" onclick="switchDestino(this,'bali')">🌴 Bali · 7 días</button>
+    </div>
+
+    <div class="output-panels">
+
+      <!-- PARIS -->
+      <div class="output-panel active" id="panel-paris">
+        <div class="full-itinerary">
+          <div class="fi-header">
+            <div class="fi-title">🗼 París para dos — Gastronomía & Arte</div>
+            <div class="fi-meta"><span>5 días</span><span>En pareja</span><span>Presupuesto medio</span><span>Primavera 2025</span></div>
+          </div>
+
+          <div class="fi-day open">
+            <div class="fi-day-toggle" onclick="toggleDay(this)">
+              <div><div class="fi-day-label">Día 1</div><div class="fi-day-title">Le Marais & Ile de la Cité</div></div>
+              <span class="fi-chevron">▲</span>
+            </div>
+            <div class="fi-rows">
+              <div class="fi-row"><span class="fi-time">08:30</span><div><div class="fi-act">☕ Café de Flore — desayuno</div><div class="fi-sub">Croissant + café au lait · Pide mesa exterior · ~€18</div></div></div>
+              <div class="fi-row"><span class="fi-time">10:00</span><div><div class="fi-act">🏛️ Notre-Dame de París</div><div class="fi-sub">Vista exterior y Ile de la Cité · 45 min caminando</div></div></div>
+              <div class="fi-row"><span class="fi-time">11:00</span><div><div class="fi-act">⛪ Sainte-Chapelle</div><div class="fi-sub">Reserva online — evita 1h de fila · €15/pp · 45 min</div></div></div>
+              <div class="fi-row"><span class="fi-time">13:00</span><div><div class="fi-act">🧆 L'As du Fallafel — comida</div><div class="fi-sub">Rue des Rosiers 34 · El mejor del Marais · ~€12/pp · sin reserva</div></div></div>
+              <div class="fi-row"><span class="fi-time">14:30</span><div><div class="fi-act">🎨 Centro Pompidou</div><div class="fi-sub">Reserva online · 2 horas · colección moderna · €15/pp</div></div></div>
+              <div class="fi-row"><span class="fi-time">17:00</span><div><div class="fi-act">🚶 Plaza de los Vosgos</div><div class="fi-sub">La plaza más antigua de París · arcadas + café en terraza</div></div></div>
+              <div class="fi-row"><span class="fi-time">20:30</span><div><div class="fi-act">🍷 Septime — cena (reserva con 3 semanas)</div><div class="fi-sub">Rue de Charonne 80 · Menú degustación ~€65/pp · imprescindible</div></div></div>
+              <div class="fi-tip">💡 La terraza del Pompidou cierra a las 22h y la entrada es gratuita. Mejor vista de París al atardecer sin pagar entrada al museo.</div>
+            </div>
+          </div>
+
+          <div class="fi-day">
+            <div class="fi-day-toggle" onclick="toggleDay(this)">
+              <div><div class="fi-day-label">Día 2</div><div class="fi-day-title">Louvre & Saint-Germain</div></div>
+              <span class="fi-chevron">▼</span>
+            </div>
+            <div class="fi-rows">
+              <div class="fi-row"><span class="fi-time">09:00</span><div><div class="fi-act">🖼️ Musée du Louvre</div><div class="fi-sub">Entra por Richelieu (menos cola) · Reserva obligatoria · €22/pp · 3h</div></div></div>
+              <div class="fi-row"><span class="fi-time">12:30</span><div><div class="fi-act">🥗 Café Marly — comida frente al Louvre</div><div class="fi-sub">Bajo las arcadas del ala Richelieu · Vista a la pirámide · ~€30/pp</div></div></div>
+              <div class="fi-row"><span class="fi-time">14:30</span><div><div class="fi-act">🌸 Jardín de las Tullerías</div><div class="fi-sub">Paseo de 1h hacia Saint-Germain · Parada en Place de la Concorde</div></div></div>
+              <div class="fi-row"><span class="fi-time">16:00</span><div><div class="fi-act">📚 Barrio Saint-Germain-des-Prés</div><div class="fi-sub">Librairie La Hune · Iglesia Saint-Sulpice · Rue de Buci mercado</div></div></div>
+              <div class="fi-row"><span class="fi-time">19:00</span><div><div class="fi-act">🍸 Cocktail en Bar du Marché</div><div class="fi-sub">Rue de Buci 75 · Clásico parisino · Kir Royale ~€9</div></div></div>
+              <div class="fi-row"><span class="fi-time">21:00</span><div><div class="fi-act">🦀 Brasserie Lipp — cena</div><div class="fi-sub">Blvd Saint-Germain 151 · Choucroute + Riesling · ~€45/pp</div></div></div>
+              <div class="fi-tip">💡 El Louvre tiene 3 entradas. La del Passage Richelieu (frente al Palais-Royal) tiene 30% menos espera que la pirámide. Usa ese acceso.</div>
+            </div>
+          </div>
+
+          <div class="fi-day">
+            <div class="fi-day-toggle" onclick="toggleDay(this)">
+              <div><div class="fi-day-label">Día 3</div><div class="fi-day-title">Montmartre & Opera</div></div>
+              <span class="fi-chevron">▼</span>
+            </div>
+            <div class="fi-rows">
+              <div class="fi-row"><span class="fi-time">07:30</span><div><div class="fi-act">🌅 Sacré-Coeur al amanecer</div><div class="fi-sub">Llega ANTES de las 8h · Sin turistas · La mejor luz del día para fotos</div></div></div>
+              <div class="fi-row"><span class="fi-time">09:30</span><div><div class="fi-act">🥐 Desayuno en la Place du Tertre</div><div class="fi-sub">Boulangerie Arnaud Delmontel · Evita restaurantes de turistas en la plaza</div></div></div>
+              <div class="fi-row"><span class="fi-time">11:00</span><div><div class="fi-act">🎨 Museo de Montmartre</div><div class="fi-sub">Donde vivió Renoir · Jardines de Renoir · €15/pp · 1.5h</div></div></div>
+              <div class="fi-row"><span class="fi-time">13:30</span><div><div class="fi-act">🥩 Le Coq Rico — almuerzo</div><div class="fi-sub">Rue Lepic 98 · Pollo de corral · ~€35/pp · reserva el día anterior</div></div></div>
+              <div class="fi-row"><span class="fi-time">16:00</span><div><div class="fi-act">🏛️ Palais Garnier (Opera)</div><div class="fi-sub">Visita autoguiada €14 · Escalera monumental · 1h · sin reserva</div></div></div>
+              <div class="fi-tip">💡 El Sacré-Coeur está abierto 24h. Si vas en martes o jueves a las 7:30h hay misa gregoriana a las 10h que puedes escuchar gratuitamente.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="output-stats">
+          <div class="stat-card">
+            <h4>Resumen del itinerario</h4>
+            <div class="stat-row"><span>Destino</span><span>París, Francia</span></div>
+            <div class="stat-row"><span>Duración</span><span>5 días / 4 noches</span></div>
+            <div class="stat-row"><span>Zonas cubiertas</span><span>8 barrios</span></div>
+            <div class="stat-row"><span>Actividades</span><span>31 recomendaciones</span></div>
+            <div class="stat-row"><span>Restaurantes</span><span>14 seleccionados</span></div>
+            <div class="stat-row"><span>Tips exclusivos</span><span>12 insider tips</span></div>
+          </div>
+          <div class="stat-card">
+            <h4>Lo que incluye tu PDF</h4>
+            <div class="stat-row"><span>Organización</span><span class="stat-pill">Por zonas</span></div>
+            <div class="stat-row"><span>Horarios</span><span class="stat-pill">Específicos</span></div>
+            <div class="stat-row"><span>Precios</span><span class="stat-pill">En moneda local</span></div>
+            <div class="stat-row"><span>Links reservas</span><span class="stat-pill">Directos</span></div>
+            <div class="stat-row"><span>Transporte</span><span class="stat-pill">Metro + a pie</span></div>
+            <div class="stat-row"><span>Urgencias</span><span class="stat-pill">Teléfonos útiles</span></div>
+          </div>
+          <div class="stat-card" style="background:linear-gradient(135deg,rgba(37,99,235,0.15),rgba(99,102,241,0.1));border-color:rgba(96,165,250,0.25)">
+            <h4 style="color:rgba(255,255,255,0.5)">¿Quieres un plan así para tu destino?</h4>
+            <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:16px">Cuéntanos tu viaje en 5 minutos y lo tendrás en 24 horas.</p>
+            <button onclick="scrollToForm()" style="width:100%;background:var(--blue-soft);color:#fff;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;">Crear mi itinerario — $200 MXN</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CDMX -->
+      <div class="output-panel" id="panel-cdmx">
+        <div class="full-itinerary">
+          <div class="fi-header">
+            <div class="fi-title">🌮 Ciudad de México — Cultura & Gastronomía</div>
+            <div class="fi-meta"><span>4 días</span><span>Con amigos</span><span>Presupuesto medio</span></div>
+          </div>
+          <div class="fi-day open">
+            <div class="fi-day-toggle" onclick="toggleDay(this)">
+              <div><div class="fi-day-label">Día 1</div><div class="fi-day-title">Centro Histórico & Alameda</div></div>
+              <span class="fi-chevron">▲</span>
+            </div>
+            <div class="fi-rows">
+              <div class="fi-row"><span class="fi-time">08:00</span><div><div class="fi-act">🫔 Mercado de San Juan — desayuno</div><div class="fi-sub">Puesto de tostadas con atún · ~$80 MXN · lleno de locales</div></div></div>
+              <div class="fi-row"><span class="fi-time">09:30</span><div><div class="fi-act">🏛️ Palacio de Bellas Artes</div><div class="fi-sub">Entrada gratuita a galerías · Murales de Rivera y Orozco · 1.5h</div></div></div>
+              <div class="fi-row"><span class="fi-time">11:30</span><div><div class="fi-act">⛪ Catedral Metropolitana + Zócalo</div><div class="fi-sub">Sube a las campanas (gratis) · Vista panorámica del centro</div></div></div>
+              <div class="fi-row"><span class="fi-time">13:30</span><div><div class="fi-act">🍲 El Cardenal — comida</div><div class="fi-sub">Palma 23 · Cocina mexicana de autor · ~$350 MXN/pp · reserva</div></div></div>
+              <div class="fi-row"><span class="fi-time">16:00</span><div><div class="fi-act">🎨 Muralismo en Secretaría de Educación</div><div class="fi-sub">Diego Rivera · Entrada libre · 45 min · imperdible</div></div></div>
+              <div class="fi-tip">💡 El Palacio Nacional está abierto de lunes a viernes. Si vas entre semana, los murales del patio principal los tienes casi solo.</div>
+            </div>
+          </div>
+          <div class="fi-day">
+            <div class="fi-day-toggle" onclick="toggleDay(this)">
+              <div><div class="fi-day-label">Día 2</div><div class="fi-day-title">Coyoacán & Xochimilco</div></div>
+              <span class="fi-chevron">▼</span>
+            </div>
+            <div class="fi-rows">
+              <div class="fi-row"><span class="fi-time">09:00</span><div><div class="fi-act">🏡 Casa Azul — Museo Frida Kahlo</div><div class="fi-sub">Reserva online obligatoria · €270 MXN · máximo 1 mes anticipado</div></div></div>
+              <div class="fi-row"><span class="fi-time">11:30</span><div><div class="fi-act">☕ Café El Jarocho</div><div class="fi-sub">El café más antiguo de Coyoacán · Cola rápida · $35 MXN</div></div></div>
+              <div class="fi-row"><span class="fi-time">13:00</span><div><div class="fi-act">🎪 Mercado de Coyoacán</div><div class="fi-sub">Tostadas de La Güera · $60 MXN · el mejor antojito de la zona</div></div></div>
+              <div class="fi-row"><span class="fi-time">15:30</span><div><div class="fi-act">🌺 Xochimilco — trajineras</div><div class="fi-sub">Embarcadero Nuevo Nativitas · ~$350 MXN/hora la trajinera · lleva botana</div></div></div>
+              <div class="fi-tip">💡 En Xochimilco, el embarcadero Cuemanco tiene 40% menos precio que Nuevo Nativitas y menos turistas. Sábado antes de las 11h o jueves todo el día.</div>
+            </div>
+          </div>
+        </div>
+        <div class="output-stats">
+          <div class="stat-card">
+            <h4>Resumen del itinerario</h4>
+            <div class="stat-row"><span>Destino</span><span>Ciudad de México</span></div>
+            <div class="stat-row"><span>Duración</span><span>4 días / 3 noches</span></div>
+            <div class="stat-row"><span>Colonias</span><span>7 zonas</span></div>
+            <div class="stat-row"><span>Actividades</span><span>24 recomendaciones</span></div>
+            <div class="stat-row"><span>Restaurantes</span><span>11 seleccionados</span></div>
+            <div class="stat-row"><span>Tips exclusivos</span><span>9 insider tips</span></div>
+          </div>
+          <div class="stat-card" style="background:linear-gradient(135deg,rgba(37,99,235,0.15),rgba(99,102,241,0.1));border-color:rgba(96,165,250,0.25)">
+            <h4 style="color:rgba(255,255,255,0.5)">¿Tu destino no está aquí?</h4>
+            <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:16px">Hacemos itinerarios para más de 60 destinos alrededor del mundo.</p>
+            <button onclick="scrollToForm()" style="width:100%;background:var(--blue-soft);color:#fff;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;">Crear mi itinerario — $200 MXN</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BALI -->
+      <div class="output-panel" id="panel-bali">
+        <div class="full-itinerary">
+          <div class="fi-header">
+            <div class="fi-title">🌴 Bali — Aventura, Templos & Playas</div>
+            <div class="fi-meta"><span>7 días</span><span>Solo</span><span>Presupuesto económico-medio</span></div>
+          </div>
+          <div class="fi-day open">
+            <div class="fi-day-toggle" onclick="toggleDay(this)">
+              <div><div class="fi-day-label">Día 1</div><div class="fi-day-title">Ubud — Arrozales & Templos</div></div>
+              <span class="fi-chevron">▲</span>
+            </div>
+            <div class="fi-rows">
+              <div class="fi-row"><span class="fi-time">07:00</span><div><div class="fi-act">🌅 Tegallalang Rice Terrace</div><div class="fi-sub">Entrada IDR 50,000 · Llega antes de las 8h sin turistas · 2h caminata</div></div></div>
+              <div class="fi-row"><span class="fi-time">10:00</span><div><div class="fi-act">🍳 Desayuno en Warung Babi Guling Ibu Oka</div><div class="fi-sub">Cerdo asado balinés · IDR 60,000 · el favorito de los locales</div></div></div>
+              <div class="fi-row"><span class="fi-time">12:00</span><div><div class="fi-act">🦍 Sacred Monkey Forest Sanctuary</div><div class="fi-sub">IDR 80,000 · No lleves comida · 1.5h · imprescindible</div></div></div>
+              <div class="fi-row"><span class="fi-time">16:00</span><div><div class="fi-act">🕍 Pura Tirta Empul — purificación</div><div class="fi-sub">Lleva sarong (o renta IDR 15,000) · Ceremonia de agua sagrada</div></div></div>
+              <div class="fi-row"><span class="fi-time">19:00</span><div><div class="fi-act">🌙 Kecak Dance en Uluwatu</div><div class="fi-sub">Reserva online · IDR 150,000 · Al atardecer frente al océano</div></div></div>
+              <div class="fi-tip">💡 En Bali cada templo tiene su propio código de vestimenta. El app "Bali Pocket Guide" te dice exactamente qué llevar en cada uno — evita rechazos en la entrada.</div>
+            </div>
+          </div>
+          <div class="fi-day">
+            <div class="fi-day-toggle" onclick="toggleDay(this)">
+              <div><div class="fi-day-label">Días 2–3</div><div class="fi-day-title">Seminyak & Canggu</div></div>
+              <span class="fi-chevron">▼</span>
+            </div>
+            <div class="fi-rows">
+              <div class="fi-row"><span class="fi-time">Mañana</span><div><div class="fi-act">🏄 Surf en Canggu Beach</div><div class="fi-sub">Echo Beach tiene olas para principiantes · Clase IDR 250,000 · 2h</div></div></div>
+              <div class="fi-row"><span class="fi-time">Tarde</span><div><div class="fi-act">🍜 Warung locales en Canggu</div><div class="fi-sub">Nasi campur en cualquier warung ~IDR 25,000 · Evita restaurantes turísticos</div></div></div>
+              <div class="fi-row"><span class="fi-time">Noche</span><div><div class="fi-act">🌅 Sunset en La Plancha Beach Bar</div><div class="fi-sub">Seminyak · Sillas de colores en la playa · Llega 30 min antes del atardecer</div></div></div>
+              <div class="fi-tip">💡 El tipo de cambio en Bali es crítico. Los ATM del aeropuerto cobran hasta 18% de comisión. Usa los ATM BNI o BRI en el centro — el mejor tipo de cambio.</div>
+            </div>
+          </div>
+        </div>
+        <div class="output-stats">
+          <div class="stat-card">
+            <h4>Resumen del itinerario</h4>
+            <div class="stat-row"><span>Destino</span><span>Bali, Indonesia</span></div>
+            <div class="stat-row"><span>Duración</span><span>7 días / 6 noches</span></div>
+            <div class="stat-row"><span>Regiones</span><span>5 zonas</span></div>
+            <div class="stat-row"><span>Actividades</span><span>38 recomendaciones</span></div>
+            <div class="stat-row"><span>Restaurantes</span><span>16 seleccionados</span></div>
+            <div class="stat-row"><span>Tips exclusivos</span><span>14 insider tips</span></div>
+          </div>
+          <div class="stat-card" style="background:linear-gradient(135deg,rgba(37,99,235,0.15),rgba(99,102,241,0.1));border-color:rgba(96,165,250,0.25)">
+            <h4 style="color:rgba(255,255,255,0.5)">¿Listo para tu próximo viaje?</h4>
+            <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:16px">Tu itinerario completo en 24 horas. Un solo pago de $200 MXN.</p>
+            <button onclick="scrollToForm()" style="width:100%;background:var(--blue-soft);color:#fff;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;">Crear mi itinerario — $200 MXN</button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS — behavioral: social proof with specificity -->
-<section class="section" style="background:#fff;">
-  <div class="section-inner">
-    <p class="section-label">Lo que dicen nuestros viajeros</p>
-    <h2 class="section-title">Viajeros reales,<br>planes reales.</h2>
-    <p class="section-sub">Personas que dejaron de perder horas planificando y simplemente viajaron.</p>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Llevábamos semanas intentando organizar nuestro viaje a Japón y no llegábamos a nada. El itinerario que recibimos estaba tan bien pensado que lo seguimos casi al pie de la letra. Valió cada peso."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">👩</div>
-          <div><div class="testi-name">Andrea R.</div><div class="testi-trip">Tokyo y Kyoto · 10 días · En pareja</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Viajo seguido por trabajo y siempre agrego días de turismo. Esto me ahorró fácil 8 horas de búsqueda. El restaurante que sugirieron en Lisboa fue el mejor momento del viaje."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">👨</div>
-          <div><div class="testi-name">Marco T.</div><div class="testi-trip">Lisboa · 4 días · Solo</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Lo que más me gustó es que organizan todo por zonas. Nada de ir al norte por la mañana y al sur por la tarde. Todo tenía sentido. Eso es lo que ningún blog te da."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">👩</div>
-          <div><div class="testi-name">Sofía V.</div><div class="testi-trip">Roma · 7 días · Con amigos</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROFILE FORM — payment-first flow -->
+<!-- PROFILE FORM — FIX 3 (steps 1 de 4), FIX 6 (localStorage), FIX 8 (modal instead of scroll) -->
 <section class="form-section" id="formulario">
   <div class="section-inner">
     <div style="text-align:center;max-width:600px;margin:0 auto 48px">
       <p class="section-label" style="text-align:center">Tu perfil de viajero</p>
       <h2 class="section-title">Cuéntanos cómo eres.<br>Haremos el resto.</h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">Mientras más nos cuentes, más preciso será tu itinerario. Son 3 pasos rápidos.</p>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Mientras más nos cuentes, más preciso será tu itinerario. Son 4 pasos rápidos.</p>
     </div>
     <div class="form-container">
       <div class="form-header">
         <h3>Perfil de viajero</h3>
         <p>Esta información nos permite construir un plan que se adapte exactamente a ti, no a un viajero genérico.</p>
-        <!-- BEHAVIORAL: progress indicator — reduces abandonment by showing commitment -->
         <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <!-- FIX 1: 4 steps, honest count -->
         <div class="progress-steps">
           <span class="ps active" id="ps1">Tu viaje</span>
           <span class="ps" id="ps2">Tu estilo</span>
@@ -514,7 +676,8 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
 
         <!-- STEP 1 -->
         <div class="step-panel active" id="panel1">
-          <p class="step-label">Paso 1 de 3</p>
+          <!-- FIX 1: Correct step count -->
+          <p class="step-label">Paso 1 de 4</p>
           <h3 class="step-question">¿A dónde y cuándo viajan?</h3>
           <p class="step-hint">Puedes escribir ciudad, país, región o varios destinos. Sé tan específico como quieras.</p>
           <div class="field-group">
@@ -550,14 +713,14 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
             </div>
           </div>
           <div class="form-nav">
-            <span class="step-counter">1 de 3</span>
+            <span class="step-counter">1 de 4</span>
             <button class="btn-next" onclick="goStep(2)">Siguiente →</button>
           </div>
         </div>
 
         <!-- STEP 2 -->
         <div class="step-panel" id="panel2">
-          <p class="step-label">Paso 2 de 3</p>
+          <p class="step-label">Paso 2 de 4</p>
           <h3 class="step-question">¿Cómo viajas?</h3>
           <p class="step-hint">Selecciona todos los estilos que te representen. Puedes elegir varios — no te limites.</p>
           <div class="field-group">
@@ -612,14 +775,14 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
           </div>
           <div class="form-nav">
             <button class="btn-back" onclick="goStep(1)">← Atrás</button>
-            <span class="step-counter">2 de 3</span>
+            <span class="step-counter">2 de 4</span>
             <button class="btn-next" onclick="goStep(3)">Siguiente →</button>
           </div>
         </div>
 
         <!-- STEP 3 -->
         <div class="step-panel" id="panel3">
-          <p class="step-label">Paso 3 de 3</p>
+          <p class="step-label">Paso 3 de 4</p>
           <h3 class="step-question">Los detalles que hacen la diferencia</h3>
           <p class="step-hint">Aquí es donde tu itinerario deja de ser genérico y se vuelve completamente tuyo.</p>
           <div class="field-group">
@@ -636,15 +799,14 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
           </div>
           <div class="form-nav">
             <button class="btn-back" onclick="goStep(2)">← Atrás</button>
-            <span class="step-counter">3 de 3</span>
-            <!-- BEHAVIORAL: green CTA signals safe, positive action -->
+            <span class="step-counter">3 de 4</span>
             <button class="btn-next" onclick="goStep(4)" style="background:var(--green);box-shadow:0 4px 16px rgba(5,150,105,0.3)">Continuar al pago →</button>
           </div>
         </div>
 
         <!-- STEP 4: PAYMENT -->
         <div class="step-panel" id="panel4">
-          <p class="step-label">Confirma y paga</p>
+          <p class="step-label">Paso 4 de 4 — Confirma y paga</p>
           <h3 class="step-question">Estás a un paso de tu itinerario</h3>
           <p class="step-hint">Revisa tu información. Una vez confirmado el pago, comenzamos a trabajar en tu plan.</p>
 
@@ -657,13 +819,11 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
             <div class="pay-row"><span>Presupuesto</span><span id="sum_budget">—</span></div>
           </div>
 
-          <!-- BEHAVIORAL: concrete price, no hidden costs -->
           <div class="pay-total">
             <span>Total a pagar</span>
             <div class="total-amt">$200 <span style="font-size:18px;font-family:'DM Sans',sans-serif;opacity:.7">MXN</span></div>
           </div>
 
-          <!-- BEHAVIORAL: trust cluster right before payment — reduces payment anxiety -->
           <div class="pay-trust">
             <div class="trust-item"><div class="ti-icon">🔒</div><p>Pago 100% seguro con cifrado SSL</p></div>
             <div class="trust-item"><div class="ti-icon">⏱️</div><p>Tu itinerario llega en máximo 24 horas</p></div>
@@ -684,8 +844,8 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
   </div>
 </section>
 
-<!-- FAQ — behavioral: anticipate and neutralize objections before they arise -->
-<section class="section" style="background:var(--bg)">
+<!-- FAQ -->
+<section class="section" id="faq" style="background:var(--bg)">
   <div class="section-inner">
     <div style="text-align:center;max-width:600px;margin:0 auto">
       <p class="section-label" style="text-align:center">Preguntas frecuentes</p>
@@ -701,6 +861,10 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
         <div class="faq-a">Máximo 24 horas hábiles desde que confirmas tu pago. En la mayoría de los casos lo recibes antes. Lo enviamos directamente a tu correo en formato PDF, listo para guardarlo en tu celular o imprimirlo.</div>
       </div>
       <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">¿Quiénes son los "expertos" que hacen mi itinerario? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Somos un equipo de consultores de viaje con experiencia directa en más de 60 destinos alrededor del mundo. Cada itinerario lo arma un especialista que conoce personalmente el destino: sabe qué restaurante tiene la mejor carbonara de Roma, cuál es el ángulo correcto para fotografiar los arrozales de Ubud y a qué hora llegar a Sagrada Familia para evitar las filas. No somos un algoritmo — somos personas que viajan y comparten lo que saben.</div>
+      </div>
+      <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">¿RouteWyze hace las reservas por mí? <span class="faq-icon">+</span></div>
         <div class="faq-a">No somos una agencia de viajes y no gestionamos reservas. Somos consultores de itinerarios: te entregamos el mejor plan posible con links directos a los sitios donde puedes reservar cada actividad, hotel o restaurante. Tú tienes el control total y decides qué, cuándo y cómo. Sin comisiones ocultas, sin intermediarios.</div>
       </div>
@@ -713,22 +877,22 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
         <div class="faq-a">Sí. Si hay algo que no encaja con tu visión, tienes hasta 48 horas después de recibirlo para solicitar ajustes puntuales sin costo adicional. Queremos que salgas a viajar con un plan que realmente uses y disfrutes.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">¿Por qué pago de $200 MXN si un consultor cobra mucho más? <span class="faq-icon">+</span></div>
+        <div class="faq-q" onclick="toggleFaq(this)">¿Por qué $200 MXN si un consultor cobra mucho más? <span class="faq-icon">+</span></div>
         <div class="faq-a">Porque nuestro modelo nos permite ofrecer consultoría experta a un costo accesible, sin los gastos operativos de una agencia tradicional. No pagas oficinas, no pagas intermediarios. Pagas directamente por el resultado: tu itinerario. Y ese resultado es de la misma calidad que el de un consultor que cobra diez veces más.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA — behavioral: consequence framing + identity ("el tipo de viajero que...") -->
+<!-- FINAL CTA -->
 <section class="final-cta">
   <h2>Los mejores viajes no<br>se improvisan.</h2>
   <p>Cada gran viaje empieza con un buen plan. Invierte $200 pesos ahora y ahórrate 11 horas de búsqueda, la frustración del "¿a dónde vamos mañana?" y el arrepentimiento de haber pasado por alto el mejor lugar del destino.</p>
   <button class="btn-primary" onclick="scrollToForm()" style="margin:0 auto;max-width:420px">
-    Quiero mi itinerario personalizado
+    Crear mi itinerario ahora
     <span class="price-tag">$200 MXN</span>
   </button>
-  <p class="urgency-note">Pago único · Sin suscripción · Entrega en 24 horas · Garantía de satisfacción</p>
+  <p class="urgency-note">Pago único · Sin suscripción · Entrega en 24 horas</p>
 </section>
 
 <footer>
@@ -748,12 +912,100 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
 </div>
 
 <script>
+// FIX 6: localStorage state persistence
+const STORAGE_KEY = 'routewyze_form';
 let selectedBudget = 'medio ($500 – $1,500 MXN/día por persona)';
+
+function saveState() {
+  try {
+    const state = {
+      dest: document.getElementById('f_dest').value,
+      start: document.getElementById('f_start').value,
+      end: document.getElementById('f_end').value,
+      people: document.getElementById('f_people').value,
+      comp: document.getElementById('f_comp').value,
+      must: document.getElementById('f_must').value,
+      restrict: document.getElementById('f_restrict').value,
+      email: document.getElementById('f_email').value,
+      budget: selectedBudget,
+      styles: [...document.querySelectorAll('#stylePills .pill.sel')].map(p => p.textContent.trim()),
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch(e) {}
+}
+
+function restoreState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const s = JSON.parse(raw);
+    if (s.dest)     document.getElementById('f_dest').value = s.dest;
+    if (s.start)    document.getElementById('f_start').value = s.start;
+    if (s.end)      document.getElementById('f_end').value = s.end;
+    if (s.people)   document.getElementById('f_people').value = s.people;
+    if (s.comp)     document.getElementById('f_comp').value = s.comp;
+    if (s.must)     document.getElementById('f_must').value = s.must;
+    if (s.restrict) document.getElementById('f_restrict').value = s.restrict;
+    if (s.email)    document.getElementById('f_email').value = s.email;
+    if (s.budget) {
+      selectedBudget = s.budget;
+      document.querySelectorAll('.budget-opt').forEach(o => {
+        o.classList.toggle('sel', o.getAttribute('onclick').includes(s.budget));
+      });
+    }
+    if (s.styles && s.styles.length) {
+      document.querySelectorAll('#stylePills .pill').forEach(p => {
+        if (s.styles.some(st => st.trim() === p.textContent.trim())) p.classList.add('sel');
+      });
+    }
+  } catch(e) {}
+}
+
+// Auto-save on any input change
+document.addEventListener('input', saveState);
+document.addEventListener('change', saveState);
+
+// Restore on load
+window.addEventListener('DOMContentLoaded', restoreState);
 
 function scrollToForm() {
   document.getElementById('formulario').scrollIntoView({ behavior:'smooth' });
 }
 
+// FIX 3: Mobile menu
+function toggleMenu() {
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// FIX 2: Destination tab switcher
+function switchDestino(btn, dest) {
+  document.querySelectorAll('.output-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.output-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + dest).classList.add('active');
+}
+
+// Output section accordion
+function toggleDay(toggleEl) {
+  const day = toggleEl.closest('.fi-day');
+  const isOpen = day.classList.contains('open');
+  // Close all in same panel
+  toggleEl.closest('.full-itinerary').querySelectorAll('.fi-day').forEach(d => {
+    d.classList.remove('open');
+    d.querySelector('.fi-chevron').textContent = '▼';
+  });
+  if (!isOpen) {
+    day.classList.add('open');
+    toggleEl.querySelector('.fi-chevron').textContent = '▲';
+  }
+}
+
+// FIX 1: step counter corrected to 4
 function goStep(n) {
   if (n === 2) {
     if (!document.getElementById('f_dest').value.trim()) { hi('f_dest','Escribe tu destino'); return; }
@@ -777,6 +1029,7 @@ function goStep(n) {
   const fills = {1:25,2:50,3:75,4:100};
   document.getElementById('progressFill').style.width = fills[n]+'%';
   document.querySelector('.form-container').scrollIntoView({behavior:'smooth',block:'start'});
+  saveState();
 }
 
 function hi(id, msg) {
@@ -788,17 +1041,19 @@ function hi(id, msg) {
   setTimeout(()=>{ el.style.borderColor=''; el.placeholder=orig; }, 3000);
 }
 
-function togglePill(el) { el.classList.toggle('sel'); }
+function togglePill(el) { el.classList.toggle('sel'); saveState(); }
 
 function selectOne(el, groupId) {
   document.querySelectorAll('#'+groupId+' .pill').forEach(p => p.classList.remove('sel'));
   el.classList.add('sel');
+  saveState();
 }
 
 function selectBudget(el, val) {
   document.querySelectorAll('.budget-opt').forEach(o => o.classList.remove('sel'));
   el.classList.add('sel');
   selectedBudget = val;
+  saveState();
 }
 
 function buildSummary() {
@@ -823,7 +1078,8 @@ function buildSummary() {
 }
 
 function handlePayment() {
-  // Production: replace with Stripe Checkout redirect
+  // Clear saved state on successful payment
+  try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
   document.getElementById('successModal').classList.add('show');
 }
 
@@ -834,9 +1090,10 @@ function toggleFaq(el) {
   if (!open) item.classList.add('open');
 }
 
-// BEHAVIORAL: nav CTA evolves as user scrolls — shows price after anchoring is established
+// Nav CTA scroll evolution
 window.addEventListener('scroll', () => {
   const btn = document.getElementById('navCta');
+  if (!btn) return;
   if (window.scrollY > 600) {
     btn.textContent = 'Crear mi itinerario — $200 MXN';
     btn.style.background = 'var(--green)';
@@ -845,6 +1102,8 @@ window.addEventListener('scroll', () => {
     btn.style.background = '';
   }
 });
+
 </script>
+
 </body>
 </html>
