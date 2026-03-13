@@ -1159,18 +1159,24 @@ function buildSummary() {
 }
 
 function handlePayment() {
-  const email    = document.getElementById('f_email')?.value    || '';
-  const destino  = document.getElementById('f_dest')?.value     || '';
-  const start    = document.getElementById('f_start')?.value    || '';
-  const end      = document.getElementById('f_end')?.value      || '';
-  const personas = document.getElementById('f_people')?.value   || '';
-  const compania = document.getElementById('f_comp')?.value     || '';
-  const mustHave = document.getElementById('f_must')?.value     || '';
+  const email         = document.getElementById('f_email')?.value    || '';
+  const destino       = document.getElementById('f_dest')?.value     || '';
+  const start         = document.getElementById('f_start')?.value    || '';
+  const end           = document.getElementById('f_end')?.value      || '';
+  const personas      = document.getElementById('f_people')?.value   || '';
+  const compania      = document.getElementById('f_comp')?.value     || '';
+  const mustHave      = document.getElementById('f_must')?.value     || '';
   const restricciones = document.getElementById('f_restrict')?.value || '';
-  const estilos  = [...document.querySelectorAll('#stylePills .pill.sel')].map(p => p.textContent.trim()).join(' · ');
-  const ritmo    = document.querySelector('#pacePills .pill.sel')?.textContent.trim() || '';
+  const estilos       = [...document.querySelectorAll('#stylePills .pill.sel')].map(p => p.textContent.trim()).join(' · ');
+  const ritmo         = document.querySelector('#pacePills .pill.sel')?.textContent.trim() || '';
 
-  const payload = {
+  // Cambiar botón a estado de carga
+  const btn = document.querySelector('.btn-pay');
+  if (btn) { btn.textContent = '⏳ Enviando solicitud...'; btn.disabled = true; }
+
+  // Construir URL con parámetros GET para Google Apps Script
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxSHzYNz_zyqZnbQBXqPUITYvW3zdSi5UWNgKvtF3fVIjZbyu4bslW6LtaDXzpUSnYg/exec';
+  const params = new URLSearchParams({
     email, destino,
     fechaLlegada: start,
     fechaRegreso: end,
@@ -1178,24 +1184,16 @@ function handlePayment() {
     estilos, ritmo,
     presupuesto: selectedBudget,
     mustHave, restricciones
-  };
+  });
 
-  // Cambiar botón a estado de carga
-  const btn = document.querySelector('.btn-pay');
-  if (btn) { btn.textContent = '⏳ Enviando solicitud...'; btn.disabled = true; }
+  // Usar imagen invisible como hack para evitar CORS y no bloquear la navegación
+  const img = new Image();
+  img.src = SCRIPT_URL + '?' + params.toString();
 
-  // Enviar datos a Google Sheets
-  try {
-    navigator.sendBeacon(
-      'https://script.google.com/macros/s/AKfycbxSHzYNz_zyqZnbQBXqPUITYvW3zdSi5UWNgKvtF3fVIjZbyu4bslW6LtaDXzpUSnYg/exec',
-      new Blob([JSON.stringify(payload)], { type: 'application/json' })
-    );
-  } catch(e) {}
-
-  // Enviar a Mercado Pago con pequeño delay para que el beacon salga
+  // Redirigir a Mercado Pago después de 800ms
   setTimeout(() => {
     window.location.href = 'https://mpago.li/2fpLo15';
-  }, 600);
+  }, 800);
 }
 
 function toggleFaq(el) {
