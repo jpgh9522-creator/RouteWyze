@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ── SEO BÁSICO ── -->
-<title>RouteWyze — Itinerarios de Viaje Personalizados en 24 horas | $299 MXN</title>
-<meta name="description" content="Recibe tu itinerario de viaje 100% personalizado en menos de 24 horas por solo $299 MXN. Día a día, por zona, con horarios, restaurantes y tips exclusivos. Sin agencias, sin comisiones.">
-<meta name="keywords" content="itinerario de viaje personalizado, planear viaje México, consultor de viajes, itinerario por día, viaje barato, planificador de viajes, agencia de viajes online">
+<title>RouteWyze — Itinerario de Viaje Personalizado en 24h | $299 MXN</title>
+<meta name="description" content="Itinerario de viaje personalizado en 24 horas por $299 MXN. Plan día a día, por zonas, con horarios reales, restaurantes y tips exclusivos. Más de 127 viajeros. Sin agencias ni comisiones.">
+<meta name="keywords" content="itinerario de viaje personalizado, planear viaje, itinerario por día, viaje personalizado México, consultor de viajes online, planificador de viajes, itinerario Paris, itinerario Bali, itinerario Ciudad de Mexico, itinerario barato, agencia de viajes sin comisión">
 <meta name="author" content="RouteWyze">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.routewyze.com/">
@@ -15,8 +15,8 @@
 <!-- ── OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ── -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.routewyze.com/">
-<meta property="og:title" content="RouteWyze — Tu itinerario de viaje personalizado en 24 horas">
-<meta property="og:description" content="Dinos a dónde vas y cómo viajas. Te entregamos un plan día a día, por zona geográfica, con horarios, restaurantes y tips exclusivos. Solo $299 MXN.">
+<meta property="og:title" content="RouteWyze — Itinerario de viaje personalizado en 24 horas · $299 MXN">
+<meta property="og:description" content="Dinos a dónde vas y cómo viajas. En 24h recibes un plan día a día por zonas, con horarios reales, restaurantes y tips exclusivos. +127 viajeros. Solo $299 MXN.">
 <meta property="og:image" content="https://www.routewyze.com/og-image.jpg">
 <meta property="og:locale" content="es_MX">
 <meta property="og:site_name" content="RouteWyze">
@@ -53,8 +53,36 @@
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
-    "reviewCount": "2400"
+    "reviewCount": "127"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta el itinerario de viaje personalizado?",
+      "acceptedAnswer": { "@type": "Answer", "text": "$299 MXN por itinerario completo. Pago único, sin suscripciones ni cargos ocultos. IVA incluido." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En cuánto tiempo recibo mi itinerario?",
+      "acceptedAnswer": { "@type": "Answer", "text": "En menos de 24 horas hábiles a partir de confirmar tu pago." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Para qué destinos hacen itinerarios?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Hacemos itinerarios para cualquier destino del mundo: Europa, Asia, América Latina, Estados Unidos y más." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El itinerario viene en PDF?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí, recibes un PDF descargable con el plan día a día, organizado por zonas geográficas, con horarios, restaurantes, tips exclusivos y links directos." }
+    }
+  ]
 }
 </script>
 
@@ -86,64 +114,78 @@ body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--ink);
 nav {
   position:fixed; top:0; left:0; right:0; z-index:200;
   display:flex; align-items:center; justify-content:space-between;
-  padding:14px 48px; background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(16px); border-bottom:1px solid var(--border);
+  padding:14px 48px; background:rgba(10,10,15,0.97);
+  backdrop-filter:blur(20px); border-bottom:1px solid rgba(255,255,255,0.08);
 }
-.logo { font-family:'DM Serif Display',serif; font-size:21px; color:var(--ink); letter-spacing:-0.3px; text-decoration:none; display:flex; align-items:center; gap:8px; }
-.logo-dot { width:8px; height:8px; border-radius:50%; background:var(--blue-soft); flex-shrink:0; }
+.logo { font-family:'DM Serif Display',serif; font-size:28px; color:#fff; letter-spacing:-0.5px; text-decoration:none; display:flex; align-items:center; gap:10px; }
+.logo span.logo-route { color:#60a5fa; }
+.logo span.logo-wyze { color:#ffffff; }
+.logo-dot { width:9px; height:9px; border-radius:50%; background:#60a5fa; flex-shrink:0; box-shadow:0 0 16px rgba(96,165,250,0.9), 0 0 32px rgba(96,165,250,0.4); }
 .nav-right { display:flex; align-items:center; gap:24px; }
-.nav-right a { font-size:14px; font-weight:500; color:var(--mid); text-decoration:none; transition:color .2s; }
-.nav-right a:hover { color:var(--ink); }
-.btn-cta-sm { background:var(--blue-soft); color:#fff; border:none; padding:10px 20px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; transition:all .2s; font-family:'DM Sans',sans-serif; }
-.btn-cta-sm:hover { background:var(--blue); }
+.nav-right a { font-size:14px; font-weight:500; color:rgba(255,255,255,0.6); text-decoration:none; transition:color .2s; }
+.nav-right a:hover { color:#fff; }
+.btn-cta-sm { background:var(--blue-soft); color:#fff; border:none; padding:10px 22px; border-radius:8px; font-size:14px; font-weight:700; cursor:pointer; transition:all .2s; font-family:'DM Sans',sans-serif; box-shadow:0 0 20px rgba(37,99,235,0.4); }
+.btn-cta-sm:hover { background:var(--blue); transform:translateY(-1px); }
 
 /* FIX 3 — Mobile hamburger menu */
 .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:6px; cursor:pointer; }
-.hamburger span { display:block; width:22px; height:2px; background:var(--ink); border-radius:2px; transition:all .25s; }
+.hamburger span { display:block; width:22px; height:2px; background:#fff; border-radius:2px; transition:all .25s; }
 .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity:0; }
 .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-.mobile-menu { display:none; position:fixed; top:65px; left:0; right:0; z-index:199; background:rgba(255,255,255,0.98); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:20px 24px; flex-direction:column; gap:4px; }
+.mobile-menu { display:none; position:fixed; top:65px; left:0; right:0; z-index:199; background:rgba(10,10,15,0.98); backdrop-filter:blur(20px); border-bottom:1px solid rgba(255,255,255,0.08); padding:20px 24px; flex-direction:column; gap:4px; }
 .mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:16px; font-weight:500; color:var(--mid); text-decoration:none; padding:12px 0; border-bottom:1px solid var(--border); }
+.mobile-menu a { font-size:16px; font-weight:500; color:rgba(255,255,255,0.7); text-decoration:none; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.08); }
 .mobile-menu a:last-child { border:none; }
 .mobile-menu .btn-cta-mobile { margin-top:8px; background:var(--blue-soft); color:#fff; border:none; padding:14px; border-radius:10px; font-size:16px; font-weight:700; width:100%; font-family:'DM Sans',sans-serif; }
 
 /* ── ANCHOR BAR ── */
 .anchor-bar {
-  margin-top:65px; background:linear-gradient(90deg,#ecfdf5,#f0fdf4);
-  border-bottom:1px solid #a7f3d0; padding:10px 48px;
+  margin-top:65px; background:linear-gradient(90deg,#1e3a8a,#1d4ed8,#2563eb);
+  border-bottom:none; padding:10px 48px;
   display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap;
-  font-size:14px; color:#065f46; font-weight:500;
+  font-size:13px; color:rgba(255,255,255,0.9); font-weight:500;
 }
-.anchor-bar strong { color:var(--green); font-weight:700; }
-.anchor-badge { background:#fff; border:1px solid #6ee7b7; border-radius:20px; padding:3px 12px; font-size:12px; font-weight:700; color:var(--green); }
+.anchor-bar strong { color:#fff; font-weight:700; }
+.anchor-badge { background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.3); border-radius:20px; padding:3px 12px; font-size:12px; font-weight:700; color:#fff; }
 
 /* ── HERO ── */
 .hero {
-  padding:72px 48px 80px;
-  background: radial-gradient(ellipse 80% 60% at 65% 0%, #dbeafe 0%, transparent 60%),
-              radial-gradient(ellipse 50% 40% at 0% 80%, #e0e7ff 0%, transparent 60%), #f8fafc;
+  padding:90px 48px 100px;
+  background: radial-gradient(ellipse 80% 70% at 75% 10%, rgba(37,99,235,0.45) 0%, transparent 55%),
+              radial-gradient(ellipse 55% 50% at 5% 85%, rgba(96,165,250,0.18) 0%, transparent 55%),
+              radial-gradient(ellipse 45% 45% at 95% 85%, rgba(99,102,241,0.25) 0%, transparent 50%),
+              radial-gradient(ellipse 30% 30% at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 60%),
+              #080810;
   position:relative; overflow:hidden;
 }
-.hero-inner { max-width:1120px; margin:0 auto; display:grid; grid-template-columns:1.1fr 0.9fr; gap:72px; align-items:center; }
-.social-chip { display:inline-flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--border); border-radius:20px; padding:7px 16px; font-size:13px; font-weight:500; color:var(--mid); margin-bottom:16px; }
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+  background-size: 40px 40px;
+  pointer-events:none;
+}
+.hero-inner { max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1.15fr 0.85fr; gap:64px; align-items:center; }
+.social-chip { display:inline-flex; align-items:center; gap:10px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:20px; padding:7px 16px; font-size:13px; font-weight:500; color:rgba(255,255,255,0.8); margin-bottom:20px; backdrop-filter:blur(10px); }
 .avatars { display:flex; }
 .avatars span { width:24px; height:24px; border-radius:50%; border:1.5px solid #fff; background:linear-gradient(135deg,#bfdbfe,#c7d2fe); display:flex; align-items:center; justify-content:center; font-size:11px; margin-left:-6px; }
 .avatars span:first-child { margin-left:0; }
+.destinos-chip { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px; }
+.destinos-chip span { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:20px; padding:5px 12px; font-size:12px; font-weight:600; color:rgba(255,255,255,0.75); }
 
-h1 { font-family:'DM Serif Display',serif; font-size:clamp(36px,3.8vw,56px); line-height:1.08; letter-spacing:-1.5px; color:var(--ink); margin-bottom:10px; }
-h1 em { color:var(--blue-soft); font-style:normal; position:relative; }
-h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; height:3px; background:var(--blue-soft); opacity:0.2; border-radius:2px; }
-.hero-sub { font-size:18px; color:var(--mid); line-height:1.75; margin-bottom:16px; max-width:500px; }
+h1 { font-family:'DM Serif Display',serif; font-size:clamp(44px,5vw,72px); line-height:1.02; letter-spacing:-2.5px; color:#fff; margin-bottom:14px; }
+h1 em { color:#60a5fa; font-style:italic; position:relative; }
+h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; height:3px; background:#60a5fa; opacity:0.3; border-radius:2px; }
+.hero-sub { font-size:18px; color:rgba(255,255,255,0.65); line-height:1.75; margin-bottom:16px; max-width:500px; }
 .loss-frame { background:var(--amber-bg); border:1px solid #fde68a; border-radius:10px; padding:14px 18px; margin-bottom:32px; font-size:14px; color:var(--amber); line-height:1.65; max-width:500px; }
 .loss-frame strong { color:#92400e; }
 .hero-cta-block { display:flex; flex-direction:column; gap:12px; max-width:420px; }
-.btn-primary { background:var(--blue-soft); color:#fff; border:none; padding:18px 32px; border-radius:12px; font-size:17px; font-weight:700; cursor:pointer; transition:all .25s; font-family:'DM Sans',sans-serif; display:flex; align-items:center; justify-content:center; gap:10px; box-shadow:0 4px 20px rgba(37,99,235,0.3); }
-.btn-primary:hover { background:var(--blue); transform:translateY(-2px); box-shadow:0 8px 32px rgba(37,99,235,0.4); }
+.btn-primary { background:linear-gradient(135deg,#2563eb,#4f46e5); color:#fff; border:none; padding:20px 36px; border-radius:14px; font-size:18px; font-weight:700; cursor:pointer; transition:all .25s; font-family:'DM Sans',sans-serif; display:flex; align-items:center; justify-content:center; gap:12px; box-shadow:0 4px 32px rgba(37,99,235,0.5), 0 0 0 1px rgba(255,255,255,0.08); }
+.btn-primary:hover { background:linear-gradient(135deg,#1d4ed8,#4338ca); transform:translateY(-2px); box-shadow:0 8px 40px rgba(37,99,235,0.6); }
 .price-tag { background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:6px; font-size:14px; }
 .cta-sub { display:flex; gap:16px; flex-wrap:wrap; }
-.cta-sub span { font-size:12px; color:var(--mid); display:flex; align-items:center; gap:5px; }
+.cta-sub span { font-size:12px; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:5px; }
 .cta-sub span::before { content:'✓'; color:var(--green); font-weight:700; }
 
 /* Demo card */
@@ -163,7 +205,7 @@ h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; heigh
 /* ── VALUE ── */
 .value-section { background:#fff; padding:80px 48px; }
 .value-inner { max-width:1120px; margin:0 auto; }
-.value-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+.value-grid { display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:start; }
 .value-compare { background:var(--bg); border-radius:20px; padding:36px; }
 .compare-row { display:flex; align-items:center; justify-content:space-between; padding:14px 0; border-bottom:1px solid var(--border); }
 .compare-row:last-child { border:none; }
@@ -179,6 +221,20 @@ h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; heigh
 .vp-price sup { font-size:22px; vertical-align:top; margin-top:8px; font-family:'DM Sans',sans-serif; font-weight:600; }
 .vp-details strong { display:block; font-size:16px; font-weight:700; color:var(--ink); margin-bottom:4px; }
 .vp-details span { font-size:13px; color:var(--mid); line-height:1.6; }
+.value-features { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px; margin-bottom:28px; }
+.vf-item { display:flex; align-items:flex-start; gap:12px; background:var(--bg); border-radius:14px; padding:16px; border:1px solid var(--border); transition:box-shadow .2s; }
+.vf-item:hover { box-shadow:0 4px 16px rgba(0,0,0,0.06); }
+.vf-icon { font-size:26px; flex-shrink:0; line-height:1; }
+.vf-item strong { display:block; font-size:13px; font-weight:700; color:var(--ink); margin-bottom:2px; }
+.vf-item span { font-size:12px; color:var(--mid); line-height:1.4; }
+.btn-value-cta { background:linear-gradient(135deg,#2563eb,#4f46e5); color:#fff; border:none; padding:15px 28px; border-radius:12px; font-size:15px; font-weight:700; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .2s; box-shadow:0 4px 20px rgba(37,99,235,0.3); margin-top:24px; display:inline-block; }
+.btn-value-cta:hover { transform:translateY(-1px); box-shadow:0 6px 28px rgba(37,99,235,0.4); }
+.value-features-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.vf-card { background:var(--bg); border:1px solid var(--border); border-radius:16px; padding:22px 18px; display:flex; flex-direction:column; gap:6px; transition:box-shadow .2s,transform .2s; }
+.vf-card:hover { box-shadow:0 6px 24px rgba(0,0,0,0.07); transform:translateY(-2px); }
+.vf-big-icon { font-size:32px; line-height:1; margin-bottom:4px; }
+.vf-card strong { font-size:14px; font-weight:700; color:var(--ink); }
+.vf-card span { font-size:12px; color:var(--mid); line-height:1.4; }
 
 /* ── HOW IT WORKS ── */
 .section { padding:88px 48px; }
@@ -190,6 +246,7 @@ h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; heigh
 .step { background:#fff; border:1px solid var(--border); border-radius:18px; padding:32px 28px; transition:box-shadow .2s; }
 .step:hover { box-shadow:0 8px 32px rgba(0,0,0,0.07); }
 .step-num { width:44px; height:44px; border-radius:12px; background:var(--blue-soft); color:#fff; font-size:18px; font-weight:700; display:flex; align-items:center; justify-content:center; margin-bottom:20px; font-family:'DM Serif Display',serif; }
+.step-emoji { font-size:42px; margin-bottom:18px; line-height:1; }
 .step h3 { font-size:18px; font-weight:700; margin-bottom:10px; letter-spacing:-0.2px; }
 .step p { font-size:14px; color:var(--mid); line-height:1.7; }
 .step-badge { display:inline-block; margin-top:14px; font-size:11px; font-weight:700; color:var(--blue-soft); background:var(--blue-bg); padding:4px 10px; border-radius:20px; }
@@ -349,6 +406,8 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
   .hero { padding:56px 24px 64px; }
   .output-panel.active { grid-template-columns:1fr; }
   .output-stats { flex-direction:row; flex-wrap:wrap; }
+  .value-features-grid { grid-template-columns:repeat(2,1fr); }
+  .value-grid { grid-template-columns:1fr; gap:36px; }
   .stat-card { flex:1; min-width:240px; }
 }
 </style>
@@ -357,10 +416,11 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
 
 <!-- NAV -->
 <nav>
-  <a class="logo" href="#"><span class="logo-dot"></span>RouteWyze</a>
+  <a class="logo" href="#"><span class="logo-dot"></span><span class="logo-route">Route</span><span class="logo-wyze">Wyze</span></a>
   <div class="nav-right">
     <a href="#como-funciona">Cómo funciona</a>
     <a href="#ejemplo">Ver ejemplo</a>
+    <a href="mailto:hola@routewyze.com" style="color:rgba(255,255,255,0.5);font-size:13px">hola@routewyze.com</a>
     <button class="btn-cta-sm" id="navCta" onclick="scrollToForm()">Quiero mi itinerario</button>
   </div>
   <!-- FIX 3: hamburger for mobile -->
@@ -379,7 +439,7 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
 
 <!-- ANCHOR BAR -->
 <div class="anchor-bar">
-  Itinerario personalizado · Entrega en 24 horas · <strong>$299 MXN</strong> <span style="font-size:12px;opacity:0.8">(IVA incluido)</span>
+  🌍 Itinerario personalizado · ⚡ Entrega en 24 horas · <strong>$299 MXN</strong> <span style="font-size:12px;opacity:0.8">(IVA incluido)</span>
   <span class="anchor-badge">✓ Pago único, sin suscripción</span>
 </div>
 
@@ -389,14 +449,13 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
     <div>
       <div class="social-chip">
         <div class="avatars"><span>🧳</span><span>✈️</span><span>🌍</span><span>🗺️</span></div>
-        +2,400 viajeros ya planificaron con nosotros
+        +127 viajeros ya planificaron con nosotros
       </div>
-
       <h1>Tu próximo viaje,<br>planeado por <em>expertos</em><br>en 24 horas</h1>
 
       <p class="hero-sub">No más horas perdidas en blogs, grupos de Facebook y pestañas abiertas. Recibe un itinerario día a día construido exactamente para ti.</p>
 
-      <p style="font-size:15px;color:var(--mid);line-height:1.7;margin-bottom:28px;max-width:480px">El viajero promedio invierte <strong style="color:var(--ink)">11 horas</strong> planificando un viaje. Nosotros lo resolvemos en 24 horas, por $299 MXN.</p>
+      <p style="font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:28px;max-width:480px">El viajero promedio invierte <strong style="color:#fff">11 horas</strong> planificando un viaje. Nosotros lo resolvemos en 24 horas, por $299 MXN.</p>
 
       <div class="hero-cta-block">
         <!-- FIX 9: CTA activo, no pasivo -->
@@ -428,40 +487,6 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
   </div>
 </section>
 
-<!-- VALUE -->
-<section class="value-section" id="valor">
-  <div class="value-inner">
-    <div class="value-grid">
-      <div class="value-copy">
-        <p class="section-label">Una decisión fácil</p>
-        <h2>Al precio de una entrada al cine.<br>Con el valor de un experto.</h2>
-        <p>Un buen consultor de viajes cobra entre $1,500 y $4,000 pesos por armar tu itinerario. Y puede tardar varios días. Nosotros lo hacemos por $299 MXN y lo tienes en 24 horas.</p>
-        <p>No es un PDF genérico. Es un plan construido desde tu perfil: día a día, por zona, con horarios reales, restaurantes específicos y tips que solo saben los que conocen el destino.</p>
-        <div class="value-price-block">
-          <div class="vp-price"><sup>$</sup>299</div>
-          <div class="vp-details">
-            <strong>Por itinerario completo</strong>
-            <span>Pago único · Sin suscripción<br>Un solo cobro · IVA incluido</span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="value-compare">
-          <div style="font-size:12px;font-weight:700;color:var(--mid);letter-spacing:1px;text-transform:uppercase;margin-bottom:20px">¿Cuánto cuesta planear tu viaje?</div>
-          <div class="compare-row"><span class="compare-label">Consultor de viajes</span><span class="compare-val hi">$1,500 – $4,000 MXN</span></div>
-          <div class="compare-row"><span class="compare-label">Agencia de viajes</span><span class="compare-val hi">Comisiones ocultas</span></div>
-          <div class="compare-row"><span class="compare-label">Hacerlo tú mismo</span><span class="compare-val hi">11 horas de búsqueda</span></div>
-          <div class="compare-row"><span class="compare-label">Guía de viaje (libro)</span><span class="compare-val strike">Genérico, no es tuyo</span></div>
-          <div class="compare-row" style="padding-top:20px">
-            <span style="font-size:15px;font-weight:700;color:var(--ink)">✦ RouteWyze</span>
-            <span class="compare-val lo">$299 MXN</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- HOW IT WORKS -->
 <section class="section" id="como-funciona" style="background:var(--bg)">
   <div class="section-inner">
@@ -470,22 +495,217 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
     <p class="section-sub">Sin agencias. Sin planes genéricos. Solo tu viaje, construido desde tu perfil de viajero.</p>
     <div class="steps">
       <div class="step">
-        <div class="step-num">1</div>
+        <div class="step-emoji">📋</div>
         <h3>Nos cuentas tu viaje</h3>
         <p>Completas nuestro formulario de perfil: destino, fechas, estilo, presupuesto y lo que no puede faltar en tu viaje. Son 3 pasos rápidos.</p>
-        <span class="step-badge">~5 minutos</span>
+        <span class="step-badge">⏱ ~5 minutos</span>
       </div>
       <div class="step">
-        <div class="step-num">2</div>
+        <div class="step-emoji">💳</div>
         <h3>Activas con tu pago</h3>
         <p>Pago único de $299 MXN. Sin suscripciones, sin cargos ocultos. Tu pago activa la creación de tu itinerario personalizado.</p>
-        <span class="step-badge">100% seguro</span>
+        <span class="step-badge">🔒 100% seguro</span>
       </div>
       <div class="step">
-        <div class="step-num">3</div>
+        <div class="step-emoji">✈️</div>
         <h3>Recibes y te vas a viajar</h3>
         <p>Tu plan día a día, por zona geográfica, con horarios, restaurantes, tips exclusivos y links directos para hacer tus propias reservas.</p>
-        <span class="step-badge">PDF descargable</span>
+        <span class="step-badge">📄 PDF descargable</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="formulario">
+  <div class="section-inner">
+    <div style="text-align:center;max-width:600px;margin:0 auto 48px">
+      <p class="section-label" style="text-align:center">Tu perfil de viajero</p>
+      <h2 class="section-title">Cuéntanos cómo eres.<br>Haremos el resto.</h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Mientras más nos cuentes, más preciso será tu itinerario. Son 4 pasos rápidos.</p>
+    </div>
+    <div class="form-container">
+      <div class="form-header">
+        <h3>Perfil de viajero</h3>
+        <p>Esta información nos permite construir un plan exactamente para ti. <strong style="color:#4ade80">⚡ Capacidad limitada — respondemos solicitudes en orden de llegada.</strong></p>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <!-- FIX 1: 4 steps, honest count -->
+        <div class="progress-steps">
+          <span class="ps active" id="ps1">Tu viaje</span>
+          <span class="ps" id="ps2">Tu estilo</span>
+          <span class="ps" id="ps3">Detalles</span>
+          <span class="ps" id="ps4">Pago</span>
+        </div>
+      </div>
+
+      <div class="form-body">
+
+        <!-- STEP 1 -->
+        <div class="step-panel active" id="panel1">
+          <!-- FIX 1: Correct step count -->
+          <p class="step-label">Paso 1 de 4</p>
+          <h3 class="step-question">¿A dónde y cuándo viajan?</h3>
+          <p class="step-hint">Puedes escribir ciudad, país, región o varios destinos. Sé tan específico como quieras.</p>
+          <div class="field-group">
+            <label>Destino</label>
+            <input type="text" id="f_dest" placeholder="Ej. Bangkok · Italia del Norte · Costa Rica · Europa en tren" />
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Fecha de llegada</label>
+              <input type="date" id="f_start" />
+            </div>
+            <div class="field-group">
+              <label>Fecha de regreso</label>
+              <input type="date" id="f_end" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Número de personas</label>
+              <input type="number" id="f_people" placeholder="Ej. 2" min="1" max="30" />
+            </div>
+            <div class="field-group">
+              <label>¿Con quién viajan?</label>
+              <select id="f_comp">
+                <option value="">Selecciona...</option>
+                <option>Solo/a</option>
+                <option>En pareja</option>
+                <option>Con familia (con niños)</option>
+                <option>Con familia (adultos)</option>
+                <option>Con amigos</option>
+                <option>Grupo grande (+8 personas)</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row" style="margin-top:8px">
+            <div class="field-group">
+              <label>Tu correo electrónico</label>
+              <input type="email" id="f_email" placeholder="Te enviaremos tu itinerario aquí" />
+            </div>
+            <div class="field-group">
+              <label>WhatsApp / Teléfono</label>
+              <input type="tel" id="f_phone" placeholder="Ej. 55 1234 5678" />
+            </div>
+          </div>
+          <div class="form-nav">
+            <span class="step-counter">1 de 4</span>
+            <button class="btn-next" onclick="goStep(2)">Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step-panel" id="panel2">
+          <p class="step-label">Paso 2 de 4</p>
+          <h3 class="step-question">¿Cómo viajas?</h3>
+          <p class="step-hint">Selecciona todos los estilos que te representen. Puedes elegir varios — no te limites.</p>
+          <div class="field-group">
+            <label>Estilo de viaje (elige todos los que apliquen)</label>
+            <div class="pill-group" id="stylePills">
+              <button class="pill" onclick="togglePill(this)"><span>🏔️</span> Aventura</button>
+              <button class="pill" onclick="togglePill(this)"><span>🍜</span> Foodie</button>
+              <button class="pill" onclick="togglePill(this)"><span>🏛️</span> Cultural</button>
+              <button class="pill" onclick="togglePill(this)"><span>💎</span> Lujo</button>
+              <button class="pill" onclick="togglePill(this)"><span>🌊</span> Relax</button>
+              <button class="pill" onclick="togglePill(this)"><span>📸</span> Fotográfico</button>
+              <button class="pill" onclick="togglePill(this)"><span>👨‍👩‍👧</span> Familia</button>
+              <button class="pill" onclick="togglePill(this)"><span>🌙</span> Vida nocturna</button>
+              <button class="pill" onclick="togglePill(this)"><span>🎒</span> Mochilero</button>
+              <button class="pill" onclick="togglePill(this)"><span>🛍️</span> Compras</button>
+              <button class="pill" onclick="togglePill(this)"><span>🧘</span> Bienestar</button>
+              <button class="pill" onclick="togglePill(this)"><span>💑</span> Romántico</button>
+            </div>
+          </div>
+          <div class="field-group" style="margin-top:24px">
+            <label>Ritmo de viaje</label>
+            <div class="pill-group" id="pacePills">
+              <button class="pill" onclick="selectOne(this,'pacePills')">🐢 Tranquilo — pocas actividades, tiempo libre</button>
+              <button class="pill sel" onclick="selectOne(this,'pacePills')">⚖️ Equilibrado — activo pero sin agotarse</button>
+              <button class="pill" onclick="selectOne(this,'pacePills')">🚀 Intenso — aprovechar cada hora del día</button>
+            </div>
+          </div>
+          <div class="field-group" style="margin-top:24px">
+            <label>Presupuesto por persona por día (en pesos mexicanos)</label>
+            <div class="budget-options">
+              <div class="budget-opt" onclick="selectBudget(this,'económico (menos de $500 MXN/día por persona)')">
+                <div class="bo-icon">🎒</div>
+                <div class="bo-level">Económico</div>
+                <div class="bo-range">Menos de $500 MXN / día</div>
+              </div>
+              <div class="budget-opt sel" onclick="selectBudget(this,'medio ($500 – $1,500 MXN/día por persona)')">
+                <div class="bo-icon">🌍</div>
+                <div class="bo-level">Medio</div>
+                <div class="bo-range">$500 – $1,500 MXN / día</div>
+              </div>
+              <div class="budget-opt" onclick="selectBudget(this,'premium ($1,500 – $4,000 MXN/día por persona)')">
+                <div class="bo-icon">✨</div>
+                <div class="bo-level">Premium</div>
+                <div class="bo-range">$1,500 – $4,000 MXN / día</div>
+              </div>
+              <div class="budget-opt" onclick="selectBudget(this,'lujo (más de $4,000 MXN/día por persona)')">
+                <div class="bo-icon">💎</div>
+                <div class="bo-level">Lujo</div>
+                <div class="bo-range">Más de $4,000 MXN / día</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-nav">
+            <button class="btn-back" onclick="goStep(1)">← Atrás</button>
+            <span class="step-counter">2 de 4</span>
+            <button class="btn-next" onclick="goStep(3)">Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step-panel" id="panel3">
+          <p class="step-label">Paso 3 de 4</p>
+          <h3 class="step-question">Los detalles que hacen la diferencia</h3>
+          <p class="step-hint">Aquí es donde tu itinerario deja de ser genérico y se vuelve completamente tuyo.</p>
+          <div class="field-group">
+            <label>¿Qué experiencia NO puede faltar en este viaje?</label>
+            <textarea id="f_must" placeholder="Ej. Quiero probar la auténtica carbonara en Roma · Ver el amanecer en un templo budista · Ir a un mercado local de madrugada · Hacer una caminata de más de 15 km..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>¿Tienes restricciones o necesidades especiales?</label>
+            <textarea id="f_restrict" placeholder="Ej. Soy vegetariana · Alérgico al gluten · Viajamos con bebé de 8 meses · Movilidad reducida · No puedo caminar más de 3 km por día · Miedo a las alturas..." style="min-height:70px"></textarea>
+          </div>
+          <div class="form-nav">
+            <button class="btn-back" onclick="goStep(2)">← Atrás</button>
+            <span class="step-counter">3 de 4</span>
+            <button class="btn-next" onclick="goStep(4)" style="background:var(--green);box-shadow:0 4px 16px rgba(5,150,105,0.3)">Continuar al pago →</button>
+          </div>
+        </div>
+
+        <!-- STEP 4: PAYMENT -->
+        <div class="step-panel" id="panel4">
+          <p class="step-label">Paso 4 de 4 — Confirma tu solicitud</p>
+          <h3 class="step-question">Revisa tu información y procede al pago</h3>
+          <p class="step-hint">Revisa que todo esté correcto. Al continuar, te llevaremos a la pantalla de pago. Tu itinerario llega en menos de 24 horas por correo y WhatsApp.</p>
+
+          <div class="pay-summary">
+            <div class="pay-summary-title">Resumen de tu viaje</div>
+            <div class="pay-row"><span>Destino</span><span id="sum_dest">—</span></div>
+            <div class="pay-row"><span>Fechas</span><span id="sum_dates">—</span></div>
+            <div class="pay-row"><span>Personas</span><span id="sum_people">—</span></div>
+            <div class="pay-row"><span>Estilo de viaje</span><span id="sum_style">—</span></div>
+            <div class="pay-row"><span>Presupuesto</span><span id="sum_budget">—</span></div>
+            <div class="pay-row"><span>WhatsApp / Teléfono</span><span id="sum_phone">—</span></div>
+          </div>
+
+          <div class="pay-trust">
+            <div class="trust-item"><div class="ti-icon">🎯</div><p>100% personalizado para tu perfil</p></div>
+            <div class="trust-item"><div class="ti-icon">⚡</div><p>Itinerario en menos de 24 horas</p></div>
+            <div class="trust-item"><div class="ti-icon">📲</div><p>Te lo enviamos por correo y WhatsApp</p></div>
+          </div>
+
+          <button class="btn-pay" onclick="handlePayment()">
+            Continuar al pago — $299 MXN →
+          </button>
+          <p class="pay-legal">Al continuar serás redirigido a la pantalla de pago seguro · $299 MXN · Tu itinerario llega en menos de 24 horas por correo y WhatsApp.</p>
+          <div style="margin-top:20px">
+            <button class="btn-back" onclick="goStep(3)">← Modificar información</button>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -700,189 +920,24 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
 </section>
 
 <!-- PROFILE FORM — FIX 3 (steps 1 de 4), FIX 6 (localStorage), FIX 8 (modal instead of scroll) -->
-<section class="form-section" id="formulario">
-  <div class="section-inner">
-    <div style="text-align:center;max-width:600px;margin:0 auto 48px">
-      <p class="section-label" style="text-align:center">Tu perfil de viajero</p>
-      <h2 class="section-title">Cuéntanos cómo eres.<br>Haremos el resto.</h2>
-      <p class="section-sub" style="margin:0 auto;text-align:center">Mientras más nos cuentes, más preciso será tu itinerario. Son 4 pasos rápidos.</p>
-    </div>
-    <div class="form-container">
-      <div class="form-header">
-        <h3>Perfil de viajero</h3>
-        <p>Esta información nos permite construir un plan que se adapte exactamente a ti, no a un viajero genérico.</p>
-        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-        <!-- FIX 1: 4 steps, honest count -->
-        <div class="progress-steps">
-          <span class="ps active" id="ps1">Tu viaje</span>
-          <span class="ps" id="ps2">Tu estilo</span>
-          <span class="ps" id="ps3">Detalles</span>
-          <span class="ps" id="ps4">Pago</span>
-        </div>
+
+<!-- VALUE -->
+<section class="value-section" id="valor">
+  <div class="value-inner">
+    <div class="value-grid">
+      <div class="value-copy">
+        <p class="section-label">Una decisión fácil</p>
+        <h2>Al precio de una entrada al cine.<br>Con el valor de un experto.</h2>
+        <p>Consultores de viajes cobran entre $1,500 y $4,000 MXN y tardan días. Nosotros lo hacemos por <strong>$299 MXN en 24 horas</strong> — construido exactamente para ti.</p>
+        <button class="btn-value-cta" onclick="scrollToForm()">Quiero mi itinerario — $299 MXN</button>
       </div>
-
-      <div class="form-body">
-
-        <!-- STEP 1 -->
-        <div class="step-panel active" id="panel1">
-          <!-- FIX 1: Correct step count -->
-          <p class="step-label">Paso 1 de 4</p>
-          <h3 class="step-question">¿A dónde y cuándo viajan?</h3>
-          <p class="step-hint">Puedes escribir ciudad, país, región o varios destinos. Sé tan específico como quieras.</p>
-          <div class="field-group">
-            <label>Destino</label>
-            <input type="text" id="f_dest" placeholder="Ej. Bangkok · Italia del Norte · Costa Rica · Europa en tren" />
-          </div>
-          <div class="field-row">
-            <div class="field-group">
-              <label>Fecha de llegada</label>
-              <input type="date" id="f_start" />
-            </div>
-            <div class="field-group">
-              <label>Fecha de regreso</label>
-              <input type="date" id="f_end" />
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="field-group">
-              <label>Número de personas</label>
-              <input type="number" id="f_people" placeholder="Ej. 2" min="1" max="30" />
-            </div>
-            <div class="field-group">
-              <label>¿Con quién viajan?</label>
-              <select id="f_comp">
-                <option value="">Selecciona...</option>
-                <option>Solo/a</option>
-                <option>En pareja</option>
-                <option>Con familia (con niños)</option>
-                <option>Con familia (adultos)</option>
-                <option>Con amigos</option>
-                <option>Grupo grande (+8 personas)</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-nav">
-            <span class="step-counter">1 de 4</span>
-            <button class="btn-next" onclick="goStep(2)">Siguiente →</button>
-          </div>
-        </div>
-
-        <!-- STEP 2 -->
-        <div class="step-panel" id="panel2">
-          <p class="step-label">Paso 2 de 4</p>
-          <h3 class="step-question">¿Cómo viajas?</h3>
-          <p class="step-hint">Selecciona todos los estilos que te representen. Puedes elegir varios — no te limites.</p>
-          <div class="field-group">
-            <label>Estilo de viaje (elige todos los que apliquen)</label>
-            <div class="pill-group" id="stylePills">
-              <button class="pill" onclick="togglePill(this)"><span>🏔️</span> Aventura</button>
-              <button class="pill" onclick="togglePill(this)"><span>🍜</span> Foodie</button>
-              <button class="pill" onclick="togglePill(this)"><span>🏛️</span> Cultural</button>
-              <button class="pill" onclick="togglePill(this)"><span>💎</span> Lujo</button>
-              <button class="pill" onclick="togglePill(this)"><span>🌊</span> Relax</button>
-              <button class="pill" onclick="togglePill(this)"><span>📸</span> Fotográfico</button>
-              <button class="pill" onclick="togglePill(this)"><span>👨‍👩‍👧</span> Familia</button>
-              <button class="pill" onclick="togglePill(this)"><span>🌙</span> Vida nocturna</button>
-              <button class="pill" onclick="togglePill(this)"><span>🎒</span> Mochilero</button>
-              <button class="pill" onclick="togglePill(this)"><span>🛍️</span> Compras</button>
-              <button class="pill" onclick="togglePill(this)"><span>🧘</span> Bienestar</button>
-              <button class="pill" onclick="togglePill(this)"><span>💑</span> Romántico</button>
-            </div>
-          </div>
-          <div class="field-group" style="margin-top:24px">
-            <label>Ritmo de viaje</label>
-            <div class="pill-group" id="pacePills">
-              <button class="pill" onclick="selectOne(this,'pacePills')">🐢 Tranquilo — pocas actividades, tiempo libre</button>
-              <button class="pill sel" onclick="selectOne(this,'pacePills')">⚖️ Equilibrado — activo pero sin agotarse</button>
-              <button class="pill" onclick="selectOne(this,'pacePills')">🚀 Intenso — aprovechar cada hora del día</button>
-            </div>
-          </div>
-          <div class="field-group" style="margin-top:24px">
-            <label>Presupuesto por persona por día (en pesos mexicanos)</label>
-            <div class="budget-options">
-              <div class="budget-opt" onclick="selectBudget(this,'económico (menos de $500 MXN/día por persona)')">
-                <div class="bo-icon">🎒</div>
-                <div class="bo-level">Económico</div>
-                <div class="bo-range">Menos de $500 MXN / día</div>
-              </div>
-              <div class="budget-opt sel" onclick="selectBudget(this,'medio ($500 – $1,500 MXN/día por persona)')">
-                <div class="bo-icon">🌍</div>
-                <div class="bo-level">Medio</div>
-                <div class="bo-range">$500 – $1,500 MXN / día</div>
-              </div>
-              <div class="budget-opt" onclick="selectBudget(this,'premium ($1,500 – $4,000 MXN/día por persona)')">
-                <div class="bo-icon">✨</div>
-                <div class="bo-level">Premium</div>
-                <div class="bo-range">$1,500 – $4,000 MXN / día</div>
-              </div>
-              <div class="budget-opt" onclick="selectBudget(this,'lujo (más de $4,000 MXN/día por persona)')">
-                <div class="bo-icon">💎</div>
-                <div class="bo-level">Lujo</div>
-                <div class="bo-range">Más de $4,000 MXN / día</div>
-              </div>
-            </div>
-          </div>
-          <div class="form-nav">
-            <button class="btn-back" onclick="goStep(1)">← Atrás</button>
-            <span class="step-counter">2 de 4</span>
-            <button class="btn-next" onclick="goStep(3)">Siguiente →</button>
-          </div>
-        </div>
-
-        <!-- STEP 3 -->
-        <div class="step-panel" id="panel3">
-          <p class="step-label">Paso 3 de 4</p>
-          <h3 class="step-question">Los detalles que hacen la diferencia</h3>
-          <p class="step-hint">Aquí es donde tu itinerario deja de ser genérico y se vuelve completamente tuyo.</p>
-          <div class="field-group">
-            <label>¿Qué experiencia NO puede faltar en este viaje?</label>
-            <textarea id="f_must" placeholder="Ej. Quiero probar la auténtica carbonara en Roma · Ver el amanecer en un templo budista · Ir a un mercado local de madrugada · Hacer una caminata de más de 15 km..."></textarea>
-          </div>
-          <div class="field-group">
-            <label>¿Tienes restricciones o necesidades especiales?</label>
-            <textarea id="f_restrict" placeholder="Ej. Soy vegetariana · Alérgico al gluten · Viajamos con bebé de 8 meses · Movilidad reducida · No puedo caminar más de 3 km por día · Miedo a las alturas..." style="min-height:70px"></textarea>
-          </div>
-          <div class="field-group">
-            <label>Tu correo electrónico</label>
-            <input type="email" id="f_email" placeholder="Te enviaremos tu itinerario aquí" />
-          </div>
-          <div class="form-nav">
-            <button class="btn-back" onclick="goStep(2)">← Atrás</button>
-            <span class="step-counter">3 de 4</span>
-            <button class="btn-next" onclick="goStep(4)" style="background:var(--green);box-shadow:0 4px 16px rgba(5,150,105,0.3)">Continuar al pago →</button>
-          </div>
-        </div>
-
-        <!-- STEP 4: PAYMENT -->
-        <div class="step-panel" id="panel4">
-          <p class="step-label">Paso 4 de 4 — Confirma y paga</p>
-          <h3 class="step-question">Estás a un paso de tu itinerario</h3>
-          <p class="step-hint">Revisa tu información. En cuanto recibamos tu solicitud nos ponemos en contacto contigo.</p>
-
-          <div class="pay-summary">
-            <div class="pay-summary-title">Resumen de tu viaje</div>
-            <div class="pay-row"><span>Destino</span><span id="sum_dest">—</span></div>
-            <div class="pay-row"><span>Fechas</span><span id="sum_dates">—</span></div>
-            <div class="pay-row"><span>Personas</span><span id="sum_people">—</span></div>
-            <div class="pay-row"><span>Estilo de viaje</span><span id="sum_style">—</span></div>
-            <div class="pay-row"><span>Presupuesto</span><span id="sum_budget">—</span></div>
-          </div>
-
-          <div class="pay-trust">
-            <div class="trust-item"><div class="ti-icon">✈️</div><p>Itinerario 100% personalizado para ti</p></div>
-            <div class="trust-item"><div class="ti-icon">⏱️</div><p>Te contactamos en menos de 2 horas</p></div>
-            <div class="trust-item"><div class="ti-icon">✉️</div><p>Recibes tu PDF en máximo 24 horas</p></div>
-          </div>
-
-          <button class="btn-pay" onclick="handlePayment()">
-            Enviar mi solicitud →
-          </button>
-          <p class="pay-legal">Al enviar tu solicitud, un especialista de RouteWyze te contactará por WhatsApp y correo para coordinar tu pago de <strong>$299 MXN</strong> y comenzar a trabajar en tu itinerario.</p>
-          <div style="margin-top:20px">
-            <button class="btn-back" onclick="goStep(3)">← Modificar información</button>
-          </div>
-        </div>
-
+      <div class="value-features-grid">
+        <div class="vf-card"><span class="vf-big-icon">⚡</span><strong>Entrega en 24 horas</strong><span>Máximo un día hábil</span></div>
+        <div class="vf-card"><span class="vf-big-icon">🎯</span><strong>100% personalizado</strong><span>Para tu perfil de viajero</span></div>
+        <div class="vf-card"><span class="vf-big-icon">📍</span><strong>Por zonas geográficas</strong><span>Sin perder tiempo en traslados</span></div>
+        <div class="vf-card"><span class="vf-big-icon">💬</span><strong>Tips exclusivos</strong><span>Lo que no está en ningún blog</span></div>
+        <div class="vf-card"><span class="vf-big-icon">📄</span><strong>PDF descargable</strong><span>Lo tienes para siempre</span></div>
+        <div class="vf-card"><span class="vf-big-icon">🔒</span><strong>Pago único</strong><span>Sin suscripciones ocultas</span></div>
       </div>
     </div>
   </div>
@@ -914,7 +969,7 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si no estoy satisfecho con mi itinerario? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Si al recibir tu itinerario sientes que no se adapta bien a tu perfil o que la calidad no es lo que esperabas, te devolvemos tu dinero sin preguntas. Llevamos más de 2,400 itinerarios entregados y nuestra satisfacción supera el 97%. Tu tranquilidad importa más que una sola transacción.</div>
+        <div class="faq-a">Si al recibir tu itinerario sientes que no se adapta bien a tu perfil o que la calidad no es lo que esperabas, te devolvemos tu dinero sin preguntas. Llevamos más de 120 itinerarios entregados y nuestra satisfacción supera el 97%. Tu tranquilidad importa más que una sola transacción.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">¿Puedo pedir ajustes a mi itinerario? <span class="faq-icon">+</span></div>
@@ -936,58 +991,57 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
     Crear mi itinerario ahora
     <span class="price-tag">$299 MXN</span>
   </button>
-  <p class="urgency-note">Pago único · Sin suscripción · Entrega en 24 horas</p>
+  <p class="urgency-note">Pago único · Sin suscripción · Itinerario en menos de 24 horas</p>
 </section>
 
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/521XXXXXXXXXX?text=Hola!%20Quiero%20información%20sobre%20mi%20itinerario%20de%20viaje" 
+   target="_blank" id="waFloat" 
+   style="position:fixed;bottom:24px;right:24px;z-index:300;background:#25d366;color:#fff;border-radius:50px;padding:12px 20px;font-size:14px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:all .2s;font-family:'DM Sans',sans-serif;"
+   onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(37,211,102,0.5)'"
+   onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(37,211,102,0.4)'">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  ¿Tienes dudas?
+</a>
+
 <footer>
-  <a class="logo" href="#"><span class="logo-dot"></span>RouteWyze</a>
-  <p>Consultoría de itinerarios personalizados · No somos una agencia de viajes.</p>
+  <a class="logo" href="#"><span class="logo-dot"></span><span class="logo-route">Route</span><span class="logo-wyze">Wyze</span></a>
+  <div style="text-align:center">
+    <p style="margin-bottom:8px">Consultoría de itinerarios personalizados · No somos una agencia de viajes.</p>
+    <p style="margin-bottom:4px"><a href="mailto:hola@routewyze.com" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px">✉️ hola@routewyze.com</a></p>
+  </div>
   <p>© 2026 RouteWyze</p>
 </footer>
 
 <!-- SUCCESS MODAL -->
 <div class="modal-overlay" id="successModal">
   <div class="modal" style="max-width:560px;padding:48px 40px">
-    <div class="modal-icon">🎉</div>
-    <h3 style="margin-bottom:8px">¡Solicitud recibida!</h3>
-    <p style="font-size:15px;color:var(--mid);margin-bottom:32px">Ya tenemos tu perfil. Un especialista de RouteWyze te contactará pronto para coordinar tu pago y empezar con tu itinerario.</p>
+    <div class="modal-icon">✈️</div>
+    <h3 style="margin-bottom:8px">¡Redirigiendo al pago!</h3>
+    <p style="font-size:15px;color:var(--mid);margin-bottom:32px">Tu solicitud fue registrada. En un momento te llevamos a la pantalla de pago seguro.</p>
 
     <div style="background:var(--bg);border-radius:14px;padding:24px;text-align:left;margin-bottom:24px">
-      <div style="font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mid);margin-bottom:16px">¿Qué sigue?</div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mid);margin-bottom:16px">¿Qué pasa después del pago?</div>
 
       <div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:16px">
-        <div style="width:28px;height:28px;border-radius:50%;background:var(--blue-soft);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
         <div>
-          <div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px">Te contactamos por WhatsApp y correo</div>
-          <div style="font-size:13px;color:var(--mid)">En menos de 2 horas recibirás los datos para realizar tu pago de <strong>$299 MXN</strong>.</div>
-        </div>
-      </div>
-
-      <div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:16px">
-        <div style="width:28px;height:28px;border-radius:50%;background:var(--blue-soft);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
-        <div>
-          <div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px">Realizas tu transferencia</div>
-          <div style="font-size:13px;color:var(--mid)">Pago único por transferencia o depósito bancario. Sin cargos ocultos.</div>
+          <div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px">Confirmas tu pago de $299 MXN</div>
+          <div style="font-size:13px;color:var(--mid)">Pago único y seguro. Sin suscripciones ni cargos ocultos.</div>
         </div>
       </div>
 
       <div style="display:flex;gap:14px;align-items:flex-start">
-        <div style="width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--blue-soft);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
         <div>
-          <div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px">Recibes tu itinerario en 24 horas</div>
-          <div style="font-size:13px;color:var(--mid)">PDF completo en tu correo, listo para guardar en tu celular o imprimir.</div>
+          <div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px">Recibes tu itinerario en menos de 24 horas</div>
+          <div style="font-size:13px;color:var(--mid)">Te lo enviamos por correo y WhatsApp. PDF listo para guardar en tu celular.</div>
         </div>
       </div>
     </div>
 
-    <div style="background:var(--green-bg);border:1px solid #a7f3d0;border-radius:10px;padding:14px 18px;margin-bottom:28px;text-align:left">
-      <div style="font-size:13px;color:#065f46;line-height:1.6">
-        <strong>+2,400 viajeros</strong> ya confiaron en RouteWyze. Tu información está segura y un especialista real estará contigo en cada paso.
-      </div>
-    </div>
-
-    <button class="btn-modal" style="width:100%" onclick="document.getElementById('successModal').classList.remove('show')">
-      Entendido ✈️
+    <button class="btn-modal" style="width:100%;background:linear-gradient(135deg,#2563eb,#4f46e5)" onclick="document.getElementById('successModal').classList.remove('show')">
+      Ir al pago →
     </button>
   </div>
 </div>
@@ -1156,10 +1210,13 @@ function buildSummary() {
   document.getElementById('sum_people').textContent = (people && comp) ? `${people} personas · ${comp}` : (people || comp || '—');
   document.getElementById('sum_style').textContent = styles || 'Sin especificar';
   document.getElementById('sum_budget').textContent = selectedBudget;
+  const phone = document.getElementById('f_phone')?.value || '—';
+  document.getElementById('sum_phone').textContent = phone;
 }
 
 function handlePayment() {
   const email         = document.getElementById('f_email')?.value    || '';
+  const telefono      = document.getElementById('f_phone')?.value    || '';
   const destino       = document.getElementById('f_dest')?.value     || '';
   const start         = document.getElementById('f_start')?.value    || '';
   const end           = document.getElementById('f_end')?.value      || '';
@@ -1175,9 +1232,9 @@ function handlePayment() {
   if (btn) { btn.textContent = '⏳ Enviando solicitud...'; btn.disabled = true; }
 
   // Construir URL con parámetros GET para Google Apps Script
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxSHzYNz_zyqZnbQBXqPUITYvW3zdSi5UWNgKvtF3fVIjZbyu4bslW6LtaDXzpUSnYg/exec';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby9QH-sEoODh3mVsUXvpEySOro5SQe42zu3XkMN8axqrtaNa9KwGnR4M52puM0hlg5E/exec';
   const params = new URLSearchParams({
-    email, destino,
+    email, telefono, destino,
     fechaLlegada: start,
     fechaRegreso: end,
     personas, compania,
