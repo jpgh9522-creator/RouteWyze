@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RouteWyze · Puerto Rico · Foodie & Lujo 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#0d0f14; --ink2:#161a23;
+  --teal:#0d9488; --teal-s:#5eead4; --teal-bg:#f0fdfa;
+  --gold:#d97706; --gold-s:#fbbf24; --gold-bg:#fffbeb;
+  --rose:#be123c; --rose-s:#fb7185; --rose-bg:#fff1f2;
+  --sky:#0284c7; --sky-s:#38bdf8; --sky-bg:#f0f9ff;
+  --red:#dc2626; --red-bg:#fef2f2;
+  --mid:#64748b; --light:#94a3b8; --border:#e2e8f0;
+  --bg:#f7f8fc; --white:#ffffff;
+  --green:#15803d; --green-bg:#f0fdf4;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;overflow-x:hidden;max-width:100vw}
+p,span,div,li,td,th{overflow-wrap:break-word;word-break:break-word}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+button,.day-hdr,.cl-toggle,[onclick]{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+
+/* NAV */
+nav{background:rgba(13,15,20,.98);padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300;backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.05)}
+.logo{display:flex;align-items:center;gap:6px;text-decoration:none}
+.logo-dot{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 14px var(--teal)}
+.logo-r{color:var(--teal-s);font-size:17px;font-weight:700}
+.logo-w{color:#fff;font-size:17px;font-weight:700}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-tag{font-size:11px;color:rgba(255,255,255,.35);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:5px 14px;border-radius:20px;font-weight:500}
+
+/* HERO */
+.hero{background:var(--ink);min-height:520px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:
+  radial-gradient(1px 1px at 10% 15%,rgba(255,255,255,.6) 0%,transparent 100%),
+  radial-gradient(1px 1px at 25% 40%,rgba(255,255,255,.4) 0%,transparent 100%),
+  radial-gradient(1.5px 1.5px at 40% 8%,rgba(255,255,255,.5) 0%,transparent 100%),
+  radial-gradient(1px 1px at 55% 30%,rgba(255,255,255,.3) 0%,transparent 100%),
+  radial-gradient(1px 1px at 70% 12%,rgba(255,255,255,.6) 0%,transparent 100%),
+  radial-gradient(1px 1px at 80% 45%,rgba(255,255,255,.4) 0%,transparent 100%),
+  radial-gradient(1.5px 1.5px at 90% 20%,rgba(255,255,255,.5) 0%,transparent 100%),
+  radial-gradient(1px 1px at 15% 60%,rgba(255,255,255,.3) 0%,transparent 100%),
+  radial-gradient(1px 1px at 47% 55%,rgba(255,255,255,.5) 0%,transparent 100%),
+  radial-gradient(1px 1px at 88% 60%,rgba(255,255,255,.35) 0%,transparent 100%);
+  pointer-events:none}
+.hero::after{content:'';position:absolute;width:800px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(13,148,136,.20) 0%,transparent 65%);top:-200px;right:-100px;pointer-events:none}
+.hero-aurora{position:absolute;width:600px;height:400px;border-radius:50%;background:radial-gradient(ellipse,rgba(190,18,60,.12) 0%,transparent 65%);bottom:-100px;left:-50px;pointer-events:none}
+.hero-inner{max-width:1160px;margin:0 auto;padding:56px 48px 0;display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:end;position:relative;z-index:2}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.hero-eyebrow-line{width:24px;height:2px;background:var(--teal)}
+.hero-eyebrow-text{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal-s)}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(38px,5vw,66px);color:#fff;line-height:1.02;margin-bottom:8px;letter-spacing:-1px}
+.hero-title em{color:var(--teal-s);font-style:italic}
+.hero-subtitle{font-family:'Playfair Display',serif;font-size:clamp(15px,2vw,20px);color:rgba(255,255,255,.45);font-style:italic;margin-bottom:28px}
+.hero-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.hchip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);border-radius:20px;padding:6px 14px;font-size:12px;color:rgba(255,255,255,.65);font-weight:500}
+.hchip-teal{background:rgba(13,148,136,.15);border-color:rgba(94,234,212,.3);color:var(--teal-s)}
+.hchip-rose{background:rgba(190,18,60,.15);border-color:rgba(251,113,133,.3);color:var(--rose-s)}
+.hero-styles{display:flex;gap:7px;flex-wrap:wrap}
+.hs-chip,.hs-chip-gold,.hs-chip-sky,.hs-chip-rose{display:inline-flex;align-items:center;gap:4px;border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;line-height:1;border:1px solid transparent}
+.hs-chip{background:rgba(13,148,136,.12);border-color:rgba(94,234,212,.2);color:var(--teal-s)}
+.hs-chip-gold{background:rgba(217,119,6,.12);border-color:rgba(251,191,36,.25);color:var(--gold-s)}
+.hs-chip-rose{background:rgba(190,18,60,.12);border-color:rgba(251,113,133,.25);color:var(--rose-s)}
+.hs-chip-sky{background:rgba(2,132,199,.12);border-color:rgba(56,189,248,.25);color:var(--sky-s)}
+.hero-stats{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-bottom:none;border-radius:16px 16px 0 0;padding:28px 24px;backdrop-filter:blur(8px)}
+.stat-item{text-align:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;align-items:center}
+.stat-item:last-child{border:none;padding-bottom:0}
+.stat-item:first-child{padding-top:0}
+.stat-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:4px}
+.stat-val{font-family:'Playfair Display',serif;font-size:34px;color:#fff;line-height:1}
+.stat-sub{font-size:10px;color:rgba(255,255,255,.35);margin-top:4px;line-height:1.3;max-width:100%}
+
+/* LUXURY BANNER — negro dorado */
+.hm-banner{background:linear-gradient(135deg,#1c1917 0%,#3b2a0a 50%,#44403c 100%);padding:14px 48px}
+.hm-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.hm-icon{font-size:20px;flex-shrink:0}
+.hm-text{font-size:13px;color:rgba(255,255,255,.9);font-weight:500;line-height:1.5}
+.hm-text strong{color:#fbbf24}
+
+/* CHECKLIST */
+.cl-bar{background:#0d0f14;border-bottom:2px solid rgba(13,148,136,.3)}
+.cl-inner{max-width:1160px;margin:0 auto;padding:0 48px}
+.cl-toggle{display:flex;align-items:center;gap:12px;padding:13px 0;cursor:pointer;user-select:none}
+.cl-toggle-title{font-size:12px;font-weight:700;color:#fff;letter-spacing:.3px}
+.cl-toggle-sub{font-size:11px;color:rgba(255,255,255,.4)}
+.cl-arrow{color:rgba(255,255,255,.4);font-size:11px;transition:transform .25s;flex-shrink:0;margin-left:auto}
+#clbar.open .cl-arrow{transform:rotate(180deg)}
+.cl-body{display:none;padding:0 0 20px}
+#clbar.open .cl-body{display:block}
+.cl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:8px}
+.cl-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px 14px;display:flex;gap:11px;align-items:flex-start}
+.ci-bullet{width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:6px}
+.ci-name{font-size:12px;font-weight:600;color:#fff;line-height:1.35;margin-bottom:2px}
+.ci-detail{font-size:11px;color:rgba(255,255,255,.45);line-height:1.45}
+.ci-deadline{font-size:10px;font-weight:700;color:var(--rose-s);margin-top:4px}
+
+/* BUDGET */
+.budget-bar{background:var(--white);border-bottom:1px solid var(--border)}
+.budget-inner{max-width:1160px;margin:0 auto;padding:14px 48px;display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.budget-label{font-size:10px;font-weight:700;color:var(--mid);letter-spacing:1.5px;text-transform:uppercase;margin-right:4px;flex-shrink:0;align-self:center}
+.bitem{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:7px 13px;display:flex;flex-direction:column;gap:1px}
+.bi-cat{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--light)}
+.bi-val{font-size:13px;font-weight:700;color:var(--ink)}
+.bitem-total{background:var(--ink);border-color:var(--ink)}
+.bitem-total .bi-cat{color:rgba(255,255,255,.4)}
+.bitem-total .bi-val{color:var(--teal-s)}
+
+/* MAIN LAYOUT */
+.main{max-width:1160px;margin:0 auto;padding:40px 48px;display:grid;grid-template-columns:1fr 296px;gap:36px;align-items:start}
+.days-col{display:flex;flex-direction:column;gap:14px}
+
+/* DAY CARDS */
+.day-card{background:var(--white);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04);transition:box-shadow .2s}
+.day-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.08)}
+.day-hdr{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;background:linear-gradient(135deg,#1c1917,#44403c);gap:12px}
+.day-hdr.night{background:linear-gradient(135deg,#1e1b4b,#312e81)}
+.day-hdr.rose{background:linear-gradient(135deg,#4c0519,#881337)}
+.day-hdr.teal{background:linear-gradient(135deg,#0f2d2a,#0d4037)}
+.day-hdr.farewell{background:linear-gradient(135deg,#1c1917,#78350f)}
+.day-hdr-left{flex:1}
+.day-num{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:3px}
+.day-title{font-family:'Playfair Display',serif;font-size:16px;color:#fff;line-height:1.3}
+.day-zone{font-size:10px;color:rgba(255,255,255,.5);background:rgba(255,255,255,.1);border-radius:20px;padding:4px 10px;white-space:nowrap;flex-shrink:0}
+.chevron{color:rgba(255,255,255,.4);font-size:11px;transition:transform .25s;flex-shrink:0}
+.day-card.open .chevron{transform:rotate(180deg)}
+.day-body{display:none}
+.day-card.open .day-body{display:block}
+
+/* ACTIVITIES */
+.act{display:flex;gap:14px;padding:14px 20px;border-bottom:1px solid var(--border);align-items:flex-start}
+.act:last-of-type{border-bottom:none}
+.act-time{font-size:10px;font-weight:700;color:var(--teal);background:var(--teal-bg);padding:3px 9px;border-radius:6px;white-space:nowrap;margin-top:2px;min-width:50px;text-align:center;flex-shrink:0}
+.act-time.rose-t{color:var(--rose);background:var(--rose-bg)}
+.act-time.gold-t{color:var(--gold);background:var(--gold-bg)}
+.act-time.sky-t{color:var(--sky);background:var(--sky-bg)}
+.act-info{flex:1;min-width:0;overflow:hidden}
+.act-name{font-size:13px;font-weight:600;color:var(--ink);line-height:1.4;overflow-wrap:break-word;word-break:break-word}
+.act-desc{font-size:12px;color:var(--mid);margin-top:3px;line-height:1.55;overflow-wrap:break-word;word-break:break-word}
+.act-tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.tag{font-size:10px;font-weight:600;padding:3px 9px;border-radius:8px}
+.tag-teal{background:var(--teal-bg);color:var(--teal)}
+.tag-rose{background:var(--rose-bg);color:var(--rose)}
+.tag-gold{background:var(--gold-bg);color:var(--gold)}
+.tag-sky{background:var(--sky-bg);color:var(--sky)}
+.tag-red{background:var(--red-bg);color:var(--red)}
+.tag-green{background:var(--green-bg);color:var(--green)}
+
+/* RESTAURANT BLOCK */
+.resto-block{margin:0 20px 14px;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.rb-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--light);margin-bottom:4px}
+.rb-val{font-size:12px;font-weight:600;color:var(--ink);line-height:1.45}
+.rb-val a{color:var(--teal);font-size:11px}
+.rb-warn{font-size:10px;font-weight:700;color:var(--red);margin-top:2px}
+
+/* FOTO BLOCK */
+.foto-block{margin:0 16px 12px;background:linear-gradient(135deg,#fffbeb,#fef9c3);border:1px solid #fde68a;border-radius:10px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start}
+.fb-icon{font-size:18px;flex-shrink:0}
+.fb-title{font-size:11px;font-weight:700;color:#92400e;margin-bottom:3px}
+.fb-text{font-size:11px;color:#78350f;line-height:1.5}
+
+/* PLAN B */
+.planb-block{margin:0 16px 12px;background:linear-gradient(135deg,#fef2f2,#fff1f2);border:1px solid #fecaca;border-radius:10px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start}
+.pb-icon{font-size:18px;flex-shrink:0}
+.pb-title{font-size:11px;font-weight:700;color:var(--red);margin-bottom:3px}
+.pb-text{font-size:11px;color:#991b1b;line-height:1.5}
+
+/* TIP */
+.tip-block{margin:8px 16px 14px;background:linear-gradient(90deg,#fefce8,#fffbeb);border-left:3px solid var(--gold-s);border-radius:0 10px 10px 0;padding:10px 14px;font-size:12px;color:#78350f;display:flex;gap:8px;align-items:flex-start;line-height:1.55}
+
+/* HIDDEN GEM */
+.gem-block{margin:8px 16px 14px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #86efac;border-radius:10px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start}
+.gem-icon{font-size:18px;flex-shrink:0}
+.gem-title{font-size:11px;font-weight:700;color:#15803d;margin-bottom:3px}
+.gem-text{font-size:11px;color:#14532d;line-height:1.5}
+
+/* ROMANCE BLOCK */
+.romance-block{margin:8px 16px 14px;background:linear-gradient(135deg,#fff1f2,#ffe4e6);border:1px solid #fda4af;border-radius:10px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start}
+.rm-icon{font-size:18px;flex-shrink:0}
+.rm-title{font-size:11px;font-weight:700;color:var(--rose);margin-bottom:3px}
+.rm-text{font-size:11px;color:#9f1239;line-height:1.5}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:16px;position:sticky;top:80px}
+.sb-card{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.sb-hdr{padding:11px 18px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid);border-bottom:1px solid var(--border);background:var(--bg)}
+.sb-body{padding:14px 18px}
+.sb-row{display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border);font-size:12px;gap:10px}
+.sb-row:last-child{border:none;padding-bottom:0}
+.sb-label{color:var(--mid);flex-shrink:0}
+.sb-val{font-weight:600;color:var(--ink);text-align:right}
+.tip-sb{padding:10px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start}
+.tip-sb:last-child{border:none;padding-bottom:0}
+.tip-sb-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.tip-sb-text{font-size:11px;color:var(--mid);line-height:1.5}
+.tip-sb-text strong{color:var(--ink)}
+.pack-cat{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin:12px 0 6px}
+.pack-cat:first-child{margin-top:0}
+.pack-item{font-size:11px;color:var(--mid);padding:3px 0;border-bottom:1px solid var(--border);display:flex;gap:6px;align-items:flex-start}
+.pack-item:last-child{border:none}
+.pack-item::before{content:'·';color:var(--teal);font-weight:700;flex-shrink:0}
+.sb-cta{background:linear-gradient(135deg,var(--teal),#0f766e);padding:18px;border-radius:0 0 16px 16px}
+.sb-cta-text{font-size:12px;color:rgba(255,255,255,.8);line-height:1.55;margin-bottom:12px}
+.sb-cta-btn{display:block;background:#fff;color:var(--teal);font-size:12px;font-weight:700;text-align:center;padding:10px 16px;border-radius:8px;text-decoration:none}
+.ctx-card-luxury{background:linear-gradient(135deg,#1c1917,#44403c);padding:14px 18px;border-radius:12px 12px 0 0}
+.ctx-title{font-family:'Playfair Display',serif;font-size:15px;color:#fff;margin-bottom:4px}
+.ctx-sub{font-size:11px;color:rgba(255,255,255,.6);line-height:1.5}
+
+/* FOOTER */
+footer{background:var(--ink);padding:40px 48px;margin-top:60px}
+.footer-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.footer-left{display:flex;flex-direction:column;gap:8px}
+.footer-tagline{font-size:12px;color:rgba(255,255,255,.35);margin-top:4px}
+.footer-right{text-align:right}
+.footer-contact{font-size:12px;color:rgba(255,255,255,.45);line-height:1.7}
+.footer-contact a{color:var(--teal-s)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .main{padding:32px 24px}
+  nav{padding:0 24px}
+  .hm-banner{padding:14px 24px}
+  .cl-inner{padding:0 24px}
+  .budget-inner{padding:14px 24px}
+  footer{padding:36px 24px}
+  .hero-inner{padding:48px 24px 0}
+}
+@media(max-width:860px){
+  nav{padding:0 16px;height:56px}
+  .nav-tag:last-child{display:none}
+  .hero{min-height:auto;overflow:hidden}
+  .hero::after{width:300px;height:300px;top:-80px;right:-60px}
+  .hero-aurora{width:260px;height:200px}
+  .hero-inner{grid-template-columns:1fr;padding:32px 16px 0;gap:20px}
+  .hero-title{font-size:clamp(32px,8vw,48px)}
+  .hero-subtitle{font-size:14px}
+  .hero-stats{border-radius:14px;margin-bottom:24px;padding:0;display:flex;flex-direction:row;border-bottom:1px solid rgba(255,255,255,.09)}
+  .stat-item{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;padding:16px 8px;border-bottom:none;border-right:1px solid rgba(255,255,255,.07)}
+  .stat-item:last-child{border-right:none}
+  .stat-label{font-size:8px;padding:0;text-align:center}
+  .stat-val{font-size:24px;padding:4px 0 0}
+  .stat-sub{font-size:9px;padding:2px 4px 0;text-align:center;line-height:1.3}
+  .hm-banner{padding:12px 16px}
+  .hm-text{font-size:12px}
+  .cl-inner{padding:0 16px}
+  .cl-toggle-sub{display:none}
+  .cl-grid{grid-template-columns:1fr}
+  .budget-inner{padding:12px 16px;display:grid;grid-template-columns:1fr 1fr;gap:6px;align-items:start}
+  .budget-label{grid-column:1/-1;margin-bottom:2px;margin-right:0}
+  .bitem-total{grid-column:1/-1}
+  .bitem{padding:6px 10px}
+  .bi-val{font-size:12px}
+  .bi-cat{font-size:8px}
+  .main{grid-template-columns:1fr;padding:16px;gap:20px}
+  .sidebar{position:static;order:2}
+  .days-col{order:1}
+  .day-card{border-radius:14px}
+  .day-hdr{padding:14px 16px;gap:10px}
+  .day-title{font-size:14px}
+  .day-zone{display:none}
+  .act{padding:10px 14px;gap:10px;width:100%}
+  .act-time{min-width:42px;font-size:9px;padding:3px 6px}
+  .act-name{font-size:12px}
+  .act-desc{font-size:11px;line-height:1.5;width:100%}
+  .resto-block{grid-template-columns:1fr;margin:0 12px 12px;padding:12px;gap:8px}
+  .rb-val{font-size:11px}
+  .foto-block,.planb-block,.tip-block,.gem-block,.romance-block{margin:0 10px 10px;padding:10px 12px}
+  .fb-text,.pb-text,.gem-text,.rm-text{font-size:11px}
+  .tip-block{font-size:11px}
+  .sb-hdr{font-size:9px;padding:10px 14px}
+  .sb-body{padding:12px 14px}
+  .sb-row{font-size:11px;padding:7px 0}
+  footer{padding:28px 16px;margin-top:40px}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:16px}
+  .footer-right{text-align:left}
+}
+@media(max-width:480px){
+  nav{height:52px}
+  .logo-r,.logo-w{font-size:15px}
+  .hero-inner{padding:22px 14px 0}
+  .hero-title{font-size:clamp(28px,9vw,38px)}
+  .hero-chips{gap:6px}
+  .hchip{font-size:11px;padding:5px 10px}
+  .hs-chip,.hs-chip-gold,.hs-chip-sky,.hs-chip-rose{font-size:9px;padding:3px 8px}
+  .stat-val{font-size:20px}
+  .stat-sub{font-size:8px}
+  .stat-label{font-size:7px}
+  .hm-banner{padding:10px 14px}
+  .hm-inner{gap:10px}
+  .hm-text{font-size:11px}
+  .budget-inner{padding:10px 14px;gap:5px}
+  .bitem{padding:5px 8px}
+  .bi-val{font-size:11px}
+  .main{padding:12px}
+  .day-hdr{padding:12px 14px}
+  .day-num{font-size:8px}
+  .day-title{font-size:13px}
+  .act{padding:9px 12px;gap:8px}
+  .act-time{min-width:36px;font-size:8px;padding:3px 5px}
+  .act-name{font-size:11px}
+  .act-desc{font-size:10px;line-height:1.5}
+  .act-tags{gap:4px}
+  .tag{font-size:9px;padding:2px 7px}
+  .resto-block{margin:0 8px 10px;padding:10px 12px}
+  .rb-label{font-size:8px}
+  .rb-val{font-size:10px}
+  .rb-warn{font-size:9px}
+  .foto-block,.planb-block,.gem-block,.romance-block{margin:0 8px 8px;padding:9px 10px;gap:8px}
+  .fb-icon,.pb-icon,.gem-icon,.rm-icon{font-size:15px}
+  .fb-title,.pb-title,.gem-title,.rm-title{font-size:10px}
+  .fb-text,.pb-text,.gem-text,.rm-text{font-size:10px}
+  .tip-block{margin:6px 8px 10px;padding:8px 10px;font-size:10px;gap:6px}
+  .ctx-card-luxury{padding:10px 12px;border-radius:10px 10px 0 0}
+  .ctx-title{font-size:12px}
+  .sb-body{padding:10px 12px}
+  .sb-row{font-size:10px;padding:6px 0}
+  .tip-sb-text{font-size:10px}
+  .pack-cat{font-size:9px}
+  .pack-item{font-size:10px}
+  .sb-cta{padding:14px}
+  .sb-cta-text{font-size:11px}
+  .sb-cta-btn{font-size:11px;padding:9px 14px}
+  .ci-name{font-size:11px}
+  .ci-detail{font-size:10px}
+  .ci-deadline{font-size:9px}
+  footer{padding:24px 14px}
+  .footer-contact{font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="https://routewyze.com">
+    <div class="logo-dot"></div>
+    <span class="logo-r">Route</span><span class="logo-w">Wyze</span>
+  </a>
+  <div class="nav-right">
+    <span class="nav-tag">✦ Itinerario Personalizado</span>
+    <span class="nav-tag">Puerto Rico · Jun 2026</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-aurora"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <div class="hero-eyebrow-text">Tu escape caribeño · RouteWyze</div>
+      </div>
+      <h1 class="hero-title">Puerto<br>Rico.<br><em>Sabor, lujo<br>y la noche.</em></h1>
+      <p class="hero-subtitle">De La Perla al Condado — 3 días de mofongo, mojitos y playas que no se olvidan.</p>
+      <div class="hero-chips">
+        <div class="hchip">📅 28–30 jun 2026</div>
+        <div class="hchip">🌙 2 noches · 3 días</div>
+        <div class="hchip hchip-teal">👫 Pareja</div>
+        <div class="hchip hchip-rose">🍜 Foodie · 💎 Lujo · 🌙 Noche</div>
+      </div>
+      <div class="hero-styles">
+        <span class="hs-chip-gold">🍜 Foodie</span>
+        <span class="hs-chip">💎 Lujo</span>
+        <span class="hs-chip-rose">🌙 Vida nocturna</span>
+        <span class="hs-chip-sky">🐢 Ritmo tranquilo</span>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-label">Noches</div>
+        <div class="stat-val">2</div>
+        <div class="stat-sub">San Juan &amp; Condado</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Zonas</div>
+        <div class="stat-val">3</div>
+        <div class="stat-sub">Old San Juan · Condado · Isla Verde</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Actividades</div>
+        <div class="stat-val">14</div>
+        <div class="stat-sub">Restaurantes, playas y antros top</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BANNER LUJO -->
+<div class="hm-banner">
+  <div class="hm-inner">
+    <div class="hm-icon">💎</div>
+    <div class="hm-text">
+      <strong>Itinerario Foodie + Lujo + Vida Nocturna</strong> — Sin renta de auto. Todo el recorrido se hace en Uber/taxi o caminando. Los 3 días se concentran en zonas seguras y de alta vibra: Old San Juan, Condado e Isla Verde. <strong>Temporada alta (verano):</strong> reserva restaurantes y el hotel con mínimo 3 semanas de anticipación.
+    </div>
+  </div>
+</div>
+
+<!-- CHECKLIST DE RESERVACIONES -->
+<div class="cl-bar" id="clbar">
+  <div class="cl-inner">
+    <div class="cl-toggle">
+      <span style="font-size:14px">📋</span>
+      <span class="cl-toggle-title">Checklist de Reservaciones</span>
+      <span class="cl-toggle-sub">6 cosas a confirmar antes de salir</span>
+      <span class="cl-arrow">▼</span>
+    </div>
+    <div class="cl-body">
+      <div class="cl-grid">
+
+        <div class="cl-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-name">Hotel en el Condado o Isla Verde</div>
+            <div class="ci-detail">Opciones recomendadas: El San Juan Hotel (Isla Verde, 5⭐, ~$4,500–$7,000 MXN/noche) o InterContinental San Juan (Condado, ~$3,500–$5,500 MXN/noche). Reservar en Booking.com o directo en la web del hotel.</div>
+            <div class="ci-deadline">⚡ Reservar HOY — verano es temporada alta, habitaciones se agotan rápido</div>
+          </div>
+        </div>
+
+        <div class="cl-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-name">Reservación en Cocina Abierta (Old San Juan)</div>
+            <div class="ci-detail">Restaurante de chef José Enrique. Reservar en OpenTable o llamando al +1 (787) 509-8124. Para 2 personas, pedir mesa entre 7:30–8:00 PM. Costo aprox. $1,800–$2,500 MXN por persona con bebidas.</div>
+            <div class="ci-deadline">⚡ Reservar con 3–4 semanas de anticipación mínimo</div>
+          </div>
+        </div>
+
+        <div class="cl-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-name">Reservación en Il Mulino New York (Condado)</div>
+            <div class="ci-detail">Restaurante italiano de lujo en el San Juan Marriott. Reservar en OpenTable o +1 (787) 723-1119. Para cena romántica día 2, solicitar mesa junto a ventana. Costo ~$2,000–$3,000 MXN por persona.</div>
+            <div class="ci-deadline">⚡ Reservar con 2 semanas de anticipación</div>
+          </div>
+        </div>
+
+        <div class="cl-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-name">Mesa o ingreso en Noche Boricua / Club Brava</div>
+            <div class="ci-detail">Club Brava está dentro del El San Juan Hotel (Isla Verde). Reservar mesa VIP en bravapuertorico.com o por Instagram @clubbrava. Sin reserva la fila puede ser larga. Cover ~$800–$1,200 MXN por persona en fin de semana.</div>
+            <div class="ci-deadline">⚡ Reservar con al menos 1 semana de anticipación</div>
+          </div>
+        </div>
+
+        <div class="cl-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-name">Vuelos MEX ↔ SJU con escala</div>
+            <div class="ci-detail">Buscar en Google Flights: CDMX (MEX/AIT) → San Juan (SJU). JetBlue, American, United. Escalas comunes en MIA, ORD o JFK. Costo aprox. $5,000–$9,000 MXN por persona ida y vuelta.</div>
+            <div class="ci-deadline">⚡ Comprar con 4–6 semanas para mejor precio</div>
+          </div>
+        </div>
+
+        <div class="cl-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-name">Seguro de viaje</div>
+            <div class="ci-detail">Puerto Rico es territorio de EE.UU. — no necesitas pasaporte, pero sí tarjeta de crédito internacional y seguro médico de viaje (emergencias médicas en EE.UU. son muy costosas). Contratar en AXA Travel o World Nomads. Costo ~$300–$500 MXN por persona para 3 días.</div>
+            <div class="ci-deadline">⚡ Contratar antes de salir de México</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BARRA DE PRESUPUESTO -->
+<div class="budget-bar">
+  <div class="budget-inner">
+    <div class="budget-label">💰 Presupuesto estimado · 2 personas · 3 días</div>
+    <div class="bitem">
+      <div class="bi-cat">Hotel</div>
+      <div class="bi-val">$9,000–$14,000</div>
+    </div>
+    <div class="bitem">
+      <div class="bi-cat">Vuelos</div>
+      <div class="bi-val">$10,000–$18,000</div>
+    </div>
+    <div class="bitem">
+      <div class="bi-cat">Restaurantes</div>
+      <div class="bi-val">$4,500–$7,000</div>
+    </div>
+    <div class="bitem">
+      <div class="bi-cat">Bares / Antros</div>
+      <div class="bi-val">$2,000–$4,000</div>
+    </div>
+    <div class="bitem">
+      <div class="bi-cat">Uber / Taxi</div>
+      <div class="bi-val">$800–$1,200</div>
+    </div>
+    <div class="bitem">
+      <div class="bi-cat">Extras</div>
+      <div class="bi-val">$1,000–$2,000</div>
+    </div>
+    <div class="bitem bitem-total">
+      <div class="bi-cat">TOTAL ESTIMADO</div>
+      <div class="bi-val">$27,300–$46,200 MXN</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENIDO PRINCIPAL -->
+<div class="main">
+
+  <!-- DÍAS -->
+  <div class="days-col">
+
+    <!-- DÍA 1 -->
+    <div class="day-card open" id="day1">
+      <div class="day-hdr teal">
+        <div class="day-hdr-left">
+          <div class="day-num">Día 1 · Domingo 28 de Junio 2026</div>
+          <div class="day-title">Llegada al Caribe. Old San Juan & La Primera Noche.</div>
+        </div>
+        <div class="day-zone">Old San Juan</div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+
+        <div class="act">
+          <div class="act-time sky-t">12:00–14:00</div>
+          <div class="act-info">
+            <div class="act-name">✈️ Llegada al Aeropuerto Internacional Luis Muñoz Marín (SJU)</div>
+            <div class="act-desc">El aeropuerto está en Carolina, a ~15 min en Uber del Condado (~$250–$350 MXN) y ~25 min de Old San Juan (~$350–$450 MXN). No hay tren. Toma Uber desde la app — más barato y confiable que taxi oficial. Cambia a dólares si no tienes: en México $1 USD ≈ $17–$18 MXN.</div>
+            <div class="act-tags">
+              <span class="tag tag-sky">Logística</span>
+              <span class="tag tag-teal">Sin auto necesario</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time sky-t">14:00–15:30</div>
+          <div class="act-info">
+            <div class="act-name">🏨 Check-in Hotel — El San Juan Hotel o InterContinental</div>
+            <div class="act-desc">Si llegaron antes del check-in estándar (3 PM), guardan el equipaje en la recepción y salen a explorar. El San Juan Hotel (Isla Verde): 6063 Isla Verde Ave, Carolina, +1 (787) 791-1000. InterContinental (Condado): 5961 Isla Verde Ave o Av. Ashford 1369, Condado. Ambos tienen playa privada.</div>
+            <div class="act-tags">
+              <span class="tag tag-teal">Hotel</span>
+              <span class="tag tag-gold">Lujo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time sky-t">15:30</div>
+          <div class="act-info">
+            <div class="act-name">🚕 Uber a Old San Juan (~20–30 min, ~$400 MXN)</div>
+            <div class="act-desc">Old San Juan está a ~10 km del Condado. Uber es la opción más cómoda. En Old San Juan todo es a pie — las calles adoquinadas azul-gris son parte de la experiencia.</div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time">16:00–17:30</div>
+          <div class="act-info">
+            <div class="act-name">🏰 Paseo por Old San Juan: El Morro & Murallas</div>
+            <div class="act-desc">Castillo San Felipe del Morro — Patrimonio de la UNESCO. Abre de 9:00 AM a 5:00 PM. Costo: $10 USD por persona (~$180 MXN). Puedes llegar antes del cierre y hacer el paseo por las murallas externas gratis. Las vistas al Atlántico son excepcionales al atardecer. Lleva calzado cómodo — el pasto es irregular.</div>
+            <div class="act-tags">
+              <span class="tag tag-teal">Cultural</span>
+              <span class="tag tag-gold">Foto obligada</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="foto-block">
+          <div class="fb-icon">📸</div>
+          <div>
+            <div class="fb-title">📍 FOTO IMPERDIBLE — El Morro al atardecer</div>
+            <div class="fb-text">Posiciónate en la explanada principal del castillo mirando hacia el noroeste a las <strong>6:30–7:15 PM</strong> (puesta de sol en junio es ~7:20 PM). La luz dorada cae directamente sobre las murallas. Para la foto de pareja: usa el faro circular como fondo, párense a ~15 m de distancia. Hora mágica: 6:45 PM exacto.</div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time gold-t">18:00–19:30</div>
+          <div class="act-info">
+            <div class="act-name">🍹 Calle San Sebastián — Aperitivo previa cena</div>
+            <div class="act-desc">La calle más vibrante de OSJ. Bares, murales y música en vivo. Parada recomendada: <strong>La Factoria</strong> (148 Calle San Sebastián) — bar de cócteles craft, abre 6 PM–2 AM. Pide el <strong>"La Factoria Signature Mojito"</strong> ($15 USD / ~$270 MXN) o el <strong>rum sour de pitaya</strong>. No acepta reservaciones.</div>
+            <div class="act-tags">
+              <span class="tag tag-rose">Romántico</span>
+              <span class="tag tag-gold">Cóctel top</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time gold-t">20:00–22:30</div>
+          <div class="act-info">
+            <div class="act-name">🍽️ Cena en Cocina Abierta — Chef José Enrique</div>
+            <div class="act-desc">El restaurante más importante de Puerto Rico. Cocina boricua de alta gama. Dirección: 301 Calle De La Tanca, Old San Juan. Tel: +1 (787) 509-8124. Abre Mar–Sáb 6:30–10 PM. Domingo cierra a veces — confirmar al reservar. <strong>Qué pedir obligatorio:</strong> el <strong>mofongo de camarones al ajillo</strong> ($28 USD / ~$500 MXN) y el <strong>chicharrón de mar</strong> ($18 USD). Para dos: presupuesta $120–$160 USD / ~$2,200–$2,900 MXN con bebidas.</div>
+            <div class="act-tags">
+              <span class="tag tag-gold">Restaurante top</span>
+              <span class="tag tag-rose">Cena especial</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="resto-block">
+          <div>
+            <div class="rb-label">Restaurante</div>
+            <div class="rb-val">Cocina Abierta</div>
+          </div>
+          <div>
+            <div class="rb-label">Chef</div>
+            <div class="rb-val">José Enrique (James Beard nominee)</div>
+          </div>
+          <div>
+            <div class="rb-label">Plato a pedir</div>
+            <div class="rb-val">Mofongo de camarones al ajillo + chicharrón de mar</div>
+            <div class="rb-warn">⚡ Reservar 3–4 semanas antes</div>
+          </div>
+          <div>
+            <div class="rb-label">Precio aprox.</div>
+            <div class="rb-val">$120–$160 USD (~$2,200 MXN) para 2</div>
+          </div>
+          <div>
+            <div class="rb-label">Teléfono</div>
+            <div class="rb-val">+1 (787) 509-8124</div>
+          </div>
+          <div>
+            <div class="rb-label">Horario</div>
+            <div class="rb-val">Mar–Sáb 6:30–10 PM<br>Dom/Lun: confirmar</div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time rose-t">23:00–02:00</div>
+          <div class="act-info">
+            <div class="act-name">🌙 Noche en Old San Juan — Rumba en la Calle Fortaleza</div>
+            <div class="act-desc">Después de cenar, la calle se activa. Opciones top: <strong>Nona</strong> (206 Calle Tanca) — bar en azotea, vista a la bahía, abre hasta 2 AM. <strong>El Batey</strong> (101 Calle Cristo) — bar icónico, cash only, música de jukebox. Luego Uber de regreso al hotel (~$350–$450 MXN). Uber funciona hasta las 4 AM en SJU.</div>
+            <div class="act-tags">
+              <span class="tag tag-rose">Vida nocturna</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="romance-block">
+          <div class="rm-icon">🌹</div>
+          <div>
+            <div class="rm-title">Toque romántico — Caminata nocturna por las murallas</div>
+            <div class="rm-text">Antes de tomar el Uber de regreso, den una caminata por el <strong>Paseo de la Princesa</strong> (7:30–8:30 PM, bien iluminado y seguro). La fuente de La Princesa de noche es espectacular. Llevan el cóctel de La Factoria en vaso desechable — en PR se puede caminar con bebida en la calle.</div>
+          </div>
+        </div>
+
+        <div class="tip-block">
+          <div>💡</div>
+          <div><strong>Tip RouteWyze:</strong> Old San Juan es muy seguro para turistas. Las calles azules de adoquín (ladrillo francés del siglo XVII pintado con escoria de cobre) son el corazón histórico. Evita aventurarte más allá de la muralla hacia el barrio La Perla de noche — el exterior de La Perla de día es famoso por el mural del reggaeton, pero de noche mejor no. De día está bien para una foto rápida.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DÍA 2 -->
+    <div class="day-card open" id="day2">
+      <div class="day-hdr night">
+        <div class="day-hdr-left">
+          <div class="day-num">Día 2 · Lunes 29 de Junio 2026</div>
+          <div class="day-title">Playa, Gastronomía & La Noche Más Especial.</div>
+        </div>
+        <div class="day-zone">Condado · Isla Verde</div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+
+        <div class="act">
+          <div class="act-time gold-t">08:30–10:00</div>
+          <div class="act-info">
+            <div class="act-name">☕ Desayuno en Condado: La Esquina (The Corner)</div>
+            <div class="act-desc"><strong>La Esquina Food Shop</strong> — 1510 Av. Ashford, Condado. Abre 7 AM–3 PM. El brunch más reconocido del Condado. <strong>Qué pedir:</strong> el <strong>tostones bowl con huevo y aguacate</strong> ($16 USD / ~$290 MXN) y el <strong>mallorca francés</strong> (pan boricua dulce a la francesa, $9 USD / ~$165 MXN). El café del día: <strong>cortado con leche de coco</strong>. Sin reservas, llega antes de las 9 AM para evitar fila.</div>
+            <div class="act-tags">
+              <span class="tag tag-gold">Brunch top</span>
+              <span class="tag tag-teal">A pie desde el hotel</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time">10:30–13:30</div>
+          <div class="act-info">
+            <div class="act-name">🏖️ Playa del Condado — Relajación a pie del hotel</div>
+            <div class="act-desc">La playa del Condado está directamente frente a los hoteles de Av. Ashford. Aguas turquesa, sombrillas disponibles. Los hoteles 5⭐ tienen servicio de camastros en la playa (~$20 USD/par / ~$360 MXN). Agua cristalina, corriente moderada. Temporada de junio: temperatura ~28°C, lluvia breve posible por las tardes (10–15 min). En verano el mar puede tener algo de algas pero siempre hay zonas limpias.</div>
+            <div class="act-tags">
+              <span class="tag tag-teal">Playa</span>
+              <span class="tag tag-rose">Romántico</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="planb-block">
+          <div class="pb-icon">🌧️</div>
+          <div>
+            <div class="pb-title">Plan B si llueve por la tarde</div>
+            <div class="pb-text">Las lluvias de verano en PR son breves (15–30 min). Si hay chubasco fuerte: Museo de Arte de Puerto Rico (Av. De Diego 299, Santurce, abre 10 AM–5 PM, $6 USD / ~$110 MXN) — colección excepcional de arte caribeño. O ir al lobby bar del hotel a tomar algo mientras pasa.</div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time gold-t">14:00–15:30</div>
+          <div class="act-info">
+            <div class="act-name">🍱 Almuerzo en Santaella (Santurce) — 10 min en Uber</div>
+            <div class="act-desc"><strong>Santaella</strong> — 219 Calle Canals, Santurce. Tel: +1 (787) 725-1611. Abre Mar–Dom 12–3 PM y 6:30–10:30 PM. Uno de los mejores restaurantes de Santurce. <strong>Qué pedir:</strong> la <strong>alcapurria de jueyes</strong> (fritanga gourmet de cangrejo, $14 USD / ~$250 MXN) y el <strong>mofongo de pollo en escabeche</strong> ($22 USD / ~$400 MXN). Para 2 con bebidas: ~$80–$110 USD / ~$1,450–$2,000 MXN.</div>
+            <div class="act-tags">
+              <span class="tag tag-gold">Almuerzo premium</span>
+              <span class="tag tag-sky">Uber ~10 min</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="resto-block">
+          <div>
+            <div class="rb-label">Restaurante</div>
+            <div class="rb-val">Santaella</div>
+          </div>
+          <div>
+            <div class="rb-label">Zona</div>
+            <div class="rb-val">Santurce (Mercado de Arte)</div>
+          </div>
+          <div>
+            <div class="rb-label">Plato a pedir</div>
+            <div class="rb-val">Alcapurria de jueyes + mofongo de pollo en escabeche</div>
+            <div class="rb-warn">⚡ Reservar con 1 semana antes</div>
+          </div>
+          <div>
+            <div class="rb-label">Precio aprox.</div>
+            <div class="rb-val">$80–$110 USD (~$1,500 MXN) para 2</div>
+          </div>
+          <div>
+            <div class="rb-label">Teléfono</div>
+            <div class="rb-val">+1 (787) 725-1611</div>
+          </div>
+          <div>
+            <div class="rb-label">Horario</div>
+            <div class="rb-val">Mar–Dom 12–3 PM, 6:30–10:30 PM</div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time">15:30–17:00</div>
+          <div class="act-info">
+            <div class="act-name">🎨 Paseo por Santurce — Murales y Cultura Urbana</div>
+            <div class="act-desc">El barrio de Santurce es el epicentro cultural de PR. Caminata de ~1.5 km por la Calle Loíza (zona segura y muy viva) y el <strong>Distrito de Arte de Santurce</strong>. Murales gigantes de artistas locales. No hay que pagar nada — es un museo a cielo abierto.</div>
+            <div class="act-tags">
+              <span class="tag tag-teal">Cultura gratis</span>
+              <span class="tag tag-gold">Foto</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="foto-block">
+          <div class="fb-icon">📸</div>
+          <div>
+            <div class="fb-title">📍 FOTO — Murales de Santurce</div>
+            <div class="fb-text">El mural más famoso está en la esquina de <strong>Calle Canals y Calle Cerra</strong>. La mejor luz para fotos: <strong>5:00–5:45 PM</strong> cuando el sol baja y cae lateral sobre el mural. Para la foto de pareja: contra el mural de las figuras tropicales (pared norte del Mercado de Arte). Sin turistas a esta hora del lunes.</div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time rose-t">17:30–19:30</div>
+          <div class="act-info">
+            <div class="act-name">🛁 Regreso al hotel — Descanso y arreglo para la noche</div>
+            <div class="act-desc">Uber de Santurce al hotel (~$180–$250 MXN, ~10 min). Esta es la noche grande — reservación en Il Mulino y después Club Brava. Descansen y prepárense con tiempo.</div>
+            <div class="act-tags">
+              <span class="tag tag-teal">Tiempo libre</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time gold-t">20:00–22:30</div>
+          <div class="act-info">
+            <div class="act-name">🍷 Cena de Lujo en Il Mulino New York — San Juan Marriott</div>
+            <div class="act-desc">San Juan Marriott, Av. Ashford 1309, Condado. Tel: +1 (787) 723-1119. Abre 6–10:30 PM. El restaurante italiano de mayor nivel en PR — íntimo, elegante, servicio de tuxedo. <strong>Qué pedir:</strong> el <strong>branzino al limón</strong> ($42 USD / ~$760 MXN) o el <strong>veal chop a la milanese</strong> ($55 USD / ~$1,000 MXN). Para la experiencia completa: pidan el <strong>tiramisú tableside</strong> de postre ($16 USD). Para 2 con vino: ~$180–$240 USD / ~$3,200–$4,300 MXN.</div>
+            <div class="act-tags">
+              <span class="tag tag-gold">Cena de lujo</span>
+              <span class="tag tag-rose">Noche especial</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="romance-block">
+          <div class="rm-icon">💐</div>
+          <div>
+            <div class="rm-title">Toque romántico especial — La mejor noche</div>
+            <div class="rm-text">Antes de la cena en Il Mulino, pide al hotel que prepare la habitación con flores (puede costarte ~$50–$80 USD / ~$900–$1,400 MXN en flores + vino de cortesía). Llama al hotel desde México antes de viajar y solicítalo como "arreglo sorpresa para pareja". El El San Juan Hotel y el InterContinental ofrecen este servicio. Para la cena en Il Mulino puedes pedir con anticipación que pongan flores en la mesa.</div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time rose-t">23:30–03:00</div>
+          <div class="act-info">
+            <div class="act-name">🕺 Club Brava — La Noche de Puerto Rico</div>
+            <div class="act-desc"><strong>Club Brava</strong> dentro del El San Juan Hotel, 6063 Isla Verde Ave. Uber desde Condado ~$250–$350 MXN. Uno de los mejores clubs del Caribe — 3 pisos, DJ internacional, reggaeton, salsa, house. Lunes es "Club Night" con ambiente más selecto y menos lleno que fin de semana. Dress code: no shorts, no tenis deportivos. Cover lunes: ~$20–$30 USD (~$360–$540 MXN) sin mesa. Con mesa VIP: desde $150 USD (~$2,700 MXN) con 1 botella.</div>
+            <div class="act-tags">
+              <span class="tag tag-rose">Club #1 de PR</span>
+              <span class="tag tag-gold">Dress code</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gem-block">
+          <div class="gem-icon">💎</div>
+          <div>
+            <div class="gem-title">Hidden Gem — Bar de Cócteles en la Azotea del Condado Vanderbilt</div>
+            <div class="gem-text"><strong>La Barra</strong> del Condado Vanderbilt Hotel (Av. Ashford 1055) — bar de azotea con vista a la laguna del Condado y el mar. No tan conocido por turistas. Abre 6 PM–12 AM. Pide el <strong>rum punch de guayaba</strong> ($18 USD). Si no entran al Club Brava, esta es la alternativa de lujo perfecta. Lunes hay poca gente — disfrutan el lugar casi para ustedes.</div>
+          </div>
+        </div>
+
+        <div class="tip-block">
+          <div>💡</div>
+          <div><strong>Tip RouteWyze:</strong> En PR el Uber es muy confiable después de las 2 AM también. Siempre pide el Uber desde dentro del club o bar — no esperes en la calle. Los precios de surge pricing suben después de las 2 AM, así que sal un poco antes si quieres mejor precio. La zona de Isla Verde y Condado es completamente segura para turistas a cualquier hora.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DÍA 3 -->
+    <div class="day-card open" id="day3">
+      <div class="day-hdr farewell">
+        <div class="day-hdr-left">
+          <div class="day-num">Día 3 · Martes 30 de Junio 2026</div>
+          <div class="day-title">Playa Isla Verde, Último Almuerzo & Vuelo de Regreso.</div>
+        </div>
+        <div class="day-zone">Isla Verde · Aeropuerto</div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+
+        <div class="act">
+          <div class="act-time gold-t">09:00–10:30</div>
+          <div class="act-info">
+            <div class="act-name">🥞 Desayuno tardío en el Hotel — Sirve tu Tiempo</div>
+            <div class="act-desc">Ambos hoteles tienen excelente desayuno buffet (~$25–$35 USD / ~$450–$630 MXN por persona). Si se quedaron hasta tarde, este es el día de tomárselo con calma. También pueden pedir room service y desayunar viendo el mar desde la habitación.</div>
+            <div class="act-tags">
+              <span class="tag tag-gold">Tranquilo</span>
+              <span class="tag tag-teal">Último día</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time">11:00–13:00</div>
+          <div class="act-info">
+            <div class="act-name">🏖️ Playa Isla Verde — La Más Bonita del Área Metropolitana</div>
+            <div class="act-desc"><strong>Playa Isla Verde</strong> — frente al El San Juan Hotel. La playa más icónica de San Juan. Arena blanca fina, agua turquesa clara. 1.5 km de costa continua. Mucho mejor que la del Condado en términos de arena y agua. Renta de 2 tumbonas con sombrilla del hotel: ~$35–$50 USD (~$630–$900 MXN). Si no están en el El San Juan Hotel, igual pueden usar la playa pública al lado.</div>
+            <div class="act-tags">
+              <span class="tag tag-teal">Playa de lujo</span>
+              <span class="tag tag-rose">Último baño</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="foto-block">
+          <div class="fb-icon">📸</div>
+          <div>
+            <div class="fb-title">📍 FOTO — Playa Isla Verde al mediodía</div>
+            <div class="fb-text">A las <strong>11:00–11:30 AM</strong> el sol ya está alto y el agua en junio tiene ese turquesa caribeño increíble. Posición: adéntrate ~20 m en el mar, voltea hacia la playa y pide a alguien que tome la foto desde la orilla — el fondo del hotel + palmeras + cielo azul es perfecto. Lleva un dron si tienes, la vista aérea es extraordinaria.</div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time gold-t">13:30–15:00</div>
+          <div class="act-info">
+            <div class="act-name">🦞 Último Almuerzo — Marisquería La Casita Blanca (Santurce)</div>
+            <div class="act-desc"><strong>La Casita Blanca</strong> — 351 Calle Tapia, Santurce. Tel: +1 (787) 726-5501. Abre Mar–Sáb 11 AM–3:30 PM. El restaurante de comida criolla más auténtico de PR, desde 1958. No es lujoso en decoración pero la comida es extraordinaria y el precio es muy accesible. <strong>Qué pedir:</strong> el <strong>pollo guisado con arroz con gandules</strong> ($14 USD / ~$250 MXN) — el mejor de la isla. También el <strong>tembleque de coco</strong> de postre ($5 USD). Uber desde Isla Verde: ~$180–$250 MXN.</div>
+            <div class="act-tags">
+              <span class="tag tag-gold">Comida auténtica</span>
+              <span class="tag tag-teal">Uber ~12 min</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="resto-block">
+          <div>
+            <div class="rb-label">Restaurante</div>
+            <div class="rb-val">La Casita Blanca</div>
+          </div>
+          <div>
+            <div class="rb-label">Tipo</div>
+            <div class="rb-val">Cocina criolla auténtica desde 1958</div>
+          </div>
+          <div>
+            <div class="rb-label">Plato a pedir</div>
+            <div class="rb-val">Pollo guisado + arroz con gandules + tembleque de coco</div>
+            <div class="rb-warn">⚡ Llegar antes de la 1 PM — llena rápido</div>
+          </div>
+          <div>
+            <div class="rb-label">Precio aprox.</div>
+            <div class="rb-val">$30–$40 USD (~$550 MXN) para 2</div>
+          </div>
+          <div>
+            <div class="rb-label">Teléfono</div>
+            <div class="rb-val">+1 (787) 726-5501</div>
+          </div>
+          <div>
+            <div class="rb-label">Horario</div>
+            <div class="rb-val">Mar–Sáb 11 AM–3:30 PM<br>Dom/Lun: cerrado</div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time sky-t">15:30–16:30</div>
+          <div class="act-info">
+            <div class="act-name">🧳 Regreso al hotel — Check-out y equipaje</div>
+            <div class="act-desc">Check-out estándar es 12 PM — si llegaron tarde al almuerzo, confirma con el hotel si puedes hacer late check-out ($30–$50 USD) o usar el área de equipaje para dejarlo guardado. Uber de Santurce al hotel: ~$180–$250 MXN.</div>
+            <div class="act-tags">
+              <span class="tag tag-sky">Logística</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="act">
+          <div class="act-time sky-t">16:30–17:30</div>
+          <div class="act-info">
+            <div class="act-name">✈️ Uber al Aeropuerto SJU — Salida</div>
+            <div class="act-desc">Aeropuerto Luis Muñoz Marín está a ~15–20 min en Uber del Condado/Isla Verde (~$250–$350 MXN). Para vuelos internacionales: llega 2.5–3 horas antes. La seguridad del aeropuerto de SJU puede tardar 30–45 min en temporada alta. No necesitas visa para entrar a PR desde México — solo pasaporte o ID oficial mexicano + pasabordo.</div>
+            <div class="act-tags">
+              <span class="tag tag-sky">Vuelo de regreso</span>
+              <span class="tag tag-teal">Sin trámites migratorios en SJU → MEX</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gem-block">
+          <div class="gem-icon">🛍️</div>
+          <div>
+            <div class="gem-title">Hidden Gem — Compras en el Aeropuerto SJU</div>
+            <div class="gem-text">El aeropuerto de SJU tiene una tienda <strong>Ron del Barrilito</strong> (el mejor ron artesanal de PR) en la zona de pre-embarque. Precios libres de impuesto. Lleva una botella de <strong>Ron del Barrilito 3 Estrellas</strong> (~$25 USD / ~$450 MXN) — es imposible conseguirlo en México y es considerado uno de los mejores rones del mundo. También hay café de PR molido.</div>
+          </div>
+        </div>
+
+        <div class="tip-block">
+          <div>💡</div>
+          <div><strong>Tip RouteWyze:</strong> Puerto Rico es territorio de EE.UU., por lo que al regresar a México SÍ pasas por migración y aduana mexicanas con declaración. Puedes traer hasta $500 USD en mercancías sin pagar impuesto (por persona). El ron entra como bebida alcohólica — máximo 2 litros por persona sin declarar. Si traes más, decláralos en el SAT en el aeropuerto.</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /days-col -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sb-card">
+      <div class="ctx-card-luxury">
+        <div class="ctx-title">💎 Foodie · Lujo · Vida Nocturna</div>
+        <div class="ctx-sub">3 días en pareja. Sin auto. Zonas seguras: Old San Juan, Condado e Isla Verde. Ritmo tranquilo con momentos de alta vibra nocturna.</div>
+      </div>
+      <div class="sb-body">
+        <div class="sb-row">
+          <span class="sb-label">Destino</span>
+          <span class="sb-val">San Juan, Puerto Rico 🇵🇷</span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-label">Fechas</span>
+          <span class="sb-val">28–30 jun 2026</span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-label">Hotel recomendado</span>
+          <span class="sb-val">El San Juan Hotel ★★★★★<br><span style="font-size:10px;color:var(--mid)">+1 (787) 791-1000</span></span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-label">Alternativa</span>
+          <span class="sb-val">InterContinental Condado ★★★★★</span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-label">Transporte</span>
+          <span class="sb-val">Uber + caminata (sin auto)</span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-label">Moneda</span>
+          <span class="sb-val">USD · $1 ≈ $17–18 MXN</span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-label">Visa/Trámite</span>
+          <span class="sb-val">No necesitas visa<br><span style="font-size:10px;color:var(--mid)">Pasaporte mexicano vigente</span></span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-label">Presupuesto total</span>
+          <span class="sb-val" style="color:var(--teal)">$27,300–$46,200 MXN</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUÉ EMPACAR -->
+    <div class="sb-card">
+      <div class="sb-hdr">🧳 Qué Empacar</div>
+      <div class="sb-body">
+        <div class="pack-cat">Playa & Día</div>
+        <div class="pack-item">Traje de baño (2 piezas mínimo)</div>
+        <div class="pack-item">Bloqueador SPF 50+ (en PR el sol quema fuerte)</div>
+        <div class="pack-item">Sandalia de playa y tenis cómodos</div>
+        <div class="pack-item">Ropa ligera (lino, algodón — junio es húmedo y caluroso, ~30°C)</div>
+        <div class="pack-item">Gafas de sol + sombrero de ala</div>
+
+        <div class="pack-cat">Noche & Restaurantes</div>
+        <div class="pack-item">1–2 outfits de noche elegantes (sin shorts ni tenis en clubs/restaurantes finos)</div>
+        <div class="pack-item">Zapatos de vestir para restaurantes y club</div>
+        <div class="pack-item">Bolsa pequeña de noche (ellas) — no llevan mochila al club</div>
+
+        <div class="pack-cat">Documentos</div>
+        <div class="pack-item">Pasaporte mexicano vigente (mínimo 6 meses)</div>
+        <div class="pack-item">Tarjeta de crédito internacional (Visa/Mastercard)</div>
+        <div class="pack-item">~$100–$200 USD en efectivo para propinas y cash-only bars</div>
+        <div class="pack-item">Seguro de viaje impreso o en PDF</div>
+
+        <div class="pack-cat">Extras útiles</div>
+        <div class="pack-item">Power bank (para Uber y fotos)</div>
+        <div class="pack-item">Adaptador (PR usa enchufes americanos tipo A)</div>
+        <div class="pack-item">Repelente de mosquitos (especialmente para Old San Juan al anochecer)</div>
+      </div>
+    </div>
+
+    <!-- TIPS PRÁCTICOS -->
+    <div class="sb-card">
+      <div class="sb-hdr">💡 Tips Prácticos de Puerto Rico</div>
+      <div class="sb-body">
+        <div class="tip-sb">
+          <div class="tip-sb-icon">🌡️</div>
+          <div class="tip-sb-text"><strong>Clima junio:</strong> 28–32°C, humedad alta. Lluvia breve posible cualquier tarde (10–20 min). Siempre regresa el sol. No canceles planes por lluvia — espera 20 min.</div>
+        </div>
+        <div class="tip-sb">
+          <div class="tip-sb-icon">💵</div>
+          <div class="tip-sb-text"><strong>Propinas (obligatorias en EE.UU.):</strong> Restaurantes: 18–22% del total. Bares: $1–2 USD por bebida. Taxi/Uber: no obligatorio pero agradecido.</div>
+        </div>
+        <div class="tip-sb">
+          <div class="tip-sb-icon">📱</div>
+          <div class="tip-sb-text"><strong>Conexión:</strong> Tu plan de datos mexicano funciona en PR con roaming (verificar con tu operadora). Alternativamente: compra eSIM de T-Mobile o AT&T para 3 días (~$15 USD).</div>
+        </div>
+        <div class="tip-sb">
+          <div class="tip-sb-icon">🚕</div>
+          <div class="tip-sb-text"><strong>Transporte sin auto:</strong> Uber funciona excelentemente en todo el área metropolitana. Ten la app instalada y método de pago cargado antes de llegar. Tiempo de espera: 3–8 min.</div>
+        </div>
+        <div class="tip-sb">
+          <div class="tip-sb-icon">🌊</div>
+          <div class="tip-sb-text"><strong>Playas seguras en junio:</strong> Condado e Isla Verde son perfectas en junio. Corrientes moderadas — si hay bandera roja, no naden en zonas no vigiladas.</div>
+        </div>
+        <div class="tip-sb">
+          <div class="tip-sb-icon">🍽️</div>
+          <div class="tip-sb-text"><strong>Cocina boricua must-try:</strong> Mofongo (plátano verde frito molido con caldo), tostones, alcapurrias, arroz con gandules, pernil, tembleque de coco. Todos están en los restaurantes del itinerario.</div>
+        </div>
+        <div class="tip-sb">
+          <div class="tip-sb-icon">🔒</div>
+          <div class="tip-sb-text"><strong>Seguridad:</strong> Condado, Isla Verde y Old San Juan son completamente seguros para turistas. Evita barrios fuera de estas zonas. No lleven cosas de valor a la playa sin custodiar.</div>
+        </div>
+        <div class="tip-sb">
+          <div class="tip-sb-icon">🛂</div>
+          <div class="tip-sb-text"><strong>Documentos para mexicanos:</strong> No se necesita visa. Pasaporte vigente. Al llegar a SJU pasas por control de EE.UU. (CBP) — tienen fila especial para latinos. Al regresar a México: declaración de aduana del SAT.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="sb-card">
+      <div class="sb-hdr">¿Dudas sobre tu itinerario?</div>
+      <div class="sb-cta">
+        <div class="sb-cta-text">¿Quieres ajustar algún día, agregar actividades o tienes preguntas sobre restaurantes y reservaciones? Estamos para ayudarte.</div>
+        <a href="mailto:hola@routewyze.com" class="sb-cta-btn">✉ hola@routewyze.com</a>
+      </div>
+    </div>
+
+  </aside>
+
+</div><!-- /main -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <a class="logo" href="https://routewyze.com">
+        <div class="logo-dot"></div>
+        <span class="logo-r">Route</span><span class="logo-w">Wyze</span>
+      </a>
+      <div class="footer-tagline">Itinerarios personalizados que no olvidas.</div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-contact">
+        <a href="mailto:hola@routewyze.com">hola@routewyze.com</a><br>
+        <a href="https://routewyze.com">routewyze.com</a><br>
+        <span>Puerto Rico · Foodie &amp; Lujo · Jun 2026</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function isMobile() { return window.innerWidth <= 860; }
+
+function toggleCard(card) {
+  var body    = card.querySelector('.day-body');
+  var chevron = card.querySelector('.chevron');
+  if (!body) return;
+  if (isMobile()) {
+    var visible = body.style.display === 'block';
+    body.style.display = visible ? 'none' : 'block';
+    if (chevron) chevron.style.transform = visible ? '' : 'rotate(180deg)';
+  } else {
+    card.classList.toggle('open');
+  }
+}
+
+function jumpTo(n) {
+  var card = document.getElementById('day' + n);
+  if (!card) return;
+  var body    = card.querySelector('.day-body');
+  var chevron = card.querySelector('.chevron');
+  if (isMobile()) {
+    if (body) body.style.display = 'block';
+    if (chevron) chevron.style.transform = 'rotate(180deg)';
+  } else {
+    card.classList.add('open');
+  }
+  var nav  = document.querySelector('nav');
+  var navH = nav ? nav.offsetHeight : 64;
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      var top = card.getBoundingClientRect().top + window.pageYOffset - navH - 8;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+}
+
+function expandAll() {
+  var cards = document.querySelectorAll('.day-card');
+  var btn   = document.querySelector('.expand-btn');
+  var anyOpen = Array.from(cards).some(function(c) { return c.classList.contains('open'); });
+  cards.forEach(function(c) {
+    if (anyOpen) c.classList.remove('open');
+    else         c.classList.add('open');
+  });
+  if (btn) btn.textContent = anyOpen ? 'Expandir todo' : 'Colapsar todo';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (isMobile()) {
+    document.querySelectorAll('.day-card').forEach(function(card) {
+      var body = card.querySelector('.day-body');
+      if (body) body.style.display = 'none';
+    });
+  }
+  var clToggle = document.querySelector('.cl-toggle');
+  if (clToggle) {
+    clToggle.addEventListener('click', function() {
+      var bar = document.getElementById('clbar');
+      if (bar) bar.classList.toggle('open');
+    });
+  }
+  var daysCol = document.querySelector('.days-col');
+  if (daysCol) {
+    daysCol.addEventListener('click', function(e) {
+      var hdr = e.target.closest('.day-hdr');
+      if (hdr) {
+        var card = hdr.closest('.day-card');
+        if (card) toggleCard(card);
+      }
+    });
+  }
+  window.addEventListener('resize', function() {
+    if (!isMobile()) {
+      document.querySelectorAll('.day-card .day-body').forEach(function(b) { b.style.display = ''; });
+      document.querySelectorAll('.day-card .chevron').forEach(function(c) { c.style.transform = ''; });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
