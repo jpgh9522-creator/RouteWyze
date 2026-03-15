@@ -189,18 +189,18 @@ h1 em::after { content:''; position:absolute; bottom:2px; left:0; right:0; heigh
 .cta-sub span::before { content:'✓'; color:var(--green); font-weight:700; }
 
 /* Demo card */
-.demo-card { background:#fff; border-radius:20px; box-shadow:0 24px 64px rgba(0,0,0,0.1), 0 0 0 1px var(--border); overflow:hidden; animation:float 7s ease-in-out infinite; }
+.demo-card { background:#0d1117; border-radius:20px; box-shadow:0 24px 64px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.07); overflow:hidden; animation:float 7s ease-in-out infinite; }
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-.dc-header { background:linear-gradient(135deg,#1e3a8a,#4338ca); padding:20px 24px; }
+.dc-header { padding:20px 24px; }
 .dc-title { font-family:'DM Serif Display',serif; font-size:18px; color:#fff; margin-bottom:4px; }
-.dc-meta { font-size:12px; color:rgba(255,255,255,0.65); display:flex; gap:12px; }
-.dc-day { padding:16px 22px; border-bottom:1px solid var(--border); }
-.dc-day-label { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--blue-soft); margin-bottom:12px; }
+.dc-meta { font-size:12px; color:rgba(255,255,255,0.5); display:flex; gap:12px; flex-wrap:wrap; }
+.dc-day { padding:16px 22px; border-bottom:1px solid rgba(255,255,255,0.07); background:#0d1117; }
+.dc-day-label { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#5eead4; margin-bottom:12px; }
 .dc-row { display:flex; gap:10px; align-items:flex-start; margin-bottom:9px; }
-.dc-time { font-size:10px; font-weight:700; color:var(--mid); background:var(--bg); padding:3px 7px; border-radius:4px; white-space:nowrap; margin-top:2px; min-width:44px; text-align:center; }
-.dc-act { font-size:13px; font-weight:600; color:var(--ink); line-height:1.4; }
-.dc-sub { font-size:11px; color:var(--light); margin-top:1px; }
-.dc-tip { background:linear-gradient(90deg,#fffbeb,#fef9e7); padding:12px 22px; font-size:12px; color:#92400e; display:flex; gap:8px; align-items:flex-start; }
+.dc-time { font-size:10px; font-weight:700; color:rgba(255,255,255,0.4); background:rgba(255,255,255,0.07); padding:3px 7px; border-radius:4px; white-space:nowrap; margin-top:2px; min-width:44px; text-align:center; }
+.dc-act { font-size:13px; font-weight:600; color:#e2e8f0; line-height:1.4; }
+.dc-sub { font-size:11px; color:rgba(255,255,255,0.4); margin-top:1px; }
+.dc-tip { background:rgba(13,148,136,0.08); padding:12px 22px; font-size:12px; color:rgba(255,255,255,0.5); display:flex; flex-direction:column; gap:8px; }
 
 /* ── VALUE ── */
 .value-section { background:#fff; padding:80px 48px; }
@@ -471,18 +471,26 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
     </div>
 
     <div class="demo-card">
-      <div class="dc-header">
-        <div class="dc-title">🗼 París · 5 días · Pareja</div>
-        <div class="dc-meta"><span>Gastronomía + Arte</span><span>Presupuesto medio</span></div>
+      <div class="dc-header" style="background:linear-gradient(135deg,#0d1a2e,#0f3d3a);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(94,234,212,0.7);">Ejemplo real</span>
+          <span style="background:rgba(94,234,212,0.15);border:1px solid rgba(94,234,212,0.3);border-radius:20px;padding:2px 10px;font-size:10px;font-weight:700;color:#5eead4;">✓ Itinerario entregado</span>
+        </div>
+        <div class="dc-title" style="font-size:20px;margin-bottom:6px;">🌴 Puerto Rico · 3 días</div>
+        <div class="dc-meta"><span>Foodie & Lujo</span><span>En pareja</span><span>Presupuesto premium</span></div>
       </div>
-      <div class="dc-day">
-        <div class="dc-day-label">Día 1 — Le Marais & Ile de la Cité</div>
-        <div class="dc-row"><span class="dc-time">09:00</span><div><div class="dc-act">☕ Café de Flore — desayuno</div><div class="dc-sub">Croissant + café · Pide mesa exterior</div></div></div>
-        <div class="dc-row"><span class="dc-time">10:30</span><div><div class="dc-act">🏛️ Notre-Dame de París</div><div class="dc-sub">Vista exterior desde Ile de la Cité · 40 min</div></div></div>
-        <div class="dc-row"><span class="dc-time">13:00</span><div><div class="dc-act">🧆 L'As du Fallafel — comida</div><div class="dc-sub">Calle Rosiers · El mejor del Marais · ~€12/pp</div></div></div>
-        <div class="dc-row"><span class="dc-time">15:00</span><div><div class="dc-act">🎨 Centro Pompidou</div><div class="dc-sub">Reserva en línea · 2 horas · Vista panorámica</div></div></div>
+      <div class="dc-day" style="background:#0d1117;border-bottom:1px solid rgba(255,255,255,0.07);">
+        <div class="dc-day-label" style="color:#5eead4;margin-bottom:10px;">Lo que incluye este itinerario</div>
+        <div class="dc-row"><span class="dc-time" style="background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.5);">3 días</span><div><div class="dc-act" style="color:#e2e8f0;">Plan día a día · mañana, tarde y noche</div><div class="dc-sub" style="color:rgba(255,255,255,0.4);">Horarios exactos por zona geográfica</div></div></div>
+        <div class="dc-row"><span class="dc-time" style="background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.5);">14 act.</span><div><div class="dc-act" style="color:#e2e8f0;">Restaurantes, playas & vida nocturna</div><div class="dc-sub" style="color:rgba(255,255,255,0.4);">Precios reales en dólares y pesos</div></div></div>
+        <div class="dc-row"><span class="dc-time" style="background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.5);">6 tips</span><div><div class="dc-act" style="color:#e2e8f0;">Insider tips exclusivos</div><div class="dc-sub" style="color:rgba(255,255,255,0.4);">Lo que no está en ningún blog</div></div></div>
       </div>
-      <div class="dc-tip">💡 <span><strong>Tip exclusivo:</strong> La terraza del Pompidou es gratuita hasta las 22h. El mejor atardecer de París sin pagar entrada.</span></div>
+      <div class="dc-tip" style="background:rgba(13,148,136,0.08);border-top:1px solid rgba(94,234,212,0.1);padding:16px 22px;flex-direction:column;gap:12px;">
+        <span style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.5;">💡 <strong style="color:rgba(255,255,255,0.75);">Este es un itinerario real</strong> entregado a un cliente. Así se verá el tuyo.</span>
+        <a href="itinerario_puerto_rico_2026.html" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;text-decoration:none;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(13,148,136,0.35);">
+          Ver ejemplo completo →
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -671,7 +679,7 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
           <div class="form-nav">
             <button class="btn-back" onclick="goStep(2)">← Atrás</button>
             <span class="step-counter">3 de 4</span>
-            <button class="btn-next" onclick="goStep(4)" style="background:var(--green);box-shadow:0 4px 16px rgba(5,150,105,0.3)">Continuar al pago →</button>
+            <button class="btn-next" onclick="goStep(4)" style="background:var(--green);box-shadow:0 4px 16px rgba(5,150,105,0.3)">Proceder al pago →</button>
           </div>
         </div>
 
@@ -698,9 +706,9 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
           </div>
 
           <button class="btn-pay" onclick="handlePayment()">
-            Continuar al pago — $299 MXN →
+            🔒 Pagar
           </button>
-          <p class="pay-legal">Al continuar serás redirigido a la pantalla de pago seguro · $299 MXN · Tu itinerario llega en menos de 24 horas por correo.</p>
+          <p class="pay-legal">Al continuar serás redirigido a la pantalla de pago seguro. Tu itinerario llega en menos de 24 horas por correo.</p>
           <div style="margin-top:20px">
             <button class="btn-back" onclick="goStep(3)">← Modificar información</button>
           </div>
