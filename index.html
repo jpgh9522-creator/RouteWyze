@@ -554,6 +554,10 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
           <h3 class="step-question">¿A dónde y cuándo viajan?</h3>
           <p class="step-hint">Puedes escribir ciudad, país, región o varios destinos. Sé tan específico como quieras.</p>
           <div class="field-group">
+            <label>Nombre completo</label>
+            <input type="text" id="f_name" placeholder="Ej. María González" />
+          </div>
+          <div class="field-group">
             <label>Destino</label>
             <input type="text" id="f_dest" placeholder="Ej. Bangkok · Italia del Norte · Costa Rica · Europa en tren" />
           </div>
@@ -739,6 +743,7 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
 
           <div class="pay-summary">
             <div class="pay-summary-title">Resumen de tu viaje</div>
+            <div class="pay-row"><span>Nombre</span><span id="sum_nombre">—</span></div>
             <div class="pay-row"><span>Destino</span><span id="sum_dest">—</span></div>
             <div class="pay-row"><span>Fechas</span><span id="sum_dates">—</span></div>
             <div class="pay-row"><span>Personas</span><span id="sum_people">—</span></div>
@@ -1196,6 +1201,7 @@ function goStep(n) {
 
   // ── VALIDACIONES PASO 1 ──────────────────────────────
   if (n === 2) {
+    if (!document.getElementById('f_name').value.trim()) { hi('f_name','Escribe tu nombre completo'); return; }
     if (!document.getElementById('f_dest').value.trim()) { hi('f_dest','Escribe tu destino'); return; }
     if (!document.getElementById('f_start').value) { hi('f_start','Selecciona fecha de llegada'); return; }
     if (!document.getElementById('f_end').value) { hi('f_end','Selecciona fecha de regreso'); return; }
@@ -1326,6 +1332,7 @@ function toggleFlightFields(hasFlights) {
 }
 
 function buildSummary() {
+  const nombre = document.getElementById('f_name').value || '—';
   const dest = document.getElementById('f_dest').value || '—';
   const s = document.getElementById('f_start').value;
   const e = document.getElementById('f_end').value;
@@ -1357,6 +1364,7 @@ function buildSummary() {
   const transport = [...document.querySelectorAll('#transportPills .pill.sel')].map(p => p.textContent.trim()).join(' · ') || '—';
 
   document.getElementById('sum_dest').textContent = dest;
+  document.getElementById('sum_nombre') && (document.getElementById('sum_nombre').textContent = nombre);
   document.getElementById('sum_dates').textContent = datesStr;
   document.getElementById('sum_people').textContent = (people && comp) ? `${people} personas · ${comp}` : (people || comp || '—');
   document.getElementById('sum_style').textContent = styles || 'Sin especificar';
@@ -1369,6 +1377,7 @@ function buildSummary() {
 }
 
 function handlePayment() {
+  const nombre        = document.getElementById('f_name')?.value     || '';
   const email         = document.getElementById('f_email')?.value    || '';
   const telefono      = document.getElementById('f_phone')?.value    || '';
   const destino       = document.getElementById('f_dest')?.value     || '';
@@ -1393,7 +1402,7 @@ function handlePayment() {
   // Construir URL con parámetros GET para Google Apps Script
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwS8Ab8Ymy70baY497NUJ0U3gvNWSLlg6GbecsRx8O0X9pATCat8_r9lOiDI1bKTU_t/exec';
   const params = new URLSearchParams({
-    email, telefono, destino,
+    nombre, email, telefono, destino,
     fechaLlegada: start,
     fechaRegreso: end,
     personas, compania,
