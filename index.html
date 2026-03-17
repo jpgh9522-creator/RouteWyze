@@ -499,7 +499,7 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
 <section class="section" id="como-funciona" style="background:var(--bg)">
   <div class="section-inner">
     <p class="section-label">Proceso</p>
-    <h2 class="section-title">Tres pasos. Un itinerario<br>que parece hecho a mano.</h2>
+    <h2 class="section-title">Tres pasos. Un itinerario<br>completamente personalizado.</h2>
     <p class="section-sub">Sin agencias. Sin planes genéricos. Solo tu viaje, construido desde tu perfil de viajero.</p>
     <div class="steps">
       <div class="step">
@@ -633,7 +633,7 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
           </div>
           <div class="field-group" style="margin-top:24px">
             <label>Presupuesto por persona por día (en pesos mexicanos)</label>
-            <div class="budget-options">
+            <div class="budget-options" id="budget-section">
               <div class="budget-opt" onclick="selectBudget(this,'económico (menos de $500 MXN/día por persona)')">
                 <div class="bo-icon">🎒</div>
                 <div class="bo-level">Económico</div>
@@ -668,14 +668,62 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
           <p class="step-label">Paso 3 de 4</p>
           <h3 class="step-question">Los detalles que hacen la diferencia</h3>
           <p class="step-hint">Aquí es donde tu itinerario deja de ser genérico y se vuelve completamente tuyo.</p>
+
+          <!-- Vuelos -->
+          <div class="field-group">
+            <label>¿Ya tienes tus boletos de avión?</label>
+            <div class="pill-group" id="flightPills">
+              <button class="pill" onclick="selectOne(this,'flightPills');toggleFlightFields(true)">✅ Sí, ya tengo vuelos</button>
+              <button class="pill" onclick="selectOne(this,'flightPills');toggleFlightFields(false)">🔍 Aún no los tengo</button>
+            </div>
+          </div>
+
+          <!-- Si tiene vuelos -->
+          <div id="flight-yes" style="display:none;">
+            <div class="field-group" style="background:var(--blue-bg);border:1px solid #bfdbfe;border-radius:12px;padding:16px 18px;">
+              <label style="color:var(--blue);">¿A qué hora llega tu vuelo el primer día?</label>
+              <input type="time" id="f_arrival_time" style="margin-top:8px;" />
+              <p style="font-size:12px;color:var(--mid);margin-top:8px;line-height:1.5;">Usaremos este horario para planear tu primer día desde el momento exacto en que aterrizas.</p>
+            </div>
+          </div>
+
+          <!-- Si no tiene vuelos -->
+          <div id="flight-no" style="display:none;">
+            <div class="field-group" style="background:var(--blue-bg);border:1px solid #bfdbfe;border-radius:12px;padding:16px 18px;">
+              <label style="color:var(--blue);">¿A partir de qué momento del día quieres que inicie tu itinerario el primer día?</label>
+              <div class="pill-group" id="startPills" style="margin-top:12px;">
+                <button class="pill" onclick="selectOne(this,'startPills')">🌅 Mañana (desde las 8–10h)</button>
+                <button class="pill" onclick="selectOne(this,'startPills')">☀️ Tarde (desde las 13–15h)</button>
+                <button class="pill" onclick="selectOne(this,'startPills')">🌙 Noche (desde las 18h en adelante)</button>
+              </div>
+              <p style="font-size:12px;color:var(--mid);margin-top:10px;line-height:1.5;">Considera la hora estimada a la que crees que llegarías a tu destino.</p>
+            </div>
+          </div>
+
+          <!-- Transporte -->
+          <div class="field-group" style="margin-top:8px;">
+            <label>¿Cómo planean moverse en el destino?</label>
+            <div class="pill-group" id="transportPills">
+              <button class="pill" onclick="togglePill(this)">🚗 Renta de auto</button>
+              <button class="pill" onclick="togglePill(this)">🚌 Transporte público</button>
+              <button class="pill" onclick="togglePill(this)">🚕 Uber / Taxi</button>
+              <button class="pill" onclick="togglePill(this)">🚶 A pie (ciudad caminable)</button>
+              <button class="pill" onclick="togglePill(this)">🚲 Bicicleta / Scooter</button>
+            </div>
+          </div>
+
+          <!-- Must have -->
           <div class="field-group">
             <label>¿Qué experiencia NO puede faltar en este viaje?</label>
             <textarea id="f_must" placeholder="Ej. Quiero probar la auténtica carbonara en Roma · Ver el amanecer en un templo budista · Ir a un mercado local de madrugada · Hacer una caminata de más de 15 km..."></textarea>
           </div>
+
+          <!-- Restricciones -->
           <div class="field-group">
             <label>¿Tienes restricciones o necesidades especiales?</label>
             <textarea id="f_restrict" placeholder="Ej. Soy vegetariana · Alérgico al gluten · Viajamos con bebé de 8 meses · Movilidad reducida · No puedo caminar más de 3 km por día · Miedo a las alturas..." style="min-height:70px"></textarea>
           </div>
+
           <div class="form-nav">
             <button class="btn-back" onclick="goStep(2)">← Atrás</button>
             <span class="step-counter">3 de 4</span>
@@ -696,6 +744,9 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
             <div class="pay-row"><span>Personas</span><span id="sum_people">—</span></div>
             <div class="pay-row"><span>Estilo de viaje</span><span id="sum_style">—</span></div>
             <div class="pay-row"><span>Presupuesto</span><span id="sum_budget">—</span></div>
+            <div class="pay-row"><span>Vuelos</span><span id="sum_flight">—</span></div>
+            <div class="pay-row"><span>Inicio del itinerario</span><span id="sum_start_time">—</span></div>
+            <div class="pay-row"><span>Transporte en destino</span><span id="sum_transport">—</span></div>
             <div class="pay-row"><span>WhatsApp / Teléfono</span><span id="sum_phone">—</span></div>
           </div>
 
@@ -1142,17 +1193,50 @@ function toggleDay(toggleEl) {
 
 // FIX 1: step counter corrected to 4
 function goStep(n) {
+
+  // ── VALIDACIONES PASO 1 ──────────────────────────────
   if (n === 2) {
     if (!document.getElementById('f_dest').value.trim()) { hi('f_dest','Escribe tu destino'); return; }
     if (!document.getElementById('f_start').value) { hi('f_start','Selecciona fecha de llegada'); return; }
     if (!document.getElementById('f_end').value) { hi('f_end','Selecciona fecha de regreso'); return; }
     if (!document.getElementById('f_people').value) { hi('f_people','¿Cuántas personas viajan?'); return; }
     if (!document.getElementById('f_comp').value) { hi('f_comp','¿Con quién viajan?'); return; }
+    if (!document.getElementById('f_email').value.includes('@')) { hi('f_email','Ingresa tu correo'); return; }
+    if (!document.getElementById('f_phone').value.trim()) { hi('f_phone','Ingresa tu WhatsApp'); return; }
   }
+
+  // ── VALIDACIONES PASO 2 ──────────────────────────────
+  if (n === 3) {
+    const styles = document.querySelectorAll('#stylePills .pill.sel');
+    if (styles.length === 0) { hiPill('stylePills','Selecciona al menos un estilo de viaje'); return; }
+    const pace = document.querySelector('#pacePills .pill.sel');
+    if (!pace) { hiPill('pacePills','Selecciona tu ritmo de viaje'); return; }
+    const budget = document.querySelector('.budget-opt.sel');
+    if (!budget) { hiSection('budget-section','Selecciona tu presupuesto'); return; }
+  }
+
+  // ── VALIDACIONES PASO 3 ──────────────────────────────
   if (n === 4) {
-    if (!document.getElementById('f_email').value.includes('@')) { hi('f_email','Ingresa tu correo para recibir el itinerario'); return; }
+    const flightSel = document.querySelector('#flightPills .pill.sel');
+    if (!flightSel) { hiPill('flightPills','Indica si ya tienes boletos de avión'); return; }
+
+    const hasFlights = flightSel.textContent.includes('Sí');
+    if (hasFlights) {
+      const arrTime = document.getElementById('f_arrival_time').value;
+      if (!arrTime) { hi('f_arrival_time','Ingresa la hora de llegada de tu vuelo'); return; }
+    } else {
+      const startSel = document.querySelector('#startPills .pill.sel');
+      if (!startSel) { hiPill('startPills','Selecciona a qué hora inicia tu primer día'); return; }
+    }
+
+    const transport = document.querySelectorAll('#transportPills .pill.sel');
+    if (transport.length === 0) { hiPill('transportPills','Selecciona al menos una opción de transporte'); return; }
+
+    if (!document.getElementById('f_must').value.trim()) { hi('f_must','Cuéntanos qué no puede faltar en tu viaje'); return; }
+
     buildSummary();
   }
+
   document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
   document.getElementById('panel'+n).classList.add('active');
   ['ps1','ps2','ps3','ps4'].forEach((id,i) => {
@@ -1169,11 +1253,56 @@ function goStep(n) {
 
 function hi(id, msg) {
   const el = document.getElementById(id);
-  el.style.borderColor='var(--red)';
+  if (!el) return;
+  el.style.borderColor = 'var(--red)';
   el.focus();
   const orig = el.placeholder;
   el.placeholder = '⚠ ' + msg;
-  setTimeout(()=>{ el.style.borderColor=''; el.placeholder=orig; }, 3000);
+  setTimeout(() => { el.style.borderColor = ''; el.placeholder = orig; }, 3500);
+}
+
+function hiPill(groupId, msg) {
+  const group = document.getElementById(groupId);
+  if (!group) return;
+  const orig = group.style.outline;
+  group.style.outline = '2px solid var(--red)';
+  group.style.borderRadius = '10px';
+  group.style.padding = '8px';
+  // Mostrar mensaje de error debajo del grupo
+  let errEl = group.parentElement.querySelector('.pill-error');
+  if (!errEl) {
+    errEl = document.createElement('p');
+    errEl.className = 'pill-error';
+    errEl.style.cssText = 'color:var(--red);font-size:12px;margin-top:6px;font-weight:600;';
+    group.parentElement.appendChild(errEl);
+  }
+  errEl.textContent = '⚠ ' + msg;
+  group.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  setTimeout(() => {
+    group.style.outline = orig;
+    group.style.padding = '';
+    if (errEl) errEl.textContent = '';
+  }, 3500);
+}
+
+function hiSection(sectionId, msg) {
+  const el = document.getElementById(sectionId);
+  if (!el) return;
+  el.style.outline = '2px solid var(--red)';
+  el.style.borderRadius = '10px';
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  let errEl = el.parentElement.querySelector('.section-error');
+  if (!errEl) {
+    errEl = document.createElement('p');
+    errEl.className = 'section-error';
+    errEl.style.cssText = 'color:var(--red);font-size:12px;margin-top:6px;font-weight:600;';
+    el.parentElement.appendChild(errEl);
+  }
+  errEl.textContent = '⚠ ' + msg;
+  setTimeout(() => {
+    el.style.outline = '';
+    if (errEl) errEl.textContent = '';
+  }, 3500);
 }
 
 function togglePill(el) { el.classList.toggle('sel'); saveState(); }
@@ -1191,6 +1320,11 @@ function selectBudget(el, val) {
   saveState();
 }
 
+function toggleFlightFields(hasFlights) {
+  document.getElementById('flight-yes').style.display = hasFlights ? 'block' : 'none';
+  document.getElementById('flight-no').style.display = hasFlights ? 'none' : 'block';
+}
+
 function buildSummary() {
   const dest = document.getElementById('f_dest').value || '—';
   const s = document.getElementById('f_start').value;
@@ -1205,11 +1339,31 @@ function buildSummary() {
     const fmt = d => { const [y,m,day]=d.split('-'); return `${+day} ${months[+m-1]}`; };
     datesStr = diff > 0 ? `${fmt(s)} → ${fmt(e)} (${diff} días)` : `${s} → ${e}`;
   }
+
+  // Vuelo
+  const flightSel = document.querySelector('#flightPills .pill.sel');
+  const hasFlights = flightSel && flightSel.textContent.includes('Sí');
+  let flightStr = flightSel ? flightSel.textContent.trim() : '—';
+  let startTimeStr = '—';
+  if (hasFlights) {
+    const arrTime = document.getElementById('f_arrival_time')?.value;
+    startTimeStr = arrTime ? `Aterrizaje a las ${arrTime}` : 'Hora de llegada no especificada';
+  } else {
+    const startSel = document.querySelector('#startPills .pill.sel');
+    startTimeStr = startSel ? startSel.textContent.trim() : '—';
+  }
+
+  // Transporte
+  const transport = [...document.querySelectorAll('#transportPills .pill.sel')].map(p => p.textContent.trim()).join(' · ') || '—';
+
   document.getElementById('sum_dest').textContent = dest;
   document.getElementById('sum_dates').textContent = datesStr;
   document.getElementById('sum_people').textContent = (people && comp) ? `${people} personas · ${comp}` : (people || comp || '—');
   document.getElementById('sum_style').textContent = styles || 'Sin especificar';
   document.getElementById('sum_budget').textContent = selectedBudget;
+  document.getElementById('sum_flight').textContent = flightStr;
+  document.getElementById('sum_start_time').textContent = startTimeStr;
+  document.getElementById('sum_transport').textContent = transport;
   const phone = document.getElementById('f_phone')?.value || '—';
   document.getElementById('sum_phone').textContent = phone;
 }
@@ -1226,6 +1380,11 @@ function handlePayment() {
   const restricciones = document.getElementById('f_restrict')?.value || '';
   const estilos       = [...document.querySelectorAll('#stylePills .pill.sel')].map(p => p.textContent.trim()).join(' · ');
   const ritmo         = document.querySelector('#pacePills .pill.sel')?.textContent.trim() || '';
+  const flightSel     = document.querySelector('#flightPills .pill.sel');
+  const tieneBoletos  = flightSel ? (flightSel.textContent.includes('Sí') ? 'Sí' : 'No') : '';
+  const horaLlegada   = document.getElementById('f_arrival_time')?.value || '';
+  const inicioItin    = document.querySelector('#startPills .pill.sel')?.textContent.trim() || '';
+  const transporte    = [...document.querySelectorAll('#transportPills .pill.sel')].map(p => p.textContent.trim()).join(' · ');
 
   // Cambiar botón a estado de carga
   const btn = document.querySelector('.btn-pay');
@@ -1240,10 +1399,13 @@ function handlePayment() {
     personas, compania,
     estilos, ritmo,
     presupuesto: selectedBudget,
-    mustHave, restricciones
+    mustHave, restricciones,
+    tieneBoletos, horaLlegada,
+    inicioItinerario: inicioItin,
+    transporte
   });
 
-  // Usar imagen invisible como hack para evitar CORS y no bloquear la navegación
+  // Usar imagen invisible para evitar CORS y no bloquear la navegación
   const img = new Image();
   img.src = SCRIPT_URL + '?' + params.toString();
 
