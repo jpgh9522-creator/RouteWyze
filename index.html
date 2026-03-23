@@ -1238,8 +1238,7 @@ function handleFreeRequest() {
   const btn = document.getElementById('btnSolicitar');
   if (btn) { btn.textContent = '⏳ Enviando solicitud...'; btn.disabled = true; }
 
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzSpNwSupy3iO4oHRD4PVHRwub0tTqYbDU452IK_Uj-TMl93Fe9f-ilz780hKRaufBA/exec';
-  const params = new URLSearchParams({
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby7TS-eSVL1Q0VrEgzxiKJMFYmA3Z5MC39zp2uLJTSSQyT400KSfZdb_Ln2Um2b4UBa/exec';  const params = new URLSearchParams({
     email, telefono, destino,
     fechaLlegada: start,
     fechaRegreso: end,
