@@ -441,8 +441,8 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
 
 <!-- ANCHOR BAR -->
 <div class="anchor-bar">
-  🌍 Itinerario 100% personalizado · ⚡ Entrega en 24 horas · <strong>Completamente gratis</strong>
-  <span class="anchor-badge">✓ Sin pagos, sin trampas</span>
+  🎁 Oferta por tiempo limitado · <span style="text-decoration:line-through;opacity:0.6;font-weight:400;">$199 MXN</span> &nbsp;<strong style="color:#4ade80;">GRATIS</strong> · ⚡ Entrega en 24 horas
+  <span class="anchor-badge" style="background:rgba(74,222,128,0.2);border-color:rgba(74,222,128,0.4);color:#4ade80;">⏳ Por tiempo limitado</span>
 </div>
 
 <!-- HERO -->
@@ -453,21 +453,37 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
         <div class="avatars"><span>🧳</span><span>✈️</span><span>🌍</span><span>🗺️</span></div>
         +127 viajeros ya planificaron con nosotros
       </div>
+
+      <!-- PROMO BADGE -->
+      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);border-radius:10px;padding:10px 18px;margin-bottom:20px;">
+        <span style="font-size:18px;">🎁</span>
+        <div>
+          <span style="font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4ade80;">Promoción por tiempo limitado</span>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:3px;">
+            <span style="font-size:15px;text-decoration:line-through;color:rgba(255,255,255,0.35);font-weight:500;">$199 MXN</span>
+            <span style="font-size:18px;font-weight:800;color:#4ade80;">GRATIS</span>
+          </div>
+        </div>
+      </div>
+
       <h1>Tu próximo viaje,<br>planeado por <em>expertos</em><br>en 24 horas</h1>
 
       <p class="hero-sub">No más horas perdidas en blogs, grupos de Facebook y pestañas abiertas. Recibe un itinerario día a día construido exactamente para ti.</p>
 
-      <p style="font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:28px;max-width:480px">El viajero promedio invierte <strong style="color:#fff">11 horas</strong> planificando un viaje. Nosotros lo resolvemos en 24 horas, completamente gratis.</p>
+      <p style="font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:28px;max-width:480px">El viajero promedio invierte <strong style="color:#fff">11 horas</strong> planificando un viaje. Nosotros lo resolvemos en 24 horas — <strong style="color:#4ade80;">gratis por tiempo limitado.</strong></p>
 
       <div class="hero-cta-block">
         <button class="btn-primary" onclick="scrollToForm()">
           Solicitar mi itinerario gratis
-          <span class="price-tag" style="background:rgba(74,222,128,0.25);color:#4ade80;">✓ Gratis</span>
+          <span class="price-tag" style="background:rgba(74,222,128,0.2);color:#4ade80;display:flex;flex-direction:column;align-items:center;line-height:1.2;">
+            <span style="text-decoration:line-through;font-size:11px;opacity:0.7;font-weight:400;">$199</span>
+            <span style="font-size:13px;font-weight:800;">GRATIS</span>
+          </span>
         </button>
         <div class="cta-sub">
           <span>Entrega en 24 horas</span>
           <span>100% personalizado</span>
-          <span>Sin costo</span>
+          <span>Por tiempo limitado</span>
         </div>
       </div>
     </div>
@@ -514,7 +530,7 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
         <div class="step-emoji">✨</div>
         <h3>Lo construimos para ti</h3>
         <p>Nuestro equipo analiza tu perfil de viajero y arma un plan completamente personalizado. Cero genérico, cero copy-paste de blogs.</p>
-        <span class="step-badge">⚡ Gratis, sin costo</span>
+        <span class="step-badge" style="background:rgba(74,222,128,0.12);color:#16a34a;border:1px solid rgba(74,222,128,0.3);">🎁 Gratis · por tiempo limitado</span>
       </div>
       <div class="step">
         <div class="step-emoji">✈️</div>
@@ -688,7 +704,7 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
         <!-- STEP 4: CONFIRM (FREE) -->
         <div class="step-panel" id="panel4">
           <p class="step-label">Paso 4 de 4 — Confirma tu solicitud</p>
-          <h3 class="step-question">Todo listo. Revisa y solicita gratis.</h3>
+          <h3 class="step-question">Todo listo. Solicita gratis ahora.</h3>
           <p class="step-hint">Así se verá tu itinerario personalizado. Confirma que todo esté correcto y lo recibirás en tu correo en menos de 24 horas.</p>
 
           <div class="pay-summary">
@@ -839,12 +855,7 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
           <div class="stat-card" style="background:linear-gradient(135deg,rgba(37,99,235,0.15),rgba(99,102,241,0.1));border-color:rgba(96,165,250,0.25)">
             <h4 style="color:rgba(255,255,255,0.5)">¿Quieres un plan así para tu destino?</h4>
             <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:16px">Cuéntanos tu viaje en 5 minutos y lo tendrás en 24 horas.</p>
-            <button onclick="scrollToForm()" style="width:100%;background:var(--blue-soft);color:#fff;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;">Solicitar mi itinerario gratis →</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- CDMX -->
+            <button onclick="scrollToForm()" style="width:100%;background:var(--blue-soft);color:#fff;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;">🎁 Gratis por tiempo limitado →</button>
       <div class="output-panel" id="panel-cdmx">
         <div class="full-itinerary">
           <div class="fi-header">
@@ -892,12 +903,7 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
           <div class="stat-card" style="background:linear-gradient(135deg,rgba(37,99,235,0.15),rgba(99,102,241,0.1));border-color:rgba(96,165,250,0.25)">
             <h4 style="color:rgba(255,255,255,0.5)">¿Tu destino no está aquí?</h4>
             <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:16px">Hacemos itinerarios para más de 60 destinos alrededor del mundo.</p>
-            <button onclick="scrollToForm()" style="width:100%;background:var(--blue-soft);color:#fff;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;">Solicitar mi itinerario gratis →</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- BALI -->
+            <button onclick="scrollToForm()" style="width:100%;background:var(--blue-soft);color:#fff;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;">🎁 Gratis por tiempo limitado →</button>
       <div class="output-panel" id="panel-bali">
         <div class="full-itinerary">
           <div class="fi-header">
@@ -943,8 +949,8 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
           </div>
           <div class="stat-card" style="background:linear-gradient(135deg,rgba(37,99,235,0.15),rgba(99,102,241,0.1));border-color:rgba(96,165,250,0.25)">
             <h4 style="color:rgba(255,255,255,0.5)">¿Listo para tu próximo viaje?</h4>
-            <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:16px">Tu itinerario completo en 24 horas. Completamente gratis.</p>
-            <button onclick="scrollToForm()" style="width:100%;background:var(--blue-soft);color:#fff;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;">Solicitar mi itinerario gratis →</button>
+            <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:16px">Tu itinerario completo en 24 horas. <strong style="color:#4ade80;">Gratis por tiempo limitado.</strong></p>
+            <button onclick="scrollToForm()" style="width:100%;background:var(--blue-soft);color:#fff;border:none;padding:12px;border-radius:10px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;">🎁 Gratis por tiempo limitado →</button>
           </div>
         </div>
       </div>
@@ -961,9 +967,9 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
     <div class="value-grid">
       <div class="value-copy">
         <p class="section-label">¿Por qué RouteWyze?</p>
-        <h2>Lo que un experto haría<br>por ti, sin costo.</h2>
-        <p>Consultores de viajes cobran entre $1,500 y $4,000 MXN y tardan días. Nosotros lo hacemos <strong>gratis en 24 horas</strong> — construido exactamente para ti, sin agencias ni comisiones.</p>
-        <button class="btn-value-cta" onclick="scrollToForm()">Solicitar mi itinerario gratis →</button>
+        <h2>Lo que un experto haría<br>por ti, <em style="font-style:italic;color:var(--green);">gratis</em> por tiempo limitado.</h2>
+        <p>Consultores de viajes cobran entre $1,500 y $4,000 MXN y tardan días. Nosotros lo hacemos en 24 horas — <strong>normalmente <span style="text-decoration:line-through;color:var(--mid);">$199 MXN</span>, ahora gratis</strong> mientras dure la promoción.</p>
+        <button class="btn-value-cta" onclick="scrollToForm()">🎁 Solicitar gratis — por tiempo limitado →</button>
       </div>
       <div class="value-features-grid">
         <div class="vf-card"><span class="vf-big-icon">⚡</span><strong>Entrega en 24 horas</strong><span>Máximo un día hábil</span></div>
@@ -971,7 +977,7 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
         <div class="vf-card"><span class="vf-big-icon">📍</span><strong>Por zonas geográficas</strong><span>Sin perder tiempo en traslados</span></div>
         <div class="vf-card"><span class="vf-big-icon">💬</span><strong>Tips exclusivos</strong><span>Lo que no está en ningún blog</span></div>
         <div class="vf-card"><span class="vf-big-icon">📧</span><strong>En tu correo</strong><span>Listo para guardar en tu celular</span></div>
-        <div class="vf-card"><span class="vf-big-icon">✅</span><strong>Sin costo</strong><span>Completamente gratis, sin trampa</span></div>
+        <div class="vf-card" style="border-color:rgba(74,222,128,0.3);background:rgba(74,222,128,0.04)"><span class="vf-big-icon">🎁</span><strong>Gratis ahora</strong><span>Normalmente $199 MXN · por tiempo limitado</span></div>
       </div>
     </div>
   </div>
@@ -1010,8 +1016,8 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
         <div class="faq-a">Sí. Si hay algo que no encaja con tu visión, tienes hasta 48 horas después de recibirlo para solicitar ajustes puntuales sin costo adicional. Queremos que salgas a viajar con un plan que realmente uses y disfrutes.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">¿Por qué es gratis? ¿Cuál es el truco? <span class="faq-icon">+</span></div>
-        <div class="faq-a">No hay truco. Estamos en etapa de validación de nuestro servicio y queremos que más viajeros experimenten la calidad de un itinerario personalizado. A cambio, nos ayudas a confirmar que esto es algo que la gente quiere y valora. Sin spam, sin venta de datos, sin suscripción automática. Solo tu viaje, bien planeado.</div>
+        <div class="faq-q" onclick="toggleFaq(this)">¿Por qué es gratis? ¿Cuánto tiempo dura la promoción? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Estamos en etapa de lanzamiento y queremos que más viajeros experimenten la calidad de un itinerario personalizado. Por eso regalamos el servicio por tiempo limitado — normalmente cuesta $199 MXN. No hay fecha exacta de fin, pero cuando cerremos la promoción el precio vuelve. Sin spam, sin suscripción automática. Solo tu viaje, bien planeado.</div>
       </div>
     </div>
   </div>
@@ -1019,11 +1025,18 @@ footer p { font-size:13px; color:rgba(255,255,255,0.35); }
 
 <!-- FINAL CTA -->
 <section class="final-cta">
+  <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(74,222,128,0.15);border:1px solid rgba(74,222,128,0.3);border-radius:20px;padding:6px 16px;margin-bottom:24px;">
+    <span style="font-size:13px;font-weight:700;color:#4ade80;">⏳ Oferta por tiempo limitado</span>
+  </div>
   <h2>Los mejores viajes no<br>se improvisan.</h2>
   <p>Cada gran viaje empieza con un buen plan. Cuéntanos tu destino y te entregamos un itinerario personalizado en 24 horas — sin costo, sin trampas, sin spam.</p>
+  <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px;">
+    <span style="font-size:18px;text-decoration:line-through;color:rgba(255,255,255,0.35);font-weight:500;">$199 MXN</span>
+    <span style="font-size:28px;font-weight:800;color:#4ade80;">GRATIS</span>
+  </div>
   <button class="btn-primary" onclick="scrollToForm()" style="margin:0 auto;max-width:420px">
     Solicitar mi itinerario gratis
-    <span class="price-tag" style="background:rgba(74,222,128,0.25);color:#4ade80;">✓ Gratis</span>
+    <span class="price-tag" style="background:rgba(74,222,128,0.2);color:#4ade80;">⏳ Por tiempo limitado</span>
   </button>
   <p class="urgency-note">Sin tarjeta · Sin suscripción · Itinerario en menos de 24 horas</p>
 </section>
@@ -1225,7 +1238,7 @@ function handleFreeRequest() {
   const btn = document.getElementById('btnSolicitar');
   if (btn) { btn.textContent = '⏳ Enviando solicitud...'; btn.disabled = true; }
 
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwS8Ab8Ymy70baY497NUJ0U3gvNWSLlg6GbecsRx8O0X9pATCat8_r9lOiDI1bKTU_t/exec';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzSpNwSupy3iO4oHRD4PVHRwub0tTqYbDU452IK_Uj-TMl93Fe9f-ilz780hKRaufBA/exec';
   const params = new URLSearchParams({
     email, telefono, destino,
     fechaLlegada: start,
@@ -1233,7 +1246,8 @@ function handleFreeRequest() {
     personas, compania,
     estilos, ritmo,
     presupuesto: selectedBudget,
-    mustHave, restricciones
+    mustHave, restricciones,
+    flujo: 'gratis'
   });
 
   const img = new Image();
@@ -1273,7 +1287,7 @@ window.addEventListener('scroll', () => {
   const btn = document.getElementById('navCta');
   if (!btn) return;
   if (window.scrollY > 600) {
-    btn.textContent = 'Solicitar itinerario gratis';
+    btn.textContent = 'Solicitar gratis — tiempo limitado';
     btn.style.background = 'var(--green)';
   } else {
     btn.textContent = 'Quiero mi itinerario';
